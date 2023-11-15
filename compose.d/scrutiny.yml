@@ -1,0 +1,11 @@
+services:
+  scrutiny:
+    container_name: scrutiny
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    restart: always
+    privileged: true
+    volumes:
+      - ../services/scrutiny/config:/opt/scrutiny/config
+      - ../services/scrutiny/influxdb:/opt/scrutiny/influxdb
+    environment:
+      TZ: Asia/Singapore

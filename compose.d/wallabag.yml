@@ -1,0 +1,11 @@
+services:
+
+  wallabag:
+    container_name: wallabag
+    image: wallabag/wallabag
+    restart: always
+    volumes:
+      - ../services/wallabag/data:/var/www/wallabag/data
+      - ../services/wallabag/images:/var/www/wallabag/web/assets/images
+    environment:
+      SYMFONY__ENV__DOMAIN_NAME: https://wallabag.nicholaslyz.com

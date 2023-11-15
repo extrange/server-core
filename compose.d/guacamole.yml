@@ -1,0 +1,34 @@
+services:
+
+  guacd:
+    container_name: guacd
+    image: guacamole/guacd
+    restart: always
+    extra_hosts:
+      # Needed to connect to QEMU's VNC server
+      - "host.docker.internal:host-gateway"
+
+  guacamole:
+    container_name: guacamole
+    image: guacamole/guacamole
+    restart: always
+    environment:
+      GUACD_HOSTNAME: guacd
+      MYSQL_HOSTNAME: mysql
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      HEADER_ENABLED: true
+      HTTP_AUTH_HEADER: REMOTE_USER
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: guacamole_db
+    volumes:
+      - ../services/mysql/data:/var/lib/mysql
+      # Initialize Apache Guacamole database
+      - ../services/mysql/guacamole.sql:/docker-entrypoint-initdb.d/guacamole.sql:ro

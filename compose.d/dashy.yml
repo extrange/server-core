@@ -1,0 +1,9 @@
+services:
+  dashy:
+    container_name: dashy
+    image: lissy93/dashy
+    restart: always
+    volumes:
+      - ../services/dashy/conf.yml:/app/public/conf.yml:ro
+      - ../services/dashy/sysmon.yml:/app/public/sysmon.yml:ro
+      - ../services/dashy/icons:/app/public/item-icons:ro

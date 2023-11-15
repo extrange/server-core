@@ -1,0 +1,19 @@
+services:
+  microbin:
+    container_name: microbin
+    image: danielszabo99/microbin
+    restart: always
+    volumes:
+      - "../services/microbin:/app"
+    command:
+      [
+        "--editable",
+        "--enable-burn-after",
+        "--qr",
+        "--private",
+        "--default-expiry",
+        "1week",
+        "--hide-footer",
+        "--public-path",
+        "https://microbin.nicholaslyz.com",
+      ]

@@ -1,0 +1,184 @@
+pageInfo:
+  title: "Nicholas"
+
+pages:
+  - name: Main
+    path: conf.yml
+  - name: System
+    path: sysmon.yml
+
+appConfig:
+  startingView: default
+  statusCheck: true
+  backgroundImg: /static/bg.jpg
+  theme: colorful
+  routingMode: hash
+  hideComponents:
+    hideFooter: true
+    hideSettings: true
+    hideNav: false
+    hideSearch: true
+  enableMultiTasking: true
+  disableConfiguration: true
+
+sections:
+  - name: Main
+    items:
+      # icons at https://github.com/walkxhub/dashboard-icons/tree/master/png
+
+      - title: Blog
+        description: My personal blog
+        icon: fas fa-book
+        url: https://nicholaslyz.com
+
+      - title: Web App
+        description: Lists, literature, automation
+        icon: fab fa-react
+        url: https://app.nicholaslyz.com
+
+      - title: Torrents
+        description: qBittorrent
+        icon: hl-qbittorrent
+        url: https://torrents.nicholaslyz.com
+
+      - title: Files
+        description: filebrowser
+        icon: hl-filebrowser
+        url: https://files.nicholaslyz.com
+
+      - title: Admin
+        description: Cockpit
+        icon: hl-cockpit
+        url: https://admin.nicholaslyz.com
+
+      - title: Uptime
+        description: Uptime Kuma
+        icon: hl-uptime-kuma
+        url: https://uptime.icybat.com/manage-status-page
+
+      - title: SysMon
+        description: glances
+        icon: hl-glances
+        url: https://sysmon.nicholaslyz.com
+
+      - title: Virt-Manager
+        description: virt-manager in Docker
+        icon: virt-manager.png
+        url: https://vm.nicholaslyz.com
+
+      - title: Web VM Viewer
+        description: Apache Guacamole
+        icon: hl-guacamole
+        url: https://webvm.nicholaslyz.com
+
+      - title: Site Monitor
+        description: changedetection.io
+        icon: hl-changedetection-io
+        url: https://changedetection.nicholaslyz.com
+
+      - title: Headless Chrome
+        description: Browserless
+        icon: hl-browserless
+        url: https://browserless.nicholaslyz.com
+
+      - title: Recipes
+        description: Mealie
+        icon: hl-mealie
+        url: https://recipes.nicholaslyz.com
+
+      - title: Photos
+        description: Photoprism
+        icon: hl-photoprism
+        url: https://photos.nicholaslyz.com
+
+      - title: Disks
+        description: scrutiny
+        icon: hl-scrutiny
+        url: https://disks.nicholaslyz.com
+
+      - title: Wallabag
+        description: wallabag
+        icon: hl-wallabag
+        url: https://wallabag.nicholaslyz.com
+
+      - title: News
+        description: FreshRSS
+        icon: hl-freshrss
+        url: https://news.nicholaslyz.com
+
+      - title: Music
+        description: Navidrome
+        icon: hl-navidrome
+        url: https://music.nicholaslyz.com
+      
+      - title: Microbin
+        description: Microbin
+        icon: hl-microbin
+        url: https://microbin.nicholaslyz.com
+      
+      - title: Videos
+        description: Jellyfin
+        icon: hl-jellyfin
+        url: https://videos.nicholaslyz.com
+
+      - title: Syncthing
+        description: Syncthing
+        icon: hl-syncthing
+        url: https://syncthing.nicholaslyz.com
+      
+      - title: Calibre
+        description: calibre-web
+        icon: hl-calibre-web
+        url: https://calibre.nicholaslyz.com
+
+  - name: General
+    widgets:
+      - type: clock
+      - type: weather
+        options:
+          apiKey: ebe37fa88765098676e18e40c74544ac
+          city: Singapore
+      - type: gl-alerts
+        options:
+          hostname: https://sysmon.nicholaslyz.com
+
+  - name: Tech
+    displayData:
+      rows: 2
+    widgets:
+      - type: rss-feed
+        options:
+          rssUrl: https://noted.lol/feed
+          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
+          limit: 3
+      - type: rss-feed
+        options:
+          rssUrl: https://news.ycombinator.com/rss
+          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
+          limit: 3
+
+  - name: Github Trends
+    displayData:
+      rows: 2
+    widgets:
+      - type: github-trending-repos
+        options:
+          limit: 8
+          since: daily
+
+  - name: News
+    widgets:
+      - type: rss-feed
+        options:
+          rssUrl: https://www.to-rss.xyz/wikipedia/current_events/
+          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
+          limit: 1
+
+  - name: Github Profile
+    widgets:
+      - type: github-profile-stats
+        options:
+          hideLanguagesCard: true
+          username: extrange
+          repos:
+            - extrange/ibkr-docker

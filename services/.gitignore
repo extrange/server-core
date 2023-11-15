@@ -1,0 +1,15 @@
+# Top level service directories to ignore
+# To exclude individual files instead, create a .gitignore file within the folder
+/calibre-web
+/changedetection.io
+/filebrowser
+/freshrss
+/jellyfin
+/mealie
+/microbin
+/navidrome
+/photoprism
+/qbittorrent
+/scrutiny
+/syncthing
+/wallabag

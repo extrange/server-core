@@ -1,0 +1,9 @@
+[submodule "services/backend"]
+	path = services/backend
+	url = ./services/backend/
+[submodule "services/tasks-server"]
+	path = services/tasks-server
+	url = ./services/tasks-server/
+[submodule "services/virt-manager"]
+	path = services/virt-manager
+	url = ./services/virt-manager/

@@ -1,0 +1,20 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1
+    container_name: mealie
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1000M #
+    volumes:
+      - ../services/mealie:/app/data/
+    environment:
+      # Set Backend ENV Variables Here
+      - ALLOW_SIGNUP=true
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Singapore
+      - MAX_WORKERS=1
+      - WEB_CONCURRENCY=1
+      - BASE_URL=https://recipes.nicholaslyz.com

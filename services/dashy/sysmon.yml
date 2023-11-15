@@ -1,0 +1,70 @@
+pageInfo:
+  title: System
+
+sections:
+
+- name: CPU
+  widgets:
+  - type: gl-current-cpu
+    options: &hostname
+      hostname: https://sysmon.nicholaslyz.com
+
+  - type: gl-cpu-history
+    options:
+      <<: *hostname
+      limit: 60
+
+- name: Memory
+  widgets:
+  - type: gl-current-mem
+    options: *hostname
+  
+  - type: gl-mem-history
+    options:
+      <<: *hostname
+      limit: 60
+
+- name: Disk Usage
+  widgets:
+  - type: gl-disk-space
+    options: *hostname
+
+  - type: gl-cpu-temp
+    options: *hostname
+
+- name: System Load
+  widgets:
+  - type: gl-system-load
+    options: *hostname
+
+  - type: gl-load-history
+    options: *hostname
+
+- name: Network
+  widgets:
+  - type: gl-network-interfaces
+    options: *hostname
+
+  - type: gl-network-traffic
+    options:
+      <<: *hostname
+      limit: 60
+
+- name: Disk IO
+  widgets:
+  - type: gl-disk-io
+    options: *hostname
+
+- name: Pi Hole Stats
+  widgets:
+  - type: pi-hole-stats
+    useProxy: true
+    options:
+      hostname: http://192.168.1.100
+
+- name: Pi Hole Traffic
+  widgets:
+  - type: pi-hole-traffic
+    useProxy: true
+    options:
+      hostname: http://192.168.1.100

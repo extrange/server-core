@@ -1,0 +1,8 @@
+services:
+  filebrowser:
+    container_name: filebrowser
+    image: filebrowser/filebrowser
+    restart: always
+    volumes:
+      - /mnt/storage/Public:/srv:rw
+      - ../services/filebrowser/filebrowser.db:/database.db:rw

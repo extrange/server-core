@@ -1,0 +1,8 @@
+services:
+  browserless:
+    container_name: browserless
+    image: browserless/chrome
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+      DEFAULT_STEALTH: true

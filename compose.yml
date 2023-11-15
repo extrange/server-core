@@ -1,0 +1,45 @@
+include:
+  - compose.d/browserless.yml
+  - compose.d/calibre-web.yml
+  - compose.d/changedetection-io.yml
+  - compose.d/cloudflare-ddns.yml
+  - compose.d/dashy.yml
+  - compose.d/filebrowser.yml
+  - compose.d/freshrss.yml
+  - compose.d/glances.yml
+  - compose.d/guacamole.yml
+  - compose.d/jellyfin.yml
+  - compose.d/mealie.yml
+  - compose.d/microbin.yml
+  - compose.d/navidrome.yml
+  - compose.d/ofelia.yml
+  - compose.d/photoprism.yml
+  - compose.d/qbittorrent.yml
+  - compose.d/scrutiny.yml
+  - compose.d/syncthing.yml
+  - compose.d/wallabag.yml
+  - services/backend/compose.yml
+  - services/tasks-server/compose.yml
+  - services/virt-manager/compose.yml
+  
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx:mainline
+    restart: always
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs:ro
+      - ./nginx/html:/etc/nginx/html:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+
+      # Statically hosted content
+      - ./services/dashy/static:/static/dashy:ro
+      - ./services/backend/static:/static/backend:ro
+    ports:
+      - "443:443"
+    environment:
+      TZ: Asia/Singapore
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

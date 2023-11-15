@@ -1,0 +1,12 @@
+services:
+  calibre-web:
+    container_name: calibre-web
+    image: linuxserver/calibre-web
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Singapore
+    volumes:
+      - /mnt/storage/Books:/library
+      - ../services/calibre-web:/config

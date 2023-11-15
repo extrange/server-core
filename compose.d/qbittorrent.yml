@@ -1,0 +1,12 @@
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: ghcr.io/hotio/qbittorrent
+    restart: always
+    volumes:
+      - ../services/qbittorrent:/config/config:rw
+      - /mnt/storage/Downloads:/app/qBittorrent/downloads:rw
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Singapore

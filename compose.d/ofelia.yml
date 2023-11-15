@@ -1,0 +1,10 @@
+services:
+  # Run scheduled jobs on containers
+  # Photoprism for now
+  ofelia:
+    container_name: ofelia
+    restart: always
+    image: mcuadros/ofelia:latest
+    volumes:
+      - "../services/ofelia/config.ini:/etc/ofelia/config.ini:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
