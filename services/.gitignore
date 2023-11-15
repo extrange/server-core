@@ -1,5 +1,7 @@
 # Top level service directories to ignore
 # To exclude individual files instead, create a .gitignore file within the folder
+/angfamily-ocis
+/angfamily-photoprism
 /calibre-web
 /changedetection.io
 /filebrowser

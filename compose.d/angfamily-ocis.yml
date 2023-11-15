@@ -1,0 +1,15 @@
+services:
+  angfamily-ocis:
+    container_name: angfamily-ocis
+    image: owncloud/ocis
+    restart: always
+    volumes:
+      - ../services/angfamily-ocis/ocis-config:/etc/ocis
+      - ../services/angfamily-ocis/ocis-data:/var/lib/ocis
+    environment:
+      PROXY_TLS: false
+      PROXY_HTTP_ADDR: 0.0.0.0:9200
+      OCIS_URL: https://storage.angfamily.net
+      OCIS_INSECURE: true
+      OCIS_HTTP_TLS_ENABLED: false
+
