@@ -1,0 +1,12 @@
+services:
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+    volumes:
+      - ../services/audiobookshelf/audiobooks:/audiobooks
+      - ../services/audiobookshelf/podcasts:/podcasts
+      - ../services/audiobookshelf/config:/config
+      - ../services/audiobookshelf/metadata:/metadata
