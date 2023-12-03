@@ -19,6 +19,7 @@ include:
   - compose.d/photoprism.yml
   - compose.d/qbittorrent.yml
   - compose.d/scrutiny.yml
+  - compose.d/shadowsocks.yml
   - compose.d/syncthing.yml
   - compose.d/wallabag.yml
   - services/backend/compose.yml
