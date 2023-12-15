@@ -6,3 +6,6 @@ services:
     environment:
       TZ: Asia/Singapore
       DEFAULT_STEALTH: true
+    networks:
+      - browserless
+      - default

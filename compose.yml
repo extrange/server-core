@@ -25,7 +25,7 @@ include:
   - services/backend/compose.yml
   - services/realtime-todo-server/compose.yml
   - services/virt-manager/compose.yml
-  
+
 services:
 
   nginx:
@@ -47,3 +47,8 @@ services:
       TZ: Asia/Singapore
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+networks:
+  # All containers will join the 'default' network unless the networks key is specified
+  # Externally, the network will be prefixed with <dirname>_, e.g. server-core_default
+  browserless: # Allow access by containers outside of server_core
