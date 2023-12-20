@@ -6,6 +6,11 @@ services:
     environment:
       TZ: Asia/Singapore
       DEFAULT_STEALTH: true
+
+      # The following are necessary for link previews to work
+      DEFAULT_BLOCK_ADS: true
+      ENABLE_CORS: true
+      DEFAULT_IGNORE_HTTPS_ERRORS: true
     networks:
       - browserless
       - default
