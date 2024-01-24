@@ -6,7 +6,7 @@ services:
     environment:
       TZ: Asia/Singapore
     volumes:
-      - ../services/audiobookshelf/audiobooks:/audiobooks
+      - /mnt/storage/Audiobooks:/audiobooks
       - ../services/audiobookshelf/podcasts:/podcasts
       - ../services/audiobookshelf/config:/config
       - ../services/audiobookshelf/metadata:/metadata

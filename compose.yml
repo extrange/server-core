@@ -5,8 +5,8 @@ include:
   - compose.d/browserless.yml
   - compose.d/calibre-web.yml
   - compose.d/changedetection-io.yml
-  - compose.d/cloudflare-ddns.yml
   - compose.d/dashy.yml
+  - compose.d/ddns-updater.yml
   - compose.d/filebrowser.yml
   - compose.d/freshrss.yml
   - compose.d/glances.yml

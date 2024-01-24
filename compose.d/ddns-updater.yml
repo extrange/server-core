@@ -1,0 +1,9 @@
+services:
+  ddns-updater:
+    container_name: ddns-updater
+    image: qmcgaw/ddns-updater
+    restart: always
+    volumes:
+      - ../services/ddns-updater:/updater/data
+    environment:
+      TZ: Asia/Singapore

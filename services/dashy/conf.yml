@@ -4,25 +4,25 @@ pageInfo:
 pages:
   - name: Main
     path: conf.yml
-  - name: System
-    path: sysmon.yml
 
 appConfig:
   startingView: default
   statusCheck: true
   backgroundImg: /static/bg.jpg
-  theme: colorful
+  theme: default
   routingMode: hash
   hideComponents:
     hideFooter: true
     hideSettings: true
     hideNav: false
-    hideSearch: true
   enableMultiTasking: true
   disableConfiguration: true
 
 sections:
   - name: Main
+    displayData:
+      cols: 2
+      itemSize: large
     items:
       # icons at https://github.com/walkxhub/dashboard-icons/tree/master/png
 
@@ -110,12 +110,12 @@ sections:
         description: Navidrome
         icon: hl-navidrome
         url: https://music.nicholaslyz.com
-      
+
       - title: Microbin
         description: Microbin
         icon: hl-microbin
         url: https://microbin.nicholaslyz.com
-      
+
       - title: Videos
         description: Jellyfin
         icon: hl-jellyfin
@@ -125,60 +125,17 @@ sections:
         description: Syncthing
         icon: hl-syncthing
         url: https://syncthing.nicholaslyz.com
-      
+
       - title: Calibre
         description: calibre-web
         icon: hl-calibre-web
         url: https://calibre.nicholaslyz.com
 
-  - name: General
-    widgets:
-      - type: clock
-      - type: weather
-        options:
-          apiKey: ebe37fa88765098676e18e40c74544ac
-          city: Singapore
-      - type: gl-alerts
-        options:
-          hostname: https://sysmon.nicholaslyz.com
+      - title: Audiobookshelf
+        description: Audiobookshelf
+        icon: hl-audiobookshelf
+        url: https://audiobooks.nicholaslyz.com
 
-  - name: Tech
-    displayData:
-      rows: 2
-    widgets:
-      - type: rss-feed
-        options:
-          rssUrl: https://noted.lol/feed
-          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
-          limit: 3
-      - type: rss-feed
-        options:
-          rssUrl: https://news.ycombinator.com/rss
-          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
-          limit: 3
-
-  - name: Github Trends
-    displayData:
-      rows: 2
-    widgets:
-      - type: github-trending-repos
-        options:
-          limit: 8
-          since: daily
-
-  - name: News
-    widgets:
-      - type: rss-feed
-        options:
-          rssUrl: https://www.to-rss.xyz/wikipedia/current_events/
-          apiKey: 5umkfzbpgfdjgsqavgtd18yjnoql5odtowv2uptk
-          limit: 1
-
-  - name: Github Profile
-    widgets:
-      - type: github-profile-stats
-        options:
-          hideLanguagesCard: true
-          username: extrange
-          repos:
-            - extrange/ibkr-docker
+      - title: DDNS Updater
+        description: qmcgaw/ddns-updater
+        icon: hl-ddns-updater

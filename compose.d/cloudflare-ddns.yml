@@ -1,9 +1,0 @@
-services:
-  cloudflare_ddns:
-    container_name: cloudflare_ddns
-    image: oznu/cloudflare-ddns
-    restart: always
-    environment:
-      API_KEY: ${CF_TOKEN}
-      ZONE: nicholaslyz.com
-      SUBDOMAIN: main
