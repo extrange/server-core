@@ -9,7 +9,7 @@ appConfig:
   startingView: default
   statusCheck: true
   backgroundImg: /static/bg.jpg
-  theme: default
+  theme: Adventure-Basic 
   routingMode: hash
   hideComponents:
     hideFooter: true
@@ -40,6 +40,7 @@ sections:
         description: qBittorrent
         icon: hl-qbittorrent
         url: https://torrents.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
 
       - title: Files
         description: filebrowser
@@ -65,6 +66,7 @@ sections:
         description: virt-manager in Docker
         icon: virt-manager.png
         url: https://vm.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
 
       - title: Web VM Viewer
         description: Apache Guacamole
@@ -75,11 +77,13 @@ sections:
         description: changedetection.io
         icon: hl-changedetection-io
         url: https://changedetection.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
 
       - title: Headless Chrome
         description: Browserless
         icon: hl-browserless
         url: https://browserless.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
 
       - title: Recipes
         description: Mealie
@@ -95,6 +99,7 @@ sections:
         description: scrutiny
         icon: hl-scrutiny
         url: https://disks.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
 
       - title: Wallabag
         description: wallabag
@@ -139,3 +144,5 @@ sections:
       - title: DDNS Updater
         description: qmcgaw/ddns-updater
         icon: hl-ddns-updater
+        url: https://ddns-updater.nicholaslyz.com
+        statusCheckAcceptCodes: '403'
