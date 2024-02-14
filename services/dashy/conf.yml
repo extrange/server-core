@@ -107,9 +107,9 @@ sections:
         url: https://wallabag.nicholaslyz.com
 
       - title: News
-        description: FreshRSS
-        icon: hl-freshrss
-        url: https://news.nicholaslyz.com
+        description: miniflux
+        icon: hl-miniflux
+        url: https://miniflux.nicholaslyz.com
 
       - title: Music
         description: Navidrome

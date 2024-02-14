@@ -8,12 +8,12 @@ include:
   - compose.d/dashy.yml
   - compose.d/ddns-updater.yml
   - compose.d/filebrowser.yml
-  - compose.d/freshrss.yml
   - compose.d/glances.yml
   - compose.d/guacamole.yml
   - compose.d/jellyfin.yml
   - compose.d/mealie.yml
   - compose.d/microbin.yml
+  - compose.d/miniflux.yml
   - compose.d/navidrome.yml
   - compose.d/ofelia.yml
   - compose.d/photoprism.yml
