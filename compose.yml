@@ -10,6 +10,7 @@ include:
   - compose.d/filebrowser.yml
   - compose.d/glances.yml
   - compose.d/guacamole.yml
+  - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml
   - compose.d/mealie.yml
   - compose.d/microbin.yml

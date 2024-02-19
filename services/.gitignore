@@ -2,11 +2,13 @@
 # To exclude individual files instead, create a .gitignore file within the folder
 /angfamily-ocis
 /angfamily-photoprism
+/audiobookshelf
 /calibre-web
 /changedetection.io
 /ddns-updater
 /filebrowser
 /freshrss
+/immich
 /jellyfin
 /mealie
 /microbin
@@ -18,4 +20,3 @@
 /shadowsocks
 /syncthing
 /wallabag
-/audiobookshelf

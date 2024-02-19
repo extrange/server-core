@@ -1,0 +1,71 @@
+name: immich
+
+services:
+  immich-server:
+    container_name: immich_server
+    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+    command: [ "start.sh", "immich" ]
+    volumes:
+      - ${UPLOAD_LOCATION}:/usr/src/app/upload
+      - /mnt/storage/Photos:/photoprism:ro
+    depends_on:
+      - immich-redis
+      - immich-database
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+    env_file:
+      - .env
+
+  immich-microservices:
+    container_name: immich_microservices
+    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+    # extends: # uncomment this section for hardware acceleration - see https://immich.app/docs/features/hardware-transcoding
+    #   file: hwaccel.transcoding.yml 
+    #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
+    command: [ "start.sh", "microservices" ]
+    volumes:
+      - ${UPLOAD_LOCATION}:/usr/src/app/upload
+    depends_on:
+      - immich-redis
+      - immich-database
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+    env_file:
+      - .env
+
+
+  immich-machine-learning:
+    container_name: immich_machine_learning
+    # For hardware acceleration, add one of -[armnn, cuda, openvino] to the image tag.
+    # Example tag: ${IMMICH_VERSION:-release}-cuda
+    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    # extends: # uncomment this section for hardware acceleration - see https://immich.app/docs/features/ml-hardware-acceleration
+    #   file: hwaccel.ml.yml
+    #   service: cpu # set to one of [armnn, cuda, openvino, openvino-wsl] for accelerated inference - use the `-wsl` version for WSL2 where applicable
+    volumes:
+      - ../../services/immich/model-cache:/cache
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+    env_file:
+      - .env
+
+  immich-redis:
+    container_name: immich_redis
+    image: redis:6.2-alpine@sha256:afb290a0a0d0b2bd7537b62ebff1eb84d045c757c1c31ca2ca48c79536c0de82
+    restart: always
+
+  immich-database:
+    container_name: immich_postgres
+    image: tensorchord/pgvecto-rs:pg14-v0.1.11@sha256:0335a1a22f8c5dd1b697f14f079934f5152eaaa216c09b61e293be285491f8ee
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_DATABASE_NAME}
+    volumes:
+      - ../../services/immich/pgdata:/var/lib/postgresql/data
+    restart: always
