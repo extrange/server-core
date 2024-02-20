@@ -7,7 +7,6 @@ services:
     command: [ "start.sh", "immich" ]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
-      - /mnt/storage/Photos:/photoprism:ro
     depends_on:
       - immich-redis
       - immich-database
