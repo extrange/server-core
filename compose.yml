@@ -17,7 +17,6 @@ include:
   - compose.d/miniflux.yml
   - compose.d/navidrome.yml
   - compose.d/ofelia.yml
-  - compose.d/photoprism.yml
   - compose.d/qbittorrent.yml
   - compose.d/scrutiny.yml
   - compose.d/shadowsocks.yml

@@ -7,6 +7,7 @@ services:
     command: ["start.sh", "immich"]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
+      - "/mnt/storage/Photos - Lightroom/Lightroom Temp:/lightroom"
     depends_on:
       - immich-redis
       - immich-database
