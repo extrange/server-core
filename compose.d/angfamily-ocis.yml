@@ -12,4 +12,6 @@ services:
       OCIS_URL: https://storage.angfamily.net
       OCIS_INSECURE: true
       OCIS_HTTP_TLS_ENABLED: false
+      LDAP_INSECURE: true
+      IDP_INSECURE: true
 
