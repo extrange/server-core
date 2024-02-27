@@ -13,7 +13,6 @@ services:
       - /mnt/storage/Relationship:/Relationship
       - /mnt/storage/Work:/Work
       - "/mnt/storage/Personal/Passport and ID Photos:/Passport and ID Photos"
-      - "/mnt/storage/Photos - Import:/Photos - Import"
       - /mnt/storage/Kindle:/Kindle
     ports:
     # Required for devices without tailscale (e.g. Kindle)
