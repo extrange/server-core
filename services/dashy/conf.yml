@@ -146,3 +146,8 @@ sections:
         icon: hl-ddns-updater
         url: https://ddns-updater.nicholaslyz.com
         statusCheckAcceptCodes: '403'
+
+      - title: PDF Editor
+        description: stirling-pdf
+        icon: hl-stirling-pdf
+        url: https://pdf.nicholaslyz.com
