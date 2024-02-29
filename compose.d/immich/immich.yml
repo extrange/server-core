@@ -7,7 +7,6 @@ services:
     command: ["start.sh", "immich"]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
-      - "/mnt/storage/Photos - Lightroom/Lightroom Temp:/lightroom"
     depends_on:
       - immich-redis
       - immich-database
@@ -53,14 +52,12 @@ services:
 
   immich-redis:
     container_name: immich_redis
-    image: redis:6.2-alpine@sha256:afb290a0a0d0b2bd7537b62ebff1eb84d045c757c1c31ca2ca48c79536c0de82
+    image: registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5
     restart: always
 
   immich-database:
     container_name: immich_postgres
-    image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
-    env_file:
-      - .env
+    image: registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
