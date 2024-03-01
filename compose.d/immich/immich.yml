@@ -2,6 +2,13 @@ name: immich
 
 services:
   immich-server:
+    # To authenticate, run:
+    #
+    # docker compose exec -it immich-server bash
+    # immich login-key http://localhost:3001/api <API-KEY>
+    # immich upload -r <UPLOAD_DIR>
+    #
+    # Obtain API key from 'Account Settings' under user icon
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     command: ["start.sh", "immich"]
