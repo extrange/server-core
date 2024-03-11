@@ -1,3 +1,6 @@
+# To update:
+# docker compose pull immich-server immich-microservices immich-machine-learning immich-redis immich-database
+# docker compose up -d --force-recreate immich-server immich-microservices immich-machine-learning immich-redis immich-database
 name: immich
 
 services:
@@ -14,14 +17,14 @@ services:
     command: ["start.sh", "immich"]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
+    env_file:
+      - .env
     depends_on:
       - immich-redis
       - immich-database
     restart: always
     environment:
       TZ: Asia/Singapore
-    env_file:
-      - .env
 
   immich-microservices:
     container_name: immich_microservices
@@ -32,14 +35,14 @@ services:
     command: ["start.sh", "microservices"]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
+    env_file:
+      - .env
     depends_on:
       - immich-redis
       - immich-database
     restart: always
     environment:
       TZ: Asia/Singapore
-    env_file:
-      - .env
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -51,11 +54,11 @@ services:
     #   service: cpu # set to one of [armnn, cuda, openvino, openvino-wsl] for accelerated inference - use the `-wsl` version for WSL2 where applicable
     volumes:
       - ../../services/immich/model-cache:/cache
+    env_file:
+      - .env
     restart: always
     environment:
       TZ: Asia/Singapore
-    env_file:
-      - .env
 
   immich-redis:
     container_name: immich_redis
