@@ -1,3 +1,4 @@
+# https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
 # To update:
 # docker compose pull immich-server immich-microservices immich-machine-learning immich-redis immich-database
 # docker compose up -d --force-recreate immich-server immich-microservices immich-machine-learning immich-redis immich-database
