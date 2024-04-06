@@ -12,5 +12,5 @@ services:
       ENABLE_CORS: true
       DEFAULT_IGNORE_HTTPS_ERRORS: true
     networks:
-      - browserless
+      - browserless # Allow use by other containers outside of server-core
       - default
