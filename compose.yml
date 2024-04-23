@@ -20,6 +20,7 @@ include:
   - compose.d/scrutiny.yml
   - compose.d/shadowsocks.yml
   - compose.d/stirling-pdf.yml
+  - compose.d/unifi.yml
   - compose.d/syncthing.yml
   - compose.d/wallabag.yml
   - services/backend/compose.yml

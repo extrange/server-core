@@ -1,0 +1,14 @@
+services:
+  unifi:
+    container_name: unifi
+    image: jacobalberty/unifi
+    restart: always
+    volumes:
+      - ../services/unifi:/unifi
+    user: 999:999 # Run as 'unifi' user (appears as systemd-oom on host)
+    ports:
+      - 10001:10001/udp
+      - 8080:8080/tcp
+      - 3478:3478/udp
+    environment:
+      TZ: 'Asia/Singapore'
