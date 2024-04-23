@@ -151,3 +151,8 @@ sections:
         description: stirling-pdf
         icon: hl-stirling-pdf
         url: https://pdf.nicholaslyz.com
+      
+      - title: Unifi Controller
+        description: Unifi Controller
+        icon: hl-unifi
+        url: https://unifi.nicholaslyz.com
