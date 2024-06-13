@@ -3,3 +3,5 @@ services:
     container_name: sqlite-deadlock
     restart: always
     image: ghcr.io/extrange/sqlite-deadlock:edge
+    environment:
+      TZ: Asia/Singapore
