@@ -1,0 +1,5 @@
+services:
+  sqlite-deadlock:
+    container_name: sqlite-deadlock
+    restart: always
+    image: ghcr.io/extrange/sqlite-deadlock:edge

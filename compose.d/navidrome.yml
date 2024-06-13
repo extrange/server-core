@@ -5,7 +5,7 @@ services:
     restart: always
     volumes:
       - "../services/navidrome:/data"
-      - "/mnt/storage/Music:/music:ro"
+      - "/mnt/storage/Music2:/music:ro"
     environment:
       ND_SEARCHFULLSTRING: true
       ND_SCANSCHEDULE: 1h

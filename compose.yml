@@ -19,9 +19,10 @@ include:
   - compose.d/qbittorrent.yml
   - compose.d/scrutiny.yml
   - compose.d/shadowsocks.yml
+  - compose.d/sqlite-deadlock.yml
   - compose.d/stirling-pdf.yml
-  - compose.d/unifi.yml
   - compose.d/syncthing.yml
+  - compose.d/unifi.yml
   - compose.d/wallabag.yml
   - services/backend/compose.yml
   - services/realtime-todo-server/compose.yml
