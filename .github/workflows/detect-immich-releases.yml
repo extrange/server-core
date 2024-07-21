@@ -12,6 +12,7 @@ jobs:
       IMMICH_COMPOSE_FILE: compose.d/immich/immich.yml
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
 
@@ -44,6 +45,8 @@ jobs:
             del(.volumes)
           ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
       
-      - name: Commit if there were any changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: Update immich compose.yml
+          commit-message: "Automated: Update immich compose.yml"
