@@ -1,0 +1,49 @@
+name: Check for new Immich releases and update compose.yml if necessary
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *" # 8AM UTC daily
+
+jobs:
+  check-new-version:
+    runs-on: ubuntu-latest
+    env:
+      IMMICH_COMPOSE_FILE: compose.d/immich/immich.yml
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull latest compose.yml
+        run: |
+          curl -L https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml -o /tmp/compose.yml
+
+      - name: Fail if immich compose.yml does not exist
+        run: |
+          [ -f $IMMICH_COMPOSE_FILE ]
+    
+      - name: Add my own modifications to that compose.yml, overwriting the existing
+        run: |
+          yq '
+            with(.services.immich-server.volumes; . += "../../services/immich/.config:/root/.config" |
+              .[-1] line_comment="Save immich-cli logins on container restarts") |
+            
+            # nginx is our reverse proxy
+            del(.services.immich-server.ports) |
+
+            # Avoid clashing with other containers in my compose
+            .services.immich-server.depends_on[] |= "immich-" + . |
+
+            .services.immich-machine-learning.volumes[] |= "../../services/immich/" + . |
+
+            (.services.redis | key) = "immich-redis" |
+
+            (.services.database | key) = "immich-database" |
+
+            del(.volumes)
+          ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
+      
+      - name: Commit if there were any changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+
