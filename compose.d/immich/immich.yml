@@ -1,18 +1,14 @@
+#
+# WARNING: Make sure to use the docker-compose.yml of the current release:
+#
 # https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
-# To update:
-# docker compose pull immich-server immich-microservices immich-machine-learning immich-redis immich-database
-# docker compose up -d --force-recreate --remove-orphans immich-server immich-machine-learning immich-redis immich-database
-name: immich
+#
+# The compose file on main may not be compatible with the latest release.
+#
 
+name: immich
 services:
   immich-server:
-    # To authenticate, run:
-    #
-    # docker compose exec -it immich-server bash
-    # immich login-key http://localhost:3001/api <API-KEY>
-    # immich upload -r <UPLOAD_DIR>
-    #
-    # Obtain API key from 'Account Settings' under user icon
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     # extends:
@@ -21,14 +17,13 @@ services:
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
-      - ../../services/immich/.config:/root/.config # Cache logins from CLI on exec
+      - ../../services/immich/.config:/root/.config # Save immich-cli logins on container restarts
     env_file:
       - .env
     depends_on:
       - immich-redis
       - immich-database
     restart: always
-
   immich-machine-learning:
     container_name: immich_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, openvino] to the image tag.
@@ -42,14 +37,12 @@ services:
     env_file:
       - .env
     restart: always
-
   immich-redis:
     container_name: immich_redis
-    image: docker.io/redis:6.2-alpine@sha256:d6c2911ac51b289db208767581a5d154544f2b2fe4914ea5056443f62dc6e900
+    image: docker.io/redis:6.2-alpine@sha256:328fe6a5822256d065debb36617a8169dbfbd77b797c525288e465f56c1d392b
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
-
   immich-database:
     container_name: immich_postgres
     image: docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
@@ -59,11 +52,11 @@ services:
       POSTGRES_DB: ${DB_DATABASE_NAME}
       POSTGRES_INITDB_ARGS: '--data-checksums'
     volumes:
-      - ../../services/immich/pgdata:/var/lib/postgresql/data
+      - ${DB_DATA_LOCATION}:/var/lib/postgresql/data
     healthcheck:
-      test: pg_isready --dbname='${DB_DATABASE_NAME}' || exit 1; Chksum="$$(psql --dbname='${DB_DATABASE_NAME}' --username='${DB_USERNAME}' --tuples-only --no-align --command='SELECT COALESCE(SUM(checksum_failures), 0) FROM pg_stat_database')"; echo "checksum failure count is $$Chksum"; [ "$$Chksum" = '0' ] || exit 1
+      test: pg_isready --dbname='${DB_DATABASE_NAME}' --username='${DB_USERNAME}' || exit 1; Chksum="$$(psql --dbname='${DB_DATABASE_NAME}' --username='${DB_USERNAME}' --tuples-only --no-align --command='SELECT COALESCE(SUM(checksum_failures), 0) FROM pg_stat_database')"; echo "checksum failure count is $$Chksum"; [ "$$Chksum" = '0' ] || exit 1
       interval: 5m
       start_interval: 30s
       start_period: 5m
-    command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
+    command: ["postgres", "-c", "shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
     restart: always
