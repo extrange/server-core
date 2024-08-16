@@ -156,3 +156,7 @@ sections:
         description: Unifi Controller
         icon: hl-unifi
         url: https://unifi.nicholaslyz.com
+      - title: Minio
+        description: Minio Admin Page
+        icon: hl-minio
+        url: https://minio-admin.nicholaslyz.com

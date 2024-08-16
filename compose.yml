@@ -14,6 +14,7 @@ include:
   - compose.d/mealie.yml
   - compose.d/microbin.yml
   - compose.d/miniflux.yml
+  - compose.d/minio.yml
   - compose.d/navidrome.yml
   - compose.d/ofelia.yml
   - compose.d/qbittorrent.yml

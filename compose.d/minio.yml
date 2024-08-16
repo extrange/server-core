@@ -1,0 +1,17 @@
+services:
+  minio:
+    container_name: minio
+    image: quay.io/minio/minio:latest
+    restart: always
+    command: server --console-address ":9001" /data
+    environment:
+      TZ: Asia/Singapore
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - ../services/minio:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
