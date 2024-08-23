@@ -160,3 +160,8 @@ sections:
         description: Minio Admin Page
         icon: hl-minio
         url: https://minio-admin.nicholaslyz.com
+      
+      - title: Resume
+        description: Reactive Resume
+        icon: hl-reactive-resume
+        url: https://resume.nicholaslyz.com

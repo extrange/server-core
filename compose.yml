@@ -18,6 +18,7 @@ include:
   - compose.d/navidrome.yml
   - compose.d/ofelia.yml
   - compose.d/qbittorrent.yml
+  - compose.d/reactive-resume.yml
   - compose.d/scrutiny.yml
   - compose.d/shadowsocks.yml
   - compose.d/sqlite-deadlock.yml
