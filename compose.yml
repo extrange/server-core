@@ -12,6 +12,7 @@ include:
   - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml
   - compose.d/mealie.yml
+  - compose.d/metabase.yml
   - compose.d/microbin.yml
   - compose.d/miniflux.yml
   - compose.d/minio.yml

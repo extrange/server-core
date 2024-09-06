@@ -1,0 +1,32 @@
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    restart: always
+    volumes:
+      - /dev/urandom:/dev/random:ro
+    healthcheck:
+      test: curl --fail -I http://localhost:3000/api/health || exit 1
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_HOST: metabase-db
+      MB_DB_PORT: 5432
+      MB_DB_DBNAME: metabaseappdb
+      MB_DB_USER: postgres
+      MB_DB_PASS: ${MB_DB_PASS}
+    depends_on:
+      - metabase-db
+  
+  metabase-db:
+    image: postgres
+    restart: always
+    container_name: metabase-db
+    environment:
+      POSTGRES_DB: metabaseappdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${MB_DB_PASS}
+    volumes:
+      - ../services/metabase:/var/lib/postgresql/data

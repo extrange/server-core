@@ -165,3 +165,8 @@ sections:
         description: Reactive Resume
         icon: hl-reactive-resume
         url: https://resume.nicholaslyz.com
+      
+      - title: Dashboard
+        description: Metabase
+        icon: hl-metabase
+        url: https://dashboard.nicholaslyz.com
