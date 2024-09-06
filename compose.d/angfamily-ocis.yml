@@ -14,4 +14,6 @@ services:
       OCIS_HTTP_TLS_ENABLED: false
       LDAP_INSECURE: true
       IDP_INSECURE: true
+      OCIS_SERVICE_ACCOUNT_ID: serviceAccountId
+      OCIS_SERVICE_ACCOUNT_SECRET: ${OCIS_SERVICE_ACCOUNT_SECRET}
 
