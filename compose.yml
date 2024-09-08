@@ -1,5 +1,4 @@
 include:
-  - compose.d/angfamily-ocis.yml
   - compose.d/audiobookshelf.yml
   - compose.d/browserless.yml
   - compose.d/calibre-web.yml
