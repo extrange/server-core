@@ -14,21 +14,21 @@ services:
     restart: always
     environment:
       GUACD_HOSTNAME: guacd
-      MYSQL_HOSTNAME: mysql
+      MYSQL_HOSTNAME: guacamole-db
       MYSQL_DATABASE: guacamole_db
       MYSQL_USER: root
       MYSQL_PASSWORD: 12345
       HEADER_ENABLED: true
       HTTP_AUTH_HEADER: REMOTE_USER
 
-  mysql:
-    container_name: mysql
-    image: mysql
+  guacamole-db:
+    container_name: guacamole-db
+    image: mysql:9.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: guacamole_db
     volumes:
-      - ../services/mysql/data:/var/lib/mysql
+      - ../services/guacamole/data:/var/lib/mysql
       # Initialize Apache Guacamole database
-      - ../services/mysql/guacamole.sql:/docker-entrypoint-initdb.d/guacamole.sql:ro
+      - ../services/guacamole/guacamole.sql:/docker-entrypoint-initdb.d/guacamole.sql:ro
