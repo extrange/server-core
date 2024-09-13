@@ -58,3 +58,4 @@ networks:
   # All containers will join the 'default' network unless the networks key is specified
   # Externally, the network will be prefixed with <dirname>_, e.g. server-core_default
   browserless: # Allow access by containers outside of server_core
+  personal-db:
