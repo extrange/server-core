@@ -17,6 +17,7 @@ include:
   - compose.d/minio.yml
   - compose.d/navidrome.yml
   - compose.d/ofelia.yml
+  - compose.d/personal-db.yml
   - compose.d/qbittorrent.yml
   - compose.d/reactive-resume.yml
   - compose.d/scrutiny.yml
