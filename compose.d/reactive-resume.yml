@@ -1,5 +1,5 @@
 services:
-  
+
   reactive-resume-postgres:
     container_name: reactive-resume-postgres
     image: postgres:16-alpine
@@ -24,7 +24,7 @@ services:
       - reactive-resume-postgres
       # In other compose files
       - minio
-      - browserless 
+      - browserless
     environment:
       # -- Environment Variables --
       PORT: 3000
@@ -46,8 +46,8 @@ services:
       REFRESH_TOKEN_SECRET: refresh_token_secret
 
       # -- Emails --
-      MAIL_FROM: noreply@localhost
-      # SMTP_URL: smtp://user:pass@smtp:587 # Optional
+      MAIL_FROM: ${RR_MAIL_FROM}
+      SMTP_URL: ${RR_SMTP_URL}
 
       # -- Storage (Minio) --
       STORAGE_ENDPOINT: minio
