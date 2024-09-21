@@ -1,0 +1,27 @@
+services:
+  neo4j:
+    image: neo4j
+    container_name: neo4j
+    restart: always
+    volumes:
+      - ../services/neo4j/db:/data
+    network_mode: service:ts-neo4j
+
+  ts-neo4j:
+    image: tailscale/tailscale:v1.72
+    container_name: ts-neo4j
+    hostname: neo4j
+    restart: always
+    environment:
+      TS_AUTH_KEY: ${TS_AUTH_KEY}
+      TS_STATE_DIR: /var/lib/tailscale
+      TS_EXTRA_ARGS: --advertise-tags=tag:container
+    cap_add:
+      - net_admin
+      - sys_module
+    volumes:
+      - /dev/net/tun:/dev/net/tun
+      - ../services/neo4j/tailscale:/var/lib/tailscale
+    networks:
+      - neo4j # Allow devcontainer in project to access
+      - default

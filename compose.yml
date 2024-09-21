@@ -16,6 +16,7 @@ include:
   - compose.d/miniflux.yml
   - compose.d/minio.yml
   - compose.d/navidrome.yml
+  - compose.d/neo4j.yml
   - compose.d/ofelia.yml
   - compose.d/personal-db.yml
   - compose.d/qbittorrent.yml
@@ -59,3 +60,4 @@ networks:
   # Externally, the network will be prefixed with <dirname>_, e.g. server-core_default
   browserless: # Allow access by containers outside of server_core
   personal-db:
+  neo4j:
