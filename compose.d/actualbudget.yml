@@ -1,0 +1,10 @@
+
+services:
+  actualbudget:
+    container_name: actualbudget
+    image: ghcr.io/actualbudget/actual-server
+    restart: always
+    environment:
+      TZ: Asia/Singapore
+    volumes:
+      - ../services/actualbudget:/data

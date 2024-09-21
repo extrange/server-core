@@ -9,7 +9,7 @@ appConfig:
   startingView: default
   statusCheck: true
   backgroundImg: /static/bg.jpg
-  theme: Adventure-Basic 
+  theme: Adventure-Basic
   routingMode: hash
   hideComponents:
     hideFooter: true
@@ -151,7 +151,7 @@ sections:
         description: stirling-pdf
         icon: hl-stirling-pdf
         url: https://pdf.nicholaslyz.com
-      
+
       - title: Unifi Controller
         description: Unifi Controller
         icon: hl-unifi
@@ -160,13 +160,18 @@ sections:
         description: Minio Admin Page
         icon: hl-minio
         url: https://minio-admin.nicholaslyz.com
-      
+
       - title: Resume
         description: Reactive Resume
         icon: hl-reactive-resume
         url: https://resume.nicholaslyz.com
-      
+
       - title: Dashboard
         description: Metabase
         icon: hl-metabase
         url: https://dashboard.nicholaslyz.com
+
+      - title: Expenses
+        description: ActualBudget
+        icon: hl-actualbudget
+        url: https://expenses.nicholaslyz.com

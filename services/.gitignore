@@ -1,5 +1,6 @@
 # Top level service directories to ignore
 # To exclude individual files instead, create a .gitignore file within the folder
+/actualbudget
 /angfamily-photoprism
 /audiobookshelf
 /calibre-web
