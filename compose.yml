@@ -27,7 +27,6 @@ include:
   - compose.d/sqlite-deadlock.yml
   - compose.d/stirling-pdf.yml
   - compose.d/syncthing.yml
-  - compose.d/trading-bot-db.yml
   - compose.d/unifi.yml
   - compose.d/wallabag.yml
   - services/backend/compose.yml
@@ -60,5 +59,5 @@ networks:
   # All containers will join the 'default' network unless the networks key is specified
   # Externally, the network will be prefixed with <dirname>_, e.g. server-core_default
   browserless: # Allow access by containers outside of server_core
-  personal-db:
+  personal-db: # Allow acces by projects in ~/repos
   neo4j:
