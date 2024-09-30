@@ -21,7 +21,10 @@ services:
       MB_DB_PASS: ${MB_DB_PASS}
     depends_on:
       - metabase-db
-  
+    networks:
+      - default
+      - trading-bot-db
+
   metabase-db:
     image: postgres
     restart: always
