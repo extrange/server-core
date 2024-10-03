@@ -1,0 +1,16 @@
+version: 0.7
+
+index_id: logs
+
+indexing_settings:
+  commit_timeout_secs: 30
+
+doc_mapping:
+  field_mappings:
+    - name: timestamp
+      type: datetime
+      fast: true
+  timestamp_field: timestamp
+  dynamic_mapping:
+    tokenizer: default
+    record: position

@@ -1,0 +1,60 @@
+data_dir: /var/lib/vector
+log_schema:
+  host_key: server
+
+sources:
+  docker:
+    type: docker_logs
+  journald:
+    type: journald
+    journal_directory: /hostfs/var/log/journal
+    since_now: true
+  vector:
+    type: internal_logs
+
+sinks:
+  # console:
+  #   type: console
+  #   inputs:
+  #    - journald
+  #   encoding:
+  #     codec: json
+  #     json:
+  #       pretty: true
+  quickwit:
+    type: http
+    method: post
+    inputs:
+      - docker
+      # - vector
+    encoding:
+      codec: json
+    framing:
+      method: newline_delimited
+    uri: http://quickwit:7280/api/v1/logs/ingest
+
+  # https://vector.dev/docs/reference/configuration/sinks/loki/
+  loki-dockerd:
+    type: loki
+    inputs:
+      - docker
+    endpoint: http://loki:3100
+    encoding:
+      codec: json
+      json:
+        pretty: true
+    labels:
+      container_name: "{{ container_name }}"
+      image: "{{ image }}"
+      source_type: "{{ source_type }}"
+
+  loki-journald:
+    type: loki
+    inputs:
+      - journald
+      - vector
+    labels:
+      source_type: "{{ source_type }}"
+    endpoint: http://loki:3100
+    encoding:
+      codec: logfmt

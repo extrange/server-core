@@ -10,6 +10,7 @@
 /freshrss
 /immich
 /jellyfin
+/loki/data
 /mealie
 /metabase
 /microbin
@@ -24,4 +25,5 @@
 /shadowsocks
 /syncthing
 /unifi
+/vector/data
 /wallabag

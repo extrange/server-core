@@ -1,0 +1,12 @@
+services:
+  quickwit:
+    image: quickwit/quickwit
+    container_name: quickwit
+    volumes:
+      - "../../services/quickwit/data:/quickwit/qwdata"
+      - "../../services/quickwit/configs:/configs"
+    ports:
+      - 7280:7280
+    environment:
+      TZ: Asia/Singapore
+    command: run

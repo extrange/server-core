@@ -11,6 +11,9 @@ include:
   - compose.d/guacamole.yml
   - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml
+  - compose.d/logging/loki.yml
+  - compose.d/logging/quickwit.yml
+  - compose.d/logging/vector.yml
   - compose.d/mealie.yml
   - compose.d/metabase.yml
   - compose.d/microbin.yml
