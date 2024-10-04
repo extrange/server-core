@@ -1,0 +1,9 @@
+services:
+  victoria-logs:
+    image: docker.io/victoriametrics/victoria-logs:v0.33.0-victorialogs
+    container_name: victoria-logs
+    restart: always
+    ports:
+      - 9428:9428
+    volumes:
+      - "../../services/victoria-logs:/victoria-logs-data"
