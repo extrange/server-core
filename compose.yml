@@ -7,7 +7,6 @@ include:
   - compose.d/dashy.yml
   - compose.d/ddns-updater.yml
   - compose.d/filebrowser.yml
-  - compose.d/glances.yml
   - compose.d/guacamole.yml
   - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml

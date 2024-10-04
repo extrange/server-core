@@ -52,11 +52,6 @@ sections:
         icon: hl-uptime-kuma
         url: https://uptime.icybat.com/manage-status-page
 
-      - title: SysMon
-        description: glances
-        icon: hl-glances
-        url: https://sysmon.nicholaslyz.com
-
       - title: Virt-Manager
         description: virt-manager in Docker
         icon: virt-manager.png
