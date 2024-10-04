@@ -47,11 +47,6 @@ sections:
         icon: hl-filebrowser
         url: https://files.nicholaslyz.com
 
-      - title: Admin
-        description: Cockpit
-        icon: hl-cockpit
-        url: https://admin.nicholaslyz.com
-
       - title: Uptime
         description: Uptime Kuma
         icon: hl-uptime-kuma
