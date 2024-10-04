@@ -160,3 +160,8 @@ sections:
         description: ActualBudget
         icon: hl-actualbudget
         url: https://expenses.nicholaslyz.com
+
+      - title: Logs and Metrics
+        description: Grafana
+        icon: hl-grafana
+        url: https://grafana.nicholaslyz.com
