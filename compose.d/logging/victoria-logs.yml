@@ -7,3 +7,6 @@ services:
       - 9428:9428
     volumes:
       - "../../services/victoria-logs:/victoria-logs-data"
+    command:
+      - -retention.maxDiskSpaceUsageBytes=100GiB
+      - -retentionPeriod=100y

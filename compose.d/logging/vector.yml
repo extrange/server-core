@@ -7,6 +7,6 @@ services:
       - "../../services/vector/vector.yml:/etc/vector/vector.yaml"
       - /var/run/docker.sock:/var/run/docker.sock:ro # dockerd
       - "/:/hostfs:ro" # journald
-      - "../../services/vector/data:/var/lib/vector" # file checkpoints, internal state
+      - "../../services/vector/data:/var/lib/vector" # file checkpoints, internal state, disk buffers when sinks are unavailable
     environment:
       TZ: Asia/Singapore
