@@ -42,11 +42,6 @@ sections:
         url: https://torrents.nicholaslyz.com
         statusCheckAcceptCodes: '403'
 
-      - title: Files
-        description: filebrowser
-        icon: hl-filebrowser
-        url: https://files.nicholaslyz.com
-
       - title: Uptime
         description: Uptime Kuma
         icon: hl-uptime-kuma
