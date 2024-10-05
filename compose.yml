@@ -9,6 +9,7 @@ include:
   - compose.d/guacamole.yml
   - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml
+  - compose.d/logging/prometheus.yml
   - compose.d/logging/grafana.yml
   - compose.d/logging/vector.yml
   - compose.d/logging/victoria-logs.yml
