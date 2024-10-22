@@ -1,0 +1,7 @@
+services:
+  smartctl-exporter:
+    image: prometheuscommunity/smartctl-exporter
+    container_name: smartctl-exporter
+    restart: always
+    privileged: true
+    user: root
