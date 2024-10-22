@@ -1,0 +1,12 @@
+services:
+  node-exporter:
+    image: quay.io/prometheus/node-exporter
+    container_name: node-exporter
+    restart: always
+    network_mode: host
+    pid: host # This mounts the hosts /proc and /sys on the container's /proc and /sys
+    volumes:
+      - "/:/rootfs:ro,rslave"
+    command:
+      - "--path.rootfs=/rootfs"
+      - '--path.udev.data=/rootfs/run/udev/data'
