@@ -2,10 +2,10 @@ services:
   loki:
     image: grafana/loki:latest
     container_name: loki
-    command: "-config.file=${LOKI_CONFIG_PATH} -target=all"
+    command: "-config.file=/config/loki.yml -target=all"
     restart: always
     volumes:
-      - "../../services/loki/loki.yml:${LOKI_CONFIG_PATH}"
+      - "../../services/loki/loki.yml:/config/loki.yml"
       - "../../services/loki/data:/data" # Object store
     healthcheck:
       test:
