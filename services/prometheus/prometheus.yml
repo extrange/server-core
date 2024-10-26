@@ -25,3 +25,11 @@ scrape_configs:
   - job_name: smartctl
     static_configs:
       - targets: ["smartctl-exporter:9633"]
+
+  - job_name: loki
+    static_configs:
+      - targets: ["loki:3100"]
+
+  - job_name: victoria-logs
+    static_configs:
+      - targets: ["victoria-logs:9428"]

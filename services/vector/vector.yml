@@ -72,3 +72,31 @@ sinks:
       _msg_field: message
       _time_field: timestamp
       _stream_fields: source_type
+
+  # https://vector.dev/docs/reference/configuration/sinks/loki/
+  loki-dockerd:
+    type: loki
+    inputs:
+      - docker
+    endpoint: http://loki:3100
+    encoding:
+      codec: json
+      json:
+        pretty: true
+    labels:
+      container_name: "{{ container_name }}"
+      image: "{{ image }}"
+      source_type: "{{ source_type }}"
+
+  loki-journald-vector:
+    type: loki
+    inputs:
+      - journald
+      - vector
+    labels:
+      source_type: "{{ source_type }}"
+    endpoint: http://loki:3100
+    encoding:
+      codec: json
+      json:
+        pretty: true
