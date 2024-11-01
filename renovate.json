@@ -1,3 +1,9 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "docker-compose": {
+        "fileMatch": [
+            "(^|/)(?:docker-)?compose[^/]*\\.ya?ml$",
+            "compose.d/.*\\.ya?ml$"
+        ]
+    }
 }

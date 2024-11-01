@@ -20,3 +20,7 @@ repos:
         entry: bash -c 'trufflehog git file://. --since-commit HEAD --only-verified --fail --no-update'
         language: system
         stages: ["commit", "push"]
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.29.4
+    hooks:
+      - id: check-renovate
