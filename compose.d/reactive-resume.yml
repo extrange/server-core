@@ -2,7 +2,7 @@ services:
 
   reactive-resume-postgres:
     container_name: reactive-resume-postgres
-    image: postgres:16-alpine
+    image: postgres:17-alpine@sha256:14195b0729fce792f47ae3c3704d6fd04305826d57af3b01d5b4d004667df174
     restart: always
     volumes:
       - ../services/reactive-resume:/var/lib/postgresql/data
@@ -18,7 +18,7 @@ services:
 
   reactive-resume:
     container_name: reactive-resume
-    image: amruthpillai/reactive-resume:latest
+    image: amruthpillai/reactive-resume:latest@sha256:207aa74f9ee949307278a0a043904184dc3d4709dab95aa1ab21f346271d64ae
     restart: always
     depends_on:
       - reactive-resume-postgres

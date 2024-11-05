@@ -4,7 +4,7 @@ services:
 
     # 5.6.42 is the latest version still detecting the UAP-Outdoor+
     # https://blog.linitx.com/help-uap-adopt-upgrade/
-    image: jacobalberty/unifi:5.6.42
+    image: jacobalberty/unifi:v8.5.6@sha256:fb92425531a7dc40194668315082bb79c217417de6074127793a7e84c1d60fe8
     restart: always
     volumes:
       - ../services/unifi:/unifi

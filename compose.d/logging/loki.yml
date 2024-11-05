@@ -1,6 +1,6 @@
 services:
   loki:
-    image: grafana/loki:latest
+    image: grafana/loki:latest@sha256:ae0d78305c9c06512dfdee24b518eee82716269707c5e02ce62462c415a2f0c2
     container_name: loki
     command: "-config.file=/config/loki.yml -target=all"
     restart: always
