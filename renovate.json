@@ -3,6 +3,6 @@
   "extends": ["extrange/renovate-config:exceptMajor"],
   "docker-compose": {
     "fileMatch": ["compose.d/.*\\.ya?ml$"],
-    "ignorePaths": ["compose.d/immich"]
+    "ignorePaths": ["compose.d/immich", "compose.d/unifi.yml"]
   }
 }
