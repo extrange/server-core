@@ -2,7 +2,7 @@
 services:
   actualbudget:
     container_name: actualbudget
-    image: ghcr.io/actualbudget/actual-server
+    image: ghcr.io/actualbudget/actual-server@sha256:96880c0296b1e6873c570e8f779569acc727e5a7b1ead70dcc6cb58bfde36e7e
     restart: always
     environment:
       TZ: Asia/Singapore

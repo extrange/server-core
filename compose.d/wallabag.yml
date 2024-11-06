@@ -2,7 +2,7 @@ services:
 
   wallabag:
     container_name: wallabag
-    image: wallabag/wallabag
+    image: wallabag/wallabag@sha256:8854765d299d8e93f962d4be02ceb5703ed2ee24ec6c884f870bb7a18de41378
     restart: always
     volumes:
       - ../services/wallabag/data:/var/www/wallabag/data

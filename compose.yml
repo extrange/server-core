@@ -43,7 +43,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: nginx:mainline
+    image: nginx:mainline@sha256:28402db69fec7c17e179ea87882667f1e054391138f77ffaf0c3eb388efc3ffb
     restart: always
     volumes:
       - ./nginx/certs:/etc/nginx/certs:ro
