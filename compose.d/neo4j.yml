@@ -8,7 +8,7 @@ services:
     network_mode: service:ts-neo4j
 
   ts-neo4j:
-    image: tailscale/tailscale:v1.72@sha256:83a6faec34866f70914a7d241d6ca749e6914f08f4f9059d942e1c3088dc001b
+    image: tailscale/tailscale:v1.76@sha256:51d9f5f8543670ecd6b15363977876a876ac591ea45cc6adfc0bb2d07e487810
     container_name: ts-neo4j
     hostname: neo4j
     restart: always
