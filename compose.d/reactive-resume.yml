@@ -5,7 +5,7 @@ services:
     image: postgres:17-alpine@sha256:14195b0729fce792f47ae3c3704d6fd04305826d57af3b01d5b4d004667df174
     restart: always
     volumes:
-      - ../services/reactive-resume:/var/lib/postgresql/data
+      - ../services/reactive-resume/data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
