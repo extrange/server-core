@@ -1,7 +1,7 @@
 services:
   miniflux:
     container_name: miniflux
-    image: miniflux/miniflux
+    image: miniflux/miniflux@sha256:7d3e21d8c81b6ee3b1a177bba0099821c4eaa0ab38e7a7c0be461ed271e6c33f
     restart: always
     depends_on:
       miniflux-db:
@@ -14,7 +14,7 @@ services:
       - ADMIN_PASSWORD=test123
   miniflux-db:
     container_name: miniflux-db
-    image: postgres:15
+    image: postgres:15@sha256:491aea6e557dea673887a9008f872225b667d0f54223a10e085059a239459ccb
     restart: always
     environment:
       - POSTGRES_USER=miniflux

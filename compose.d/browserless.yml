@@ -1,7 +1,7 @@
 services:
   browserless:
     container_name: browserless
-    image: browserless/chrome
+    image: browserless/chrome@sha256:57d19e414d9fe4ae9d2ab12ba768c97f38d51246c5b31af55a009205c136012f
     restart: always
     environment:
       TZ: Asia/Singapore

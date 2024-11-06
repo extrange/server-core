@@ -1,6 +1,6 @@
 services:
   personal-db:
-    image: postgres:16.4
+    image: postgres:16.4@sha256:91f464e7ba0ad91a106c94cff079fb4384139291b8c0502fd36989cf2c788bbb
     container_name: personal-db
     restart: always
     environment:
