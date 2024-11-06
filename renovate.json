@@ -1,18 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", "schedule:earlyMondays"],
+  "extends": ["extrange/renovate-config:exceptMajor"],
   "docker-compose": {
     "fileMatch": ["compose.d/.*\\.ya?ml$"],
     "ignorePaths": ["compose.d/immich"]
-  },
-  "ignoreTests": true,
-  "packageRules": [
-    {
-      "groupName": "all non-major dependencies",
-      "groupSlug": "all-minor-patch",
-      "matchPackageNames": ["*"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    }
-  ]
+  }
 }
