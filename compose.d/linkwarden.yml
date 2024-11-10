@@ -1,0 +1,23 @@
+services:
+  lw-postgres:
+    image: postgres:17-alpine
+    container_name: lw-postgres
+    restart: always
+    volumes:
+      - ../services/linkwarden/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${LW_POSTGRES_PASSWORD}
+  linkwarden:
+    container_name: linkwarden
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:${LW_POSTGRES_PASSWORD}@lw-postgres:5432/postgres
+      NEXTAUTH_URL: http://localhost:3000/api/v1/auth
+      NEXTAUTH_SECRET: ${LW_NEXTAUTH_SECRET}
+      NEXT_PUBLIC_DISABLE_REGISTRATION: true
+    restart: always
+    image: ghcr.io/linkwarden/linkwarden
+    volumes:
+      - ../services/linkwarden/data:/data/data
+    depends_on:
+      - lw-postgres
