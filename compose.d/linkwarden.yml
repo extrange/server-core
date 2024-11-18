@@ -1,6 +1,6 @@
 services:
   lw-postgres:
-    image: postgres:17-alpine
+    image: postgres:17-alpine@sha256:0d9624535618a135c5453258fd629f4963390338b11aaffb92292c12df3a6c17
     container_name: lw-postgres
     restart: always
     volumes:
@@ -16,7 +16,7 @@ services:
       NEXTAUTH_SECRET: ${LW_NEXTAUTH_SECRET}
       NEXT_PUBLIC_DISABLE_REGISTRATION: true
     restart: always
-    image: ghcr.io/linkwarden/linkwarden
+    image: ghcr.io/linkwarden/linkwarden@sha256:7f80a03d688c3e5d9ec6b34f5b65cd861ff8c9eb08d12932dc8fc7482991f238
     volumes:
       - ../services/linkwarden/data:/data/data
     depends_on:
