@@ -165,8 +165,3 @@ sections:
         description: Grafana
         icon: hl-grafana
         url: https://grafana.nicholaslyz.com
-
-      - title: Linkwarden
-        description: Linkwarden
-        icon: hl-linkwarden
-        url: https://linkwarden.nicholaslyz.com
