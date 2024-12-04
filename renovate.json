@@ -7,6 +7,7 @@
   },
   "digest": {
     "automerge": true,
-    "ignoreTests": true
+    "ignoreTests": true,
+    "automergeType": "branch"
   }
 }
