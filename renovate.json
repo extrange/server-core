@@ -1,8 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["extrange/renovate-config:exceptMajor", "default:automergeBranchPush"],
+  "extends": [
+    "extrange/renovate-config:exceptMajor",
+    ":automergeBranch"
+  ],
   "docker-compose": {
-    "fileMatch": ["compose.d/.*\\.ya?ml$"],
-    "ignorePaths": ["compose.d/immich", "compose.d/unifi.yml"]
+    "fileMatch": [
+      "compose.d/.*\\.ya?ml$"
+    ],
+    "ignorePaths": [
+      "compose.d/immich",
+      "compose.d/unifi.yml"
+    ]
   }
 }
