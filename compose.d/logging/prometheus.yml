@@ -1,6 +1,6 @@
 services:
   prometheus:
-    image: prom/prometheus@sha256:c62e2f333beae2fdac8c3c7a3daaa7ac81110023cbc5857b0ec541f09d997951
+    image: prom/prometheus@sha256:565ee86501224ebbb98fc10b332fa54440b100469924003359edf49cbce374bd
     container_name: prometheus
     user: root # TODO shouldn't require this
     ports:

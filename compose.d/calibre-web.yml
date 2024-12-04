@@ -1,7 +1,7 @@
 services:
   calibre-web:
     container_name: calibre-web
-    image: linuxserver/calibre-web@sha256:64ee4f21d40c8f7f530413d3f9b2ff83896c671e9631a264035f5e6f67655bda
+    image: linuxserver/calibre-web@sha256:fee2cd6fc8264a514255bfa6ffa6ec31dcc6de64b89b037924b1ee76eb81f532
     restart: always
     environment:
       PUID: 1000
