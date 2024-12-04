@@ -6,8 +6,7 @@
     "ignorePaths": ["compose.d/immich", "compose.d/unifi.yml"]
   },
   "digest": {
-    "automerge": true,
-    "ignoreTests": true,
-    "automergeType": "branch"
+    "groupName": "all digest updates",
+    "groupSlug": "all-digest-updates"
   }
 }

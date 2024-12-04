@@ -6,9 +6,11 @@ Containers comprising my home server. See my [blog] for more details.
 - `services/`: individual container configuration/mounted volumes
 - `nginx/`: reverse proxy configuration
 
-Renovate:
+Renovate config:
 
-- Docker digest updates for container images without versions are considered major updates, and so are not grouped.
+- Docker image digest updates are committed directly without a PR to reduce noise (they can't be grouped, as they are considered major version updates).
+- Minor tag version updates are group in a single PR
+- Major tag version updates are in individual PRs
 
 ## Updating Postgres containers across major versions
 
