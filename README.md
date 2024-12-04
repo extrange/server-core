@@ -10,13 +10,14 @@ Renovate config:
 
 - Docker image digest updates:
   - grouped
-  - committed directly
+  - committed directly (no notifications)
   - note: they are treated separate from major/minor/patch updates in config
 - Minor tag updates:
   - grouped
-  - automerged
+  - automerged (so I get email notifications)
 - Major tag updates:
   - individual PRs
+  - manually merge
 
 ## Updating Postgres containers across major versions
 
