@@ -2,7 +2,7 @@ services:
 
   guacd:
     container_name: guacd
-    image: guacamole/guacd@sha256:0e00b0bdbfa5eab3c7d5c5ce720edf53b43ff0848f1973f4422d3816bd6f0bb4
+    image: guacamole/guacd@sha256:854dfa8136607e3e82b3b51f1c65c90213d5b33d421c4d48d37bbf7d6a5b45d2
     restart: always
     extra_hosts:
       # Needed to connect to QEMU's VNC server
@@ -10,7 +10,7 @@ services:
 
   guacamole:
     container_name: guacamole
-    image: guacamole/guacamole@sha256:b596c5abb2f5a7247dbc1ac24d416ad74f2001d3448ab2be7a046f71343524fd
+    image: guacamole/guacamole@sha256:30498b9cf9e8e605eba02b62afa959efb30d3051cfa6fa369c41f5500c4757f8
     restart: always
     environment:
       GUACD_HOSTNAME: guacd
@@ -23,7 +23,7 @@ services:
 
   guacamole-db:
     container_name: guacamole-db
-    image: mysql:9.1@sha256:fd8d1b4e287c49e1e35eb5a103f337111947662130eb8a3e6c3e823813f47f7d
+    image: mysql:9.1@sha256:0255b469f0135a0236d672d60e3154ae2f4538b146744966d96440318cc822c6
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 12345
