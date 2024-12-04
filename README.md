@@ -6,6 +6,10 @@ Containers comprising my home server. See my [blog] for more details.
 - `services/`: individual container configuration/mounted volumes
 - `nginx/`: reverse proxy configuration
 
+Renovate:
+
+- Docker digest updates for container images without versions are considered major updates, and so are not grouped.
+
 ## Updating Postgres containers across major versions
 
 Move `data` to `old` and remount:
