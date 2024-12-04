@@ -1,7 +1,7 @@
 services:
   scrutiny:
     container_name: scrutiny
-    image: ghcr.io/analogj/scrutiny:master-omnibus@sha256:10071f5ca458d6a2c1ada80e93deaccd14ecabcc5421201d03c4b687ae5c21c4
+    image: ghcr.io/analogj/scrutiny:master-omnibus@sha256:d643deeb1163f4ad425e56eeb0328bbdb7ccfe60335e94a23a477cee5f536a96
     restart: always
     privileged: true
     volumes:
