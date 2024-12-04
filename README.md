@@ -8,9 +8,15 @@ Containers comprising my home server. See my [blog] for more details.
 
 Renovate config:
 
-- Docker image digest updates are committed directly without a PR to reduce noise (they can't be grouped, as they are considered major version updates).
-- Minor tag version updates are group in a single PR
-- Major tag version updates are in individual PRs
+- Docker image digest updates:
+  - grouped
+  - committed directly
+  - note: they are treated separate from major/minor/patch updates in config
+- Minor tag updates:
+  - grouped
+  - automerged
+- Major tag updates:
+  - individual PRs
 
 ## Updating Postgres containers across major versions
 
