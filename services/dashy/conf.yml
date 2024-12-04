@@ -47,12 +47,6 @@ sections:
         icon: hl-uptime-kuma
         url: https://uptime.icybat.com/manage-status-page
 
-      - title: Virt-Manager
-        description: virt-manager in Docker
-        icon: virt-manager.png
-        url: https://vm.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
-
       - title: Web VM Viewer
         description: Apache Guacamole
         icon: hl-guacamole

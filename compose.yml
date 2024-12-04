@@ -36,7 +36,6 @@ include:
   - compose.d/wallabag.yml
   - services/backend/compose.yml
   - services/realtime-todo-server/compose.yml
-  - services/virt-manager/compose.yml
 
 services:
 
