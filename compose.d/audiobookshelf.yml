@@ -1,7 +1,7 @@
 services:
   audiobookshelf:
     container_name: audiobookshelf
-    image: ghcr.io/advplyr/audiobookshelf:latest@sha256:88afb2bfbada78c1084ea7e3a5c0c51512ecb547c5ca9ad264d83754b413eb99
+    image: ghcr.io/advplyr/audiobookshelf:latest@sha256:aa88c9f4652872a2a72043511a87d17ec743b60f53e8024e9868ebec5aae59bd
     restart: always
     environment:
       TZ: Asia/Singapore
