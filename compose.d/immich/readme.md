@@ -11,7 +11,7 @@ docker compose up -d --force-recreate --remove-orphans immich-server immich-mach
 
 ```
 docker compose exec -it immich-server bash
-immich login-key http://localhost:3001/api <API-KEY>
+immich login-key http://localhost:2283/api <API-KEY>
 immich upload -r <UPLOAD_DIR>
 ```
 
