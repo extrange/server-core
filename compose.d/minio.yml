@@ -1,7 +1,7 @@
 services:
   minio:
     container_name: minio
-    image: quay.io/minio/minio:latest@sha256:ac591851803a79aee64bc37f66d77c56b0a4b6e12d9e5356380f4105510f2332
+    image: quay.io/minio/minio:latest@sha256:149fdd73108553247ceee85fc65466f51034bd6e145d6e0c0e415167f5f1274f
     restart: always
     command: server --console-address ":9001" /data
     environment:

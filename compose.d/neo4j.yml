@@ -1,6 +1,6 @@
 services:
   neo4j:
-    image: neo4j@sha256:ca5da0c4cb596a9e9097aad8c79c10156f0c6261faa2ddcc74183a1e552554ed
+    image: neo4j@sha256:e50d0b04e9260586712d7012a98d6286e4502a0a9666c5a791e20c9ccbbfb7a8
     container_name: neo4j
     restart: always
     volumes:
@@ -8,7 +8,7 @@ services:
     network_mode: service:ts-neo4j
 
   ts-neo4j:
-    image: tailscale/tailscale:v1.76@sha256:da35f0fbeb3037754049e3b079cb30c58c140576a50b54be107c0ff6ad0ec0e9
+    image: tailscale/tailscale:v1.78@sha256:9d4c17a8451e2d1282c22aee1f08d28dc106979c39c7b5a35ec6313d4682a43e
     container_name: ts-neo4j
     hostname: neo4j
     restart: always
