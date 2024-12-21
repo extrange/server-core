@@ -159,3 +159,8 @@ sections:
         description: Grafana
         icon: hl-grafana
         url: https://grafana.nicholaslyz.com
+
+      - title: Hoarder
+        description: Hoarder
+        icon: hl-hoarder
+        url: https://hoarder.nicholaslyz.com
