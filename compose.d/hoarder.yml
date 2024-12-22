@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/hoarder-app/hoarder:release
+    image: ghcr.io/hoarder-app/hoarder:release@sha256:d09c79e8fec1651252d25d6c4d7f723c72548bd9a070136251c901aa36d571e3
     restart: always
     volumes:
       - ../services/hoarder/data:/data
@@ -12,7 +12,7 @@ services:
       NEXTAUTH_URL: https://hoarder.nicholaslyz.com
       DISABLE_SIGNUPS: true
   hoarder-chrome:
-    image: gcr.io/zenika-hub/alpine-chrome:123
+    image: gcr.io/zenika-hub/alpine-chrome:123@sha256:e38563d4475a3d791e986500a2e4125c9afd13798067138881cf770b1f6f3980
     restart: always
     command:
       - --no-sandbox
@@ -22,7 +22,7 @@ services:
       - --remote-debugging-port=9222
       - --hide-scrollbars
   hoarder-meilisearch:
-    image: getmeili/meilisearch:v1.11.1
+    image: getmeili/meilisearch:v1.11.3@sha256:6f8f1fc29d1ff67b4d8d503bb4e0a69b55c8d42600decafde951344218193a27
     restart: unless-stopped
     environment:
       MEILI_NO_ANALYTICS: "true"

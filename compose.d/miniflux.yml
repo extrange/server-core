@@ -1,7 +1,7 @@
 services:
   miniflux:
     container_name: miniflux
-    image: miniflux/miniflux@sha256:e21953092096579daaad39ba69729f01b08380b03bae4544a943f549c8e11a67
+    image: miniflux/miniflux@sha256:20adbf84f0d8cd24b4ebbc138e31087419a274fd9c717c6a909b0773b4538b98
     restart: always
     depends_on:
       miniflux-db:
