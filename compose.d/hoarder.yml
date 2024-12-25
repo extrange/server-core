@@ -1,11 +1,13 @@
 services:
   hoarder:
     image: ghcr.io/hoarder-app/hoarder:release@sha256:d09c79e8fec1651252d25d6c4d7f723c72548bd9a070136251c901aa36d571e3
+    container_name: hoarder
     restart: always
     volumes:
       - ../services/hoarder/data:/data
     environment:
       MEILI_ADDR: http://hoarder-meilisearch:7700
+      MEILI_MASTER_KEY: ${HOARDER_MEILI_MASTER_KEY}
       BROWSER_WEB_URL: http://hoarder-chrome:9222
       DATA_DIR: /data
       NEXTAUTH_SECRET: ${HOARDER_NEXTAUTH_SECRET}
@@ -13,6 +15,7 @@ services:
       DISABLE_SIGNUPS: true
   hoarder-chrome:
     image: gcr.io/zenika-hub/alpine-chrome:124@sha256:1a0046448e0bb6c275c88f86e01faf0de62b02ec8572901256ada0a8c08be23f
+    container_name: hoarder-chrome
     restart: always
     command:
       - --no-sandbox
@@ -23,6 +26,7 @@ services:
       - --hide-scrollbars
   hoarder-meilisearch:
     image: getmeili/meilisearch:v1.11.3@sha256:6f8f1fc29d1ff67b4d8d503bb4e0a69b55c8d42600decafde951344218193a27
+    container_name: hoarder-meilisearch
     restart: unless-stopped
     environment:
       MEILI_NO_ANALYTICS: "true"
