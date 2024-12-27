@@ -6,7 +6,6 @@ services:
     volumes:
       - /dev/urandom:/dev/random:ro
       - ../services/backend:/db/backend # Literature
-      - ../services/wallabag/data/db:/db/wallabag # Wallabag
     healthcheck:
       test: curl --fail -I http://localhost:3000/api/health || exit 1
       interval: 15s

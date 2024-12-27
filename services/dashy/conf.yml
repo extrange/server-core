@@ -80,11 +80,6 @@ sections:
         url: https://disks.nicholaslyz.com
         statusCheckAcceptCodes: '403'
 
-      - title: Wallabag
-        description: wallabag
-        icon: hl-wallabag
-        url: https://wallabag.nicholaslyz.com
-
       - title: News
         description: miniflux
         icon: hl-miniflux

@@ -34,7 +34,6 @@ include:
   - compose.d/stirling-pdf.yml
   - compose.d/syncthing.yml
   - compose.d/unifi.yml
-  - compose.d/wallabag.yml
   - services/backend/compose.yml
   - services/realtime-todo-server/compose.yml
 
