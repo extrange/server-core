@@ -159,3 +159,8 @@ sections:
         description: Hoarder
         icon: hl-hoarder
         url: https://hoarder.nicholaslyz.com
+
+      - title: Chat
+        description: Open Web UI
+        icon: hl-open-webui
+        url: https://chat.nicholaslyz.com

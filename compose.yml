@@ -26,6 +26,7 @@ include:
   - compose.d/navidrome.yml
   - compose.d/neo4j.yml
   - compose.d/ofelia.yml
+  - compose.d/open-webui.yml
   - compose.d/qbittorrent.yml
   - compose.d/reactive-resume.yml
   - compose.d/scrutiny.yml
