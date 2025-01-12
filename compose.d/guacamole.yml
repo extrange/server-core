@@ -2,7 +2,7 @@ services:
 
   guacd:
     container_name: guacd
-    image: guacamole/guacd@sha256:198d16c29a01053bb89862866b9da25157d443720dbd031ef9f8202869c6f096
+    image: guacamole/guacd@sha256:4dbc43ac834656c9a3e1cd4eb14850fde53506d497c293c1acbc25489c489ad0
     restart: always
     extra_hosts:
       # Needed to connect to QEMU's VNC server
@@ -10,7 +10,7 @@ services:
 
   guacamole:
     container_name: guacamole
-    image: guacamole/guacamole@sha256:1788ebf890668b58ed4b9b0699740bac2daca791c8bd6fa91d5685b8eb680ae8
+    image: guacamole/guacamole@sha256:cb7e05fecaf69aeb860cf130ff4e674dadba377f2564f41f7f0e2a18651b44f9
     restart: always
     environment:
       GUACD_HOSTNAME: guacd
