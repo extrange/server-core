@@ -11,7 +11,7 @@ services:
       - ../services/syncthing:/config
       - /mnt/storage/Notes:/Notes
       - /mnt/storage/Relationship:/Relationship
-      - /mnt/storage/Work:/Work
+      - /mnt/storage/Work/Resources:/Resources
       - "/mnt/storage/Personal/Passport and ID Photos:/Passport and ID Photos"
       - /mnt/storage/Backups/WhatsApp:/WhatsApp
       - "/mnt/storage/Memorial Folder/Elizabeth/Ophthalmology:/Elizabeth/Ophthalmology"
