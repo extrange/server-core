@@ -8,7 +8,7 @@ services:
       - ../services/open-webui:/app/backend/data
     environment:
       CUSTOM_NAME: AI Chat
-      ENABLE_OAUTH_SIGNUP: true
-      GOOGLE_CLIENT_ID: 160062953791-q85145bhma87g9at5d856qnesqf194sl.apps.googleusercontent.com
-      GOOGLE_CLIENT_SECRET: ${OPEN_WEBUI_GOOGLE_CLIENT_SECRET}
-      GOOGLE_REDIRECT_URI: https://chat.nicholaslyz.com/oauth/google/callback
+      # ENABLE_OAUTH_SIGNUP: true
+      # GOOGLE_CLIENT_ID: 160062953791-q85145bhma87g9at5d856qnesqf194sl.apps.googleusercontent.com
+      # GOOGLE_CLIENT_SECRET: ${OPEN_WEBUI_GOOGLE_CLIENT_SECRET}
+      # GOOGLE_REDIRECT_URI: https://chat.nicholaslyz.com/oauth/google/callback
