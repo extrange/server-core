@@ -1,6 +1,6 @@
 services:
   metabase:
-    image: metabase/metabase:latest@sha256:5ead2fd7c85e44caac9758f9974704921af12e7f6c87be19dc54463596f2f8d9
+    image: metabase/metabase:latest@sha256:5405ecff5712e3fdf44e0a8b4803f1f2a3531069cd90c53947b4640ad17acb3a
     container_name: metabase
     restart: always
     volumes:
@@ -25,7 +25,7 @@ services:
       - trading-bot-db
 
   metabase-db:
-    image: postgres:17@sha256:888402a8cd6075c5dc83a31f58287f13306c318eaad016661ed12e076f3e6341
+    image: postgres:17@sha256:87ec5e0a167dc7d4831729f9e1d2ee7b8597dcc49ccd9e43cc5f89e808d2adae
     restart: always
     container_name: metabase-db
     environment:

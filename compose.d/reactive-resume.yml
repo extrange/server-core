@@ -18,7 +18,7 @@ services:
 
   reactive-resume:
     container_name: reactive-resume
-    image: amruthpillai/reactive-resume:latest@sha256:ea48435fa7737b6c10876f3375558e050b0989060fa5398da308600dbd66a95f
+    image: amruthpillai/reactive-resume:latest@sha256:9ef08af92493ae7c47dfb87a0e337f096737791eba9498f65249319ed8c640c3
     restart: always
     depends_on:
       - reactive-resume-postgres
