@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main@sha256:a070f41cdf1dae295992050a46bb80cecedb087ca73342729bba743ab09d5fcc
+    image: ghcr.io/open-webui/open-webui:main@sha256:2ae6ed7a2a9a862a7c2e28428298c5625e498d59b7de1ac2a0b1c3c43132a2b7
     container_name: open-webui
     restart: always
     volumes:
