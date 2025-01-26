@@ -30,7 +30,7 @@ services:
       - --remote-debugging-port=9222
       - --hide-scrollbars
   hoarder-meilisearch:
-    image: getmeili/meilisearch:v1.12.4@sha256:fc14d07dc2808b915f8ef60b1164de0bbb575ac5f3bc281316db22421ef69afb
+    image: getmeili/meilisearch:v1.12.7@sha256:9ec94d00dbcb3cb465d315e69a9149f3a4d6b67e0efeff1367828d5d746eb4d3
     container_name: hoarder-meilisearch
     restart: unless-stopped
     environment:
