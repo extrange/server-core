@@ -1,7 +1,7 @@
 services:
   dashy:
     container_name: dashy
-    image: lissy93/dashy@sha256:1ae179850c795d1325472bca8f0d7a8f59e541d98c3d34923b70cef4f951343e
+    image: lissy93/dashy@sha256:035d8e61ebdcc351182e889737fd1c549555bee2608e9d19cfde81c3163f91fc
     restart: always
     volumes:
       - ../services/dashy/conf.yml:/app/user-data/conf.yml:ro
