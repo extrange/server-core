@@ -1,6 +1,6 @@
 services:
   neo4j:
-    image: neo4j@sha256:e5d9b5a755dd1b7feeb493f2f0bd67b27a7fffab48bddd211a2f80f54410fca5
+    image: neo4j@sha256:1ee5391c57442abce9e16711b9f935c922bcd3adf0291aa44d6b004eef4a344c
     container_name: neo4j
     restart: always
     volumes:
