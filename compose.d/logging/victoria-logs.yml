@@ -1,6 +1,6 @@
 services:
   victoria-logs:
-    image: docker.io/victoriametrics/victoria-logs:v1.17.0-victorialogs@sha256:a2e5d8df74911abdf192721673cd4719efd94fc9786f70c2e0578e4fb024eaf1
+    image: docker.io/victoriametrics/victoria-logs:v1.18.0-victorialogs@sha256:fd3e18917cce576da473dedefedfecef18a786e52dfd74f37f1f43c60f20bcbd
     container_name: victoria-logs
     restart: always
     ports:
