@@ -6,6 +6,7 @@ include:
   - compose.d/changedetection-io.yml
   - compose.d/dashy.yml
   - compose.d/ddns-updater.yml
+  - compose.d/factorio.yml
   - compose.d/guacamole.yml
   - compose.d/immich/immich.yml
   - compose.d/jellyfin.yml
