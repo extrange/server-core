@@ -40,7 +40,7 @@ sections:
         description: qBittorrent
         icon: hl-qbittorrent
         url: https://torrents.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
+        statusCheckAcceptCodes: "403"
 
       - title: Uptime
         description: Uptime Kuma
@@ -56,13 +56,13 @@ sections:
         description: changedetection.io
         icon: hl-changedetection-io
         url: https://changedetection.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
+        statusCheckAcceptCodes: "403"
 
       - title: Headless Chrome
         description: Browserless
         icon: hl-browserless
         url: https://browserless.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
+        statusCheckAcceptCodes: "403"
 
       - title: Recipes
         description: Mealie
@@ -78,7 +78,7 @@ sections:
         description: scrutiny
         icon: hl-scrutiny
         url: https://disks.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
+        statusCheckAcceptCodes: "403"
 
       - title: News
         description: miniflux
@@ -119,7 +119,7 @@ sections:
         description: qmcgaw/ddns-updater
         icon: hl-ddns-updater
         url: https://ddns-updater.nicholaslyz.com
-        statusCheckAcceptCodes: '403'
+        statusCheckAcceptCodes: "403"
 
       - title: PDF Editor
         description: stirling-pdf
@@ -155,10 +155,10 @@ sections:
         icon: hl-grafana
         url: https://grafana.nicholaslyz.com
 
-      - title: Hoarder
-        description: Hoarder
-        icon: hl-hoarder
-        url: https://hoarder.nicholaslyz.com
+      - title: Karakeep
+        description: Karakeep
+        icon: hl-karakeep
+        url: https://karakeep.nicholaslyz.com
 
       - title: Chat
         description: Open Web UI
