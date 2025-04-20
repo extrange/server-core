@@ -4,7 +4,7 @@ services:
   ofelia:
     container_name: ofelia
     restart: always
-    image: mcuadros/ofelia:latest@sha256:ef9b94b936146b3c8404c8b4ec6eaa5a2175386adda6126bbea474682681d4ed
+    image: mcuadros/ofelia:latest@sha256:baa8c798e8d41ca5b147887e8cdb3ca69bd34a15d28603e225df4b684c75b13f
     volumes:
       - "../services/ofelia/config.ini:/etc/ofelia/config.ini:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
