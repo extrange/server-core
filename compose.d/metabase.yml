@@ -1,6 +1,6 @@
 services:
   metabase:
-    image: metabase/metabase:latest@sha256:4cd2dfe3ea6ab1d48457efb9701349c685773ce89b4574494a0bb57ae0fc2f9b
+    image: metabase/metabase:latest@sha256:d545453f7bfb222c16a77a400b6a88a0c27f5bd1378e0d8f17e2fb9bd3b3a343
     container_name: metabase
     restart: always
     volumes:
