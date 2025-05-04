@@ -1,7 +1,7 @@
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: ghcr.io/hotio/qbittorrent@sha256:3da9a3482405dee23477fe6c5327098a417fc3fcd72eeb492d2225bed6b2f6c9
+    image: ghcr.io/hotio/qbittorrent@sha256:38709e39ed794a1bc2f165d281c477941e5f722b49108356c4afc207f70f9527
     restart: always
     volumes:
       - ../services/qbittorrent:/config/config:rw
