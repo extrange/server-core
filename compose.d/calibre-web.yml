@@ -10,3 +10,6 @@ services:
     volumes:
       - /mnt/storage/Books:/library
       - ../services/calibre-web:/config
+    labels:
+      traefik.http.routers.calibre-web.rule: Host(`calibre.nicholaslyz.com`)
+      traefik.enable: true

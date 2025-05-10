@@ -10,3 +10,6 @@ services:
       - /mnt/storage/Videos:/media
     environment:
       JELLYFIN_PublishedServerUrl: https://videos.nicholaslyz.com
+    labels:
+      traefik.http.routers.jellyfin.rule: Host(`videos.nicholaslyz.com`)
+      traefik.enable: true

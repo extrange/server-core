@@ -1,0 +1,12 @@
+tcp:
+  services:
+    chanel-server:
+      loadBalancer:
+        servers:
+          - address: 192.168.1.135:443
+  routers:
+    chanel-server:
+      rule: HostSNIRegexp(`^.+\.chanelng\.com$`) || HostSNI(`chanelng.com`)
+      service: chanel-server
+      tls:
+        passthrough: true

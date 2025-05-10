@@ -6,3 +6,6 @@ services:
     volumes:
       - ../services/dashy/conf.yml:/app/user-data/conf.yml:ro
       - ../services/dashy/icons:/app/user-data/item-icons:ro
+    labels:
+      traefik.http.routers.dashy.rule: Host(`home.nicholaslyz.com`)
+      traefik.enable: true

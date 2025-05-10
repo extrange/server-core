@@ -1,11 +1,15 @@
 services:
   browserless:
     container_name: browserless
-    image: browserless/chrome@sha256:57d19e414d9fe4ae9d2ab12ba768c97f38d51246c5b31af55a009205c136012f
+    image: ghcr.io/browserless/chromium
     restart: always
     environment:
       TZ: Asia/Singapore
+      TOKEN: ${BROWSERLESS_TOKEN}
       DEFAULT_STEALTH: true
+      PROXY_HOST: browserless.nicholaslyz.com
+      PROXY_PORT: 443
+      PROXY_SSL: true
 
       # The following are necessary for link previews to work
       DEFAULT_BLOCK_ADS: true
@@ -14,3 +18,8 @@ services:
     networks:
       - browserless # Allow use by other containers outside of server-core
       - default
+    labels:
+      traefik.docker.network: server-core_default
+      traefik.enable: true
+      traefik.http.routers.browserless.rule: Host(`browserless.nicholaslyz.com`)
+      traefik.http.services.browserless.loadbalancer.server.port: 3000

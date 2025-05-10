@@ -10,3 +10,6 @@ services:
       - ../services/audiobookshelf/podcasts:/podcasts
       - ../services/audiobookshelf/config:/config
       - ../services/audiobookshelf/metadata:/metadata
+    labels:
+      traefik.http.routers.audiobookshelf.rule: Host(`audiobooks.nicholaslyz.com`)
+      traefik.enable: true

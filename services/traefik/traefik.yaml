@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/conf.d
+    watch: true
+api:
+  debug: true
+  disableDashboardAd: true
+certificatesResolvers:
+  leresolver:
+    acme:
+      storage: /etc/traefik/data/acme.json
+      dnsChallenge:
+        provider: cloudflare
+log:
+  level: INFO
+
+accessLog: {}
+
+entryPoints:
+  http:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          scheme: https
+          to: https
+          permanent: true
+
+  https:
+    address: ":443"
+    asDefault: true # Don't create HTTP routers automatically
+    http:
+      tls:
+        certResolver: leresolver
+        domains:
+          - main: "*.nicholaslyz.com"
+          - main: "*.angfamily.net"

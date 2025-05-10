@@ -7,3 +7,7 @@ services:
       - ../services/ddns-updater:/updater/data
     environment:
       TZ: Asia/Singapore
+    labels:
+      traefik.http.routers.ddns-updater.rule: Host(`ddns-updater.nicholaslyz.com`)
+      traefik.http.routers.ddns-updater.middlewares: check-superuser@file
+      traefik.enable: true
