@@ -16,3 +16,8 @@ http:
     check-superuser:
       forwardAuth:
         address: http://backend:8000/account/check-superuser/
+  # Only available via the file provider
+  # https://github.com/traefik/traefik/issues/7893
+  serversTransports:
+    unifi:
+      insecureSkipVerify: true
