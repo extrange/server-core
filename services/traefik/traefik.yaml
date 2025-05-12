@@ -2,6 +2,7 @@
 providers:
   docker:
     exposedByDefault: false
+    network: server-core_default
   file:
     directory: /etc/traefik/conf.d
     watch: true

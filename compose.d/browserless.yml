@@ -19,7 +19,6 @@ services:
       - browserless # Allow use by other containers outside of server-core
       - default
     labels:
-      traefik.docker.network: server-core_default
       traefik.enable: true
       traefik.http.routers.browserless.rule: Host(`browserless.nicholaslyz.com`)
       traefik.http.services.browserless.loadbalancer.server.port: 3000
