@@ -36,6 +36,8 @@ entryPoints:
     address: ":443"
     asDefault: true # Don't create HTTP routers automatically
     http:
+      middlewares:
+        - no-index@file
       tls:
         certResolver: leresolver
         domains:
