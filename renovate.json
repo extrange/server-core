@@ -4,12 +4,9 @@
     "extrange/renovate-config:exceptMajor"
   ],
   "docker-compose": {
-    "managerFilePatterns": [
-      "/compose.d/.*\\.ya?ml$/"
-    ],
     "ignorePaths": [
-      "compose.d/immich",
-      "compose.d/unifi.yml"
+      "services/immich",
+      "services/unifi"
     ]
   },
   "ignoreTests": true
