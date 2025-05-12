@@ -34,7 +34,7 @@ services:
       STORAGE_URL: https://minio.nicholaslyz.com/reactive-resume
 
       # -- Printer (Chrome) --
-      CHROME_TOKEN: chrome_token
+      CHROME_TOKEN: ${BROWSERLESS_TOKEN}
       CHROME_URL: ws://browserless:3000
 
       # -- Database (Postgres) --
