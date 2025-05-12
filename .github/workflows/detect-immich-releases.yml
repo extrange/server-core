@@ -23,28 +23,37 @@ jobs:
       - name: Fail if immich compose.yml does not exist
         run: |
           [ -f $IMMICH_COMPOSE_FILE ]
-    
+
       - name: Add my own modifications to that compose.yml, overwriting the existing
         run: |
           yq '
-            with(.services.immich-server.volumes; . += "../../services/immich/.config:/root/.config" |
-              .[-1] line_comment="Save immich-cli logins on container restarts") |
-            
-            # nginx is our reverse proxy
-            del(.services.immich-server.ports) |
+            with(.services.immich-server;
 
-            # Avoid clashing with other containers in my compose
-            .services.immich-server.depends_on[] |= "immich-" + . |
+              # Preserve logins
+              .volumes += "../../services/immich/.config:/root/.config" |
+              .volumes[-1] line_comment="Save immich-cli logins on container restarts" |
 
+              # Add traefik labels
+              .labels."traefik.http.routers.immich.rule" = "Host(`photos.nicholaslyz.com`) || Host(`photos.angfamily.net`)" |
+              .labels."traefik.enable" = true |
+
+              # We are using a reverse proxy so no need to expose ports
+              del(.ports) |
+
+              # Update depends_on container names
+              .depends_on[] |= "immich-" + .
+            ) |
+
+            # Append services/immich prefix to volumes
             .services.immich-machine-learning.volumes[] |= "../../services/immich/" + . |
 
+            # Append immich- prefix to redis and database services
             (.services.redis | key) = "immich-redis" |
-
             (.services.database | key) = "immich-database" |
 
             del(.volumes)
           ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
-      
+
       - name: Create PR
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
         with:
