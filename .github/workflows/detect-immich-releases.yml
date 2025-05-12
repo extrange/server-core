@@ -46,7 +46,7 @@ jobs:
 
             # Append immich- prefix to redis and database services
             (.services.redis | key) = "immich-redis" |
-            (.services.database | key) = "immich-database" |
+            (.services.database | key) = "immich-database"
           ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
 
       - name: Create PR
