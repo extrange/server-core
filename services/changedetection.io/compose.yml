@@ -6,7 +6,7 @@ services:
     volumes:
       - ./data:/datastore
     environment:
-      PLAYWRIGHT_DRIVER_URL: ws://browserless:3000
+      PLAYWRIGHT_DRIVER_URL: ${PLAYWRIGHT_DRIVER_URL}
     labels:
       traefik.http.routers.changedetection-io.rule: Host(`changedetection.nicholaslyz.com`)
       traefik.http.routers.changedetection-io.middlewares: check-superuser@file
