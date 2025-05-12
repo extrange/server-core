@@ -10,9 +10,6 @@
     "ignorePaths": [
       "compose.d/immich",
       "compose.d/unifi.yml"
-    ],
-    "ignoreDeps": [
-      "getmeili/meilisearch"
     ]
   },
   "ignoreTests": true
