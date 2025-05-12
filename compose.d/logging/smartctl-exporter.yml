@@ -1,7 +1,0 @@
-services:
-  smartctl-exporter:
-    image: prometheuscommunity/smartctl-exporter@sha256:cfe22c36d7d2fac48ebf619707305acb65eb0fb670656eb80f356e606d782bc1
-    container_name: smartctl-exporter
-    restart: always
-    privileged: true
-    user: root

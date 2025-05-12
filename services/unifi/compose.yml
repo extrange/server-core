@@ -1,0 +1,25 @@
+services:
+  unifi:
+    container_name: unifi
+
+    # 5.6.42 is the latest version still detecting the UAP-Outdoor+
+    # https://blog.linitx.com/help-uap-adopt-upgrade/
+    image: jacobalberty/unifi:5.6.42@sha256:c31c5fda7b85eeffd7f092f4bbcb7f93be64bbcc62dfc46563bc1b9bdd7171da
+    restart: always
+    volumes:
+      - ./data:/unifi
+    user: 999:999 # Run as 'unifi' user (appears as systemd-oom on host)
+    ports:
+      # https://help.ui.com/hc/en-us/articles/218506997-Required-Ports-Reference
+      # See also https://github.com/linuxserver/docker-unifi-network-application?tab=readme-ov-file#parameters
+      - 10001:10001/udp # Required for AP discovery
+      - 8080:8080/tcp # Required for device communication
+      - 3478:3478/udp # STUN
+    environment:
+      TZ: "Asia/Singapore"
+    labels:
+      traefik.http.routers.unifi.rule: Host(`unifi.nicholaslyz.com`)
+      traefik.http.services.unifi.loadbalancer.server.port: 8443
+      traefik.http.services.unifi.loadbalancer.server.scheme: https
+      traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file
+      traefik.enable: true

@@ -1,0 +1,23 @@
+services:
+  traefik:
+    image: traefik@sha256:4cf907247939b5d20bf4eff73abd21cb413c339600dde76dbc94a874b2578a27
+    container_name: traefik
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8081:8080"
+    volumes:
+      - ./data:/etc/traefik/data
+      - ./dynamic.yaml:/etc/traefik/conf.d/dynamic.yaml:ro
+      - ./traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      CF_DNS_API_TOKEN: ${TRAEFIK_CF_API_TOKEN}
+      TRAEFIK_CERTIFICATESRESOLVERS_LERESOLVER_ACME_EMAIL: ${TRAEFIK_ACME_EMAIL}
+    labels:
+      # The traefik dashboard itself, which is provided by this container
+      traefik.enable: true
+      traefik.http.routers.dashboard.rule: Host(`traefik.nicholaslyz.com`)
+      traefik.http.routers.dashboard.service: api@internal
+      traefik.http.routers.dashboard.middlewares: auth
+      traefik.http.middlewares.auth.digestauth.users: ${TRAEFIK_HTTP_DIGEST_USERS}

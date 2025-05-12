@@ -1,0 +1,15 @@
+services:
+  scrutiny:
+    container_name: scrutiny
+    image: ghcr.io/analogj/scrutiny:master-omnibus@sha256:275314f4acf92ca83b3cec04c3f27b2528a336f24fe5737bbda6c3cb87ee856b
+    restart: always
+    privileged: true
+    volumes:
+      - ./data/config:/opt/scrutiny/config
+      - ./data/influxdb:/opt/scrutiny/influxdb
+    environment:
+      TZ: Asia/Singapore
+    labels:
+      traefik.http.routers.scrutiny.rule: Host(`disks.nicholaslyz.com`)
+      traefik.http.routers.scrutiny.middlewares: check-superuser@file
+      traefik.enable: true

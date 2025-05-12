@@ -1,63 +1,33 @@
 include:
-  - compose.d/actualbudget.yml
-  - compose.d/audiobookshelf.yml
-  - compose.d/browserless.yml
-  - compose.d/calibre-web.yml
-  - compose.d/changedetection-io.yml
-  - compose.d/dashy.yml
-  - compose.d/ddns-updater.yml
-  - compose.d/factorio.yml
-  - compose.d/guacamole.yml
-  - compose.d/immich/immich.yml
-  - compose.d/jellyfin.yml
-  - compose.d/karakeep.yml
-  - compose.d/logging/cadvisor.yml
-  - compose.d/logging/grafana.yml
-  - compose.d/logging/loki.yml
-  - compose.d/logging/node-exporter.yml
-  - compose.d/logging/prometheus.yml
-  - compose.d/logging/smartctl-exporter.yml
-  - compose.d/logging/vector.yml
-  - compose.d/logging/victoria-logs.yml
-  - compose.d/mealie.yml
-  - compose.d/metabase.yml
-  - compose.d/microbin.yml
-  - compose.d/miniflux.yml
-  - compose.d/minio.yml
-  - compose.d/navidrome.yml
-  - compose.d/open-webui.yml
-  - compose.d/qbittorrent.yml
-  - compose.d/reactive-resume.yml
-  - compose.d/scrutiny.yml
-  - compose.d/shadowsocks.yml
-  - compose.d/stirling-pdf.yml
-  - compose.d/syncthing.yml
-  - compose.d/unifi.yml
+  - services/actualbudget/compose.yml
+  - services/audiobookshelf/compose.yml
   - services/backend/compose.yml
+  - services/browserless/compose.yml
+  - services/calibre-web/compose.yml
+  - services/changedetection.io/compose.yml
+  - services/dashy/compose.yml
+  - services/ddns-updater/compose.yml
+  - services/factorio/compose.yml
+  - services/immich/compose.yml
+  - services/jellyfin/compose.yml
+  - services/karakeep/compose.yml
+  - services/logging/compose.yml
+  - services/mealie/compose.yml
+  - services/metabase/compose.yml
+  - services/microbin/compose.yml
+  - services/miniflux/compose.yml
+  - services/minio/compose.yml
+  - services/navidrome/compose.yml
+  - services/open-webui/compose.yml
+  - services/qbittorrent/compose.yml
+  - services/reactive-resume/compose.yml
   - services/realtime-todo-server/compose.yml
-services:
-  traefik:
-    image: traefik@sha256:4cf907247939b5d20bf4eff73abd21cb413c339600dde76dbc94a874b2578a27
-    container_name: traefik
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8081:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./services/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
-      - ./services/traefik/data:/etc/traefik/data
-      - ./services/traefik/conf.d:/etc/traefik/conf.d:ro
-    environment:
-      CF_DNS_API_TOKEN: ${TRAEFIK_CF_API_TOKEN}
-      TRAEFIK_CERTIFICATESRESOLVERS_LERESOLVER_ACME_EMAIL: ${TRAEFIK_ACME_EMAIL}
-    labels:
-      # The traefik dashboard itself, which is provided by this container
-      traefik.enable: true
-      traefik.http.routers.dashboard.rule: Host(`traefik.nicholaslyz.com`)
-      traefik.http.routers.dashboard.service: api@internal
-      traefik.http.routers.dashboard.middlewares: auth
-      traefik.http.middlewares.auth.digestauth.users: ${TRAEFIK_HTTP_DIGEST_USERS}
+  - services/scrutiny/compose.yml
+  - services/shadowsocks/compose.yml
+  - services/stirling-pdf/compose.yml
+  - services/syncthing/compose.yml
+  - services/traefik/compose.yml
+  - services/unifi/compose.yml
 
 networks:
   # All containers will join the 'default' network unless the networks key is specified

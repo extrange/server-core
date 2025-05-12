@@ -9,7 +9,7 @@ jobs:
   check-new-version:
     runs-on: ubuntu-latest
     env:
-      IMMICH_COMPOSE_FILE: compose.d/immich/immich.yml
+      IMMICH_COMPOSE_FILE: services/immich/compose.yml
     permissions:
       contents: write
       pull-requests: write
@@ -30,7 +30,7 @@ jobs:
             with(.services.immich-server;
 
               # Preserve logins
-              .volumes += "../../services/immich/.config:/root/.config" |
+              .volumes += "./data/.config:/root/.config" |
               .volumes[-1] line_comment="Save immich-cli logins on container restarts" |
 
               # Add traefik labels
@@ -44,14 +44,9 @@ jobs:
               .depends_on[] |= "immich-" + .
             ) |
 
-            # Append services/immich prefix to volumes
-            .services.immich-machine-learning.volumes[] |= "../../services/immich/" + . |
-
             # Append immich- prefix to redis and database services
             (.services.redis | key) = "immich-redis" |
             (.services.database | key) = "immich-database" |
-
-            del(.volumes)
           ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
 
       - name: Create PR

@@ -1,0 +1,13 @@
+services:
+  ddns-updater:
+    container_name: ddns-updater
+    image: qmcgaw/ddns-updater@sha256:cb556c5a22b50020909a3beaf80a6282cf25821a5792dbf3fcedbff5d12ecb0d
+    restart: always
+    volumes:
+      - ./data:/updater/data
+    environment:
+      TZ: Asia/Singapore
+    labels:
+      traefik.http.routers.ddns-updater.rule: Host(`ddns-updater.nicholaslyz.com`)
+      traefik.http.routers.ddns-updater.middlewares: check-superuser@file
+      traefik.enable: true

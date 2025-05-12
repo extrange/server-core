@@ -8,7 +8,7 @@ pages:
 appConfig:
   startingView: default
   statusCheck: true
-  backgroundImg: /static/bg.jpg
+  backgroundImg: bg.jpg
   theme: Adventure-Basic
   routingMode: hash
   hideComponents:
@@ -47,14 +47,9 @@ sections:
         icon: hl-uptime-kuma
         url: https://uptime.icybat.com/manage-status-page
 
-      - title: Web VM Viewer
-        description: Apache Guacamole
-        icon: hl-guacamole
-        url: https://webvm.nicholaslyz.com/guacamole
-
       - title: Site Monitor
         description: changedetection.io
-        icon: hl-changedetection-io
+        icon: hl-changedetection
         url: https://changedetection.nicholaslyz.com
         statusCheckAcceptCodes: "403"
 
@@ -147,7 +142,7 @@ sections:
 
       - title: Expenses
         description: ActualBudget
-        icon: hl-actualbudget
+        icon: hl-actual-budget
         url: https://expenses.nicholaslyz.com
 
       - title: Logs and Metrics

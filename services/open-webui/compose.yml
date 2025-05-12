@@ -1,0 +1,12 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main@sha256:b79f1dbd91e74545fe99579eb3eb3fdfe3c1af2d9a2698dfbe7ab99da4139378
+    container_name: open-webui
+    restart: always
+    volumes:
+      - ./data:/app/backend/data
+    environment:
+      CUSTOM_NAME: AI Chat
+    labels:
+      traefik.http.routers.open-webui.rule: Host(`chat.nicholaslyz.com`)
+      traefik.enable: true

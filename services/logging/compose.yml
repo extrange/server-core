@@ -1,0 +1,39 @@
+include:
+  - grafana/compose.yml
+  - loki/compose.yml
+  - prometheus/compose.yml
+  - vector/compose.yml
+
+services:
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.52.1@sha256:f40e65878e25c2e78ea037f73a449527a0fb994e303dc3e34cb6b187b4b91435
+    container_name: cadvisor
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    privileged: true
+    devices:
+      - /dev/kmsg
+
+  smartctl-exporter:
+    image: prometheuscommunity/smartctl-exporter@sha256:cfe22c36d7d2fac48ebf619707305acb65eb0fb670656eb80f356e606d782bc1
+    container_name: smartctl-exporter
+    restart: always
+    privileged: true
+    user: root
+
+  node-exporter:
+    image: quay.io/prometheus/node-exporter@sha256:d00a542e409ee618a4edc67da14dd48c5da66726bbd5537ab2af9c1dfc442c8a
+    container_name: node-exporter
+    restart: always
+    network_mode: host
+    pid: host # This mounts the hosts /proc and /sys on the container's /proc and /sys
+    volumes:
+      - "/:/rootfs:ro,rslave"
+    command:
+      - "--path.rootfs=/rootfs"
+      - "--path.udev.data=/rootfs/run/udev/data"

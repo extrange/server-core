@@ -1,0 +1,25 @@
+services:
+  microbin:
+    container_name: microbin
+    image: danielszabo99/microbin@sha256:c5bd4643135540a68a2846950fe4f65f3bcc94b62ed7c7644e563dfde6f1732c
+    restart: always
+    volumes:
+      - microbin:/app
+    command:
+      [
+        "--editable",
+        "--enable-burn-after",
+        "--qr",
+        "--private",
+        "--default-expiry",
+        "1week",
+        "--hide-footer",
+        "--public-path",
+        "https://microbin.nicholaslyz.com",
+      ]
+    labels:
+      traefik.http.routers.microbin.rule: Host(`microbin.nicholaslyz.com`)
+      traefik.enable: true
+
+volumes:
+  microbin:

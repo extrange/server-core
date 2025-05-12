@@ -1,0 +1,28 @@
+services:
+  miniflux:
+    container_name: miniflux
+    image: miniflux/miniflux@sha256:3a11ac10969ec406d90eb9f2cec04e7d3b89bd9bc728bab6f036f604c4396f1c
+    restart: always
+    depends_on:
+      miniflux-db:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
+      - RUN_MIGRATIONS=1
+    labels:
+      traefik.http.routers.miniflux.rule: Host(`miniflux.nicholaslyz.com`)
+      traefik.enable: true
+  miniflux-db:
+    container_name: miniflux-db
+    image: postgres:17@sha256:864831322bf2520e7d03d899b01b542de6de9ece6fe29c89f19dc5e1d5568ccf
+    restart: always
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=miniflux
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s

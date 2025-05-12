@@ -1,0 +1,12 @@
+services:
+  vector:
+    image: timberio/vector:0.46.1-debian@sha256:ccf9c8ffcd1ffbe59e4d62bf44926664908ea1cb6b492b91634d1afd01e3376f
+    container_name: vector
+    restart: always
+    volumes:
+      - ./vector.yml:/etc/vector/vector.yaml
+      - ./data:/var/lib/vector # file checkpoints, internal state, disk buffers when sinks are unavailable
+      - /var/run/docker.sock:/var/run/docker.sock:ro # For docker logs
+      - /var/log/journal:/hostfs/var/log/journal:ro # For journald logs
+    environment:
+      TZ: Asia/Singapore

@@ -1,0 +1,71 @@
+data_dir: /var/lib/vector
+log_schema:
+  host_key: server
+
+sources:
+  docker:
+    type: docker_logs
+
+  journald:
+    type: journald
+    journal_directory: /hostfs/var/log/journal
+    since_now: true
+    current_boot_only: false
+
+  vector:
+    type: internal_logs
+
+transforms:
+  remap_docker:
+    type: remap
+    inputs:
+      - docker
+    source: |
+      # Remove ANSI escape codes if message is a string
+      .message = strip_ansi_escape_codes(.message) ?? .message
+
+      # If message is JSON, parse it
+      parsed_json, err = parse_json(.message)
+      if err == null {
+        .message = object(parsed_json) ?? .message
+      }
+
+      # Fallible function calls (e.g. parse_json!(.message)) cause Vector to spam error messages
+      # Coalesing (??) doesn't
+sinks:
+  # console:
+  #   type: console
+  #   inputs:
+  #     - remap_docker
+  #   encoding:
+  #     codec: json
+  #     json:
+  #       pretty: true
+
+  # https://vector.dev/docs/reference/configuration/sinks/loki/
+  loki-dockerd:
+    type: loki
+    inputs:
+      - remap_docker
+    endpoint: http://loki:3100
+    encoding:
+      codec: json
+      json:
+        pretty: true
+    labels:
+      container_name: "{{ container_name }}"
+      image: "{{ image }}"
+      source_type: "{{ source_type }}"
+
+  loki-journald-vector:
+    type: loki
+    inputs:
+      - journald
+      - vector
+    labels:
+      source_type: "{{ source_type }}"
+    endpoint: http://loki:3100
+    encoding:
+      codec: json
+      json:
+        pretty: true

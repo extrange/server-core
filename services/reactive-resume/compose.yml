@@ -1,0 +1,80 @@
+services:
+  reactive-resume-postgres:
+    container_name: reactive-resume-postgres
+    image: postgres:17-alpine@sha256:f325a29ec9deb7039c5f07761d77d79d537dac836ecd99f982f6ca5476724604
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  reactive-resume:
+    container_name: reactive-resume
+    image: amruthpillai/reactive-resume:latest@sha256:d6e56fa0378801f76a082b5c7a612ed9cece731729afc57e5b48f3b9d6823ff4
+    restart: always
+    depends_on:
+      - reactive-resume-postgres
+      # In other compose files
+      - minio
+      - browserless
+    environment:
+      # -- Environment Variables --
+      PORT: 3000
+      NODE_ENV: production
+
+      # -- URLs --
+      PUBLIC_URL: https://resume.nicholaslyz.com
+      STORAGE_URL: https://minio.nicholaslyz.com/reactive-resume
+
+      # -- Printer (Chrome) --
+      CHROME_TOKEN: chrome_token
+      CHROME_URL: ws://browserless:3000
+
+      # -- Database (Postgres) --
+      DATABASE_URL: postgresql://postgres:postgres@reactive-resume-postgres:5432/postgres
+
+      # -- Auth --
+      ACCESS_TOKEN_SECRET: access_token_secret
+      REFRESH_TOKEN_SECRET: refresh_token_secret
+
+      # -- Emails --
+      MAIL_FROM: ${RR_MAIL_FROM}
+      SMTP_URL: ${RR_SMTP_URL}
+
+      # -- Storage (Minio) --
+      STORAGE_ENDPOINT: minio
+      STORAGE_PORT: 9000
+      STORAGE_REGION: us-east-1 # Optional
+      STORAGE_BUCKET: reactive-resume
+      STORAGE_ACCESS_KEY: ${RR_MINIO_ACCESS_KEY}
+      STORAGE_SECRET_KEY: ${RR_MINIO_SECRET_KEY}
+      STORAGE_USE_SSL: false
+      STORAGE_SKIP_BUCKET_CHECK: false
+
+      # -- Crowdin (Optional) --
+      # CROWDIN_PROJECT_ID:
+      # CROWDIN_PERSONAL_TOKEN:
+
+      # -- Email (Optional) --
+      # DISABLE_SIGNUPS: false
+      # DISABLE_EMAIL_AUTH: false
+
+      # -- GitHub (Optional) --
+      # GITHUB_CLIENT_ID: github_client_id
+      # GITHUB_CLIENT_SECRET: github_client_secret
+      # GITHUB_CALLBACK_URL: http://localhost:3000/api/auth/github/callback
+
+      # -- Google (Optional) --
+      # GOOGLE_CLIENT_ID: google_client_id
+      # GOOGLE_CLIENT_SECRET: google_client_secret
+      # GOOGLE_CALLBACK_URL: http://localhost:3000/api/auth/google/callback
+    labels:
+      traefik.http.routers.reactive-resume.rule: Host(`resume.nicholaslyz.com`)
+      traefik.enable: true

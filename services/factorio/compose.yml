@@ -1,0 +1,17 @@
+services:
+  factorio:
+    image: debian@sha256:264982ff4d18000fa74540837e2c43ca5137a53a83f8f62c7b3803c0f0bdcd56
+    container_name: factorio
+    restart: always
+    user: 1000:1000
+    ports:
+      - 34197:34197/udp
+      - 27015:27015/tcp
+    volumes:
+      - ./data:/factorio
+    command:
+      - /factorio/bin/x64/factorio
+      - --start-server
+      - /factorio/local.zip
+      - --server-settings
+      - /factorio/data/server-settings.json
