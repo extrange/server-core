@@ -15,11 +15,28 @@ sources:
   vector:
     type: internal_logs
 
+transforms:
+  remap_docker:
+    type: remap
+    inputs:
+      - docker
+    source: |
+      # Remove ANSI escape codes if message is a string
+      .message = strip_ansi_escape_codes(.message) ?? .message
+
+      # If message is JSON, parse it
+      parsed_json, err = parse_json(.message)
+      if err == null {
+        .message = object(parsed_json) ?? .message
+      }
+
+      # Fallible function calls (e.g. parse_json!(.message)) cause Vector to spam error messages
+      # Coalesing (??) doesn't
 sinks:
   # console:
   #   type: console
   #   inputs:
-  #    - journald
+  #     - remap_docker
   #   encoding:
   #     codec: json
   #     json:
@@ -28,7 +45,7 @@ sinks:
   # https://vector.dev/docs/reference/configuration/sources/docker_logs/#output-data
   victoria-logs-docker:
     inputs:
-      - docker
+      - remap_docker
     type: elasticsearch
     endpoints:
       - http://victoria-logs:9428/insert/elasticsearch/
@@ -77,7 +94,7 @@ sinks:
   loki-dockerd:
     type: loki
     inputs:
-      - docker
+      - remap_docker
     endpoint: http://loki:3100
     encoding:
       codec: json

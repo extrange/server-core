@@ -9,3 +9,7 @@ services:
       - ../services/scrutiny/influxdb:/opt/scrutiny/influxdb
     environment:
       TZ: Asia/Singapore
+    labels:
+      traefik.http.routers.scrutiny.rule: Host(`disks.nicholaslyz.com`)
+      traefik.http.routers.scrutiny.middlewares: check-superuser@file
+      traefik.enable: true

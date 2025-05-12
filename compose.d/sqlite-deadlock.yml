@@ -1,7 +1,0 @@
-services:
-  sqlite-deadlock:
-    container_name: sqlite-deadlock
-    restart: always
-    image: ghcr.io/extrange/sqlite-deadlock:edge@sha256:f0acc3b807f7ffc3a806ba229aa858ec7e63c5141167ec55cc901c787dc8f1b4
-    environment:
-      TZ: Asia/Singapore

@@ -16,3 +16,6 @@ services:
       ND_SPOTIFY_ID: ${ND_SPOTIFY_ID}
       ND_SPOTIFY_SECRET: ${ND_SPOTIFY_SECRET}
       TZ: Asia/Singapore
+    labels:
+      traefik.http.routers.navidrome.rule: Host(`music.nicholaslyz.com`)
+      traefik.enable: true

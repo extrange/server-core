@@ -1,5 +1,4 @@
 services:
-
   reactive-resume-postgres:
     container_name: reactive-resume-postgres
     image: postgres:17-alpine@sha256:f325a29ec9deb7039c5f07761d77d79d537dac836ecd99f982f6ca5476724604
@@ -76,3 +75,6 @@ services:
       # GOOGLE_CLIENT_ID: google_client_id
       # GOOGLE_CLIENT_SECRET: google_client_secret
       # GOOGLE_CALLBACK_URL: http://localhost:3000/api/auth/google/callback
+    labels:
+      traefik.http.routers.reactive-resume.rule: Host(`resume.nicholaslyz.com`)
+      traefik.enable: true

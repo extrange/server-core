@@ -14,4 +14,8 @@ services:
       - 8080:8080/tcp
       - 3478:3478/udp
     environment:
-      TZ: 'Asia/Singapore'
+      TZ: "Asia/Singapore"
+    labels:
+      traefik.http.routers.unifi.rule: Host(`unifi.nicholaslyz.com`)
+      traefik.http.services.unifi.loadbalancer.server.port: 8443
+      traefik.enable: true

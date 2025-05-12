@@ -17,3 +17,6 @@ services:
         "--public-path",
         "https://microbin.nicholaslyz.com",
       ]
+    labels:
+      traefik.http.routers.microbin.rule: Host(`microbin.nicholaslyz.com`)
+      traefik.enable: true

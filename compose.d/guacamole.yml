@@ -1,5 +1,4 @@
 services:
-
   guacd:
     container_name: guacd
     image: guacamole/guacd@sha256:ffc64e0c6b22454be4b3c3ba684858041c659de48230ac364f16c65106639edc
@@ -20,6 +19,9 @@ services:
       MYSQL_PASSWORD: 12345
       HEADER_ENABLED: true
       HTTP_AUTH_HEADER: REMOTE_USER
+    labels:
+      traefik.http.routers.guacamole.rule: Host(`webvm.nicholaslyz.com`)
+      traefik.enable: true
 
   guacamole-db:
     container_name: guacamole-db

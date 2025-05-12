@@ -18,3 +18,6 @@ services:
       WEB_CONCURRENCY: 1
       BASE_URL: https://recipes.nicholaslyz.com
       OPENAI_API_KEY: ${OPENAI_API_KEY}
+    labels:
+      traefik.http.routers.mealie.rule: Host(`recipes.nicholaslyz.com`)
+      traefik.enable: true

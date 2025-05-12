@@ -20,3 +20,6 @@ services:
     volumes:
       # Configuration is managed via the UI and persisted here.
       - "../../services/grafana/data:/var/lib/grafana"
+    labels:
+      traefik.http.routers.grafana.rule: Host(`grafana.nicholaslyz.com`)
+      traefik.enable: true

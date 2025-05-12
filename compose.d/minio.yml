@@ -15,3 +15,15 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    labels:
+      traefik.enable: true
+
+      # Minio
+      traefik.http.routers.minio.rule: Host(`minio.nicholaslyz.com`)
+      traefik.http.services.minio.loadbalancer.server.port: 9000
+      traefik.http.routers.minio.service: minio
+
+      # Minio Admin
+      traefik.http.routers.minio-admin.rule: Host(`minio-admin.nicholaslyz.com`)
+      traefik.http.services.minio-admin.loadbalancer.server.port: 9001
+      traefik.http.routers.minio-admin.service: minio-admin

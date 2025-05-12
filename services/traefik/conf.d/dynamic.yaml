@@ -10,3 +10,9 @@ tcp:
       service: chanel-server
       tls:
         passthrough: true
+
+http:
+  middlewares:
+    check-superuser:
+      forwardAuth:
+        address: http://backend:8000/account/check-superuser/

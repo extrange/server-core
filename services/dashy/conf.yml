@@ -50,7 +50,7 @@ sections:
       - title: Web VM Viewer
         description: Apache Guacamole
         icon: hl-guacamole
-        url: https://webvm.nicholaslyz.com
+        url: https://webvm.nicholaslyz.com/guacamole
 
       - title: Site Monitor
         description: changedetection.io

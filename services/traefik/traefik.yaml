@@ -16,8 +16,10 @@ certificatesResolvers:
         provider: cloudflare
 log:
   level: INFO
+  format: json
 
-accessLog: {}
+accessLog:
+  format: json
 
 entryPoints:
   http:
