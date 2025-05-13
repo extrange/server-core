@@ -2,23 +2,6 @@
 
 Containers comprising my home server. See my [blog] for more details.
 
-- `compose.d/`: contains individual container specification files
-- `services/`: individual container configuration/mounted volumes
-- `nginx/`: reverse proxy configuration
-
-Renovate config:
-
-- Docker image digest updates:
-  - grouped
-  - committed directly (no notifications)
-  - note: they are treated separate from major/minor/patch updates in config
-- Minor tag updates:
-  - grouped
-  - automerged (so I get email notifications)
-- Major tag updates:
-  - individual PRs
-  - manually merge
-
 ## Updating Postgres containers across major versions
 
 Move `data` to `old` and remount:
