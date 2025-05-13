@@ -17,7 +17,6 @@ services:
     labels:
       # The traefik dashboard itself, which is provided by this container
       traefik.enable: true
-      traefik.http.routers.dashboard.rule: Host(`traefik.nicholaslyz.com`)
       traefik.http.routers.dashboard.service: api@internal
       traefik.http.routers.dashboard.middlewares: auth
       traefik.http.middlewares.auth.digestauth.users: ${TRAEFIK_HTTP_DIGEST_USERS}

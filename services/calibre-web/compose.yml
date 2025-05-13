@@ -11,5 +11,4 @@ services:
       - /mnt/storage/Books:/library
       - ./data:/config
     labels:
-      traefik.http.routers.calibre-web.rule: Host(`calibre.nicholaslyz.com`)
       traefik.enable: true

@@ -11,5 +11,4 @@ services:
       - ./data/config:/config
       - ./data/metadata:/metadata
     labels:
-      traefik.http.routers.audiobookshelf.rule: Host(`audiobooks.nicholaslyz.com`)
       traefik.enable: true

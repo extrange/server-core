@@ -18,7 +18,6 @@ services:
     environment:
       TZ: "Asia/Singapore"
     labels:
-      traefik.http.routers.unifi.rule: Host(`unifi.nicholaslyz.com`)
       traefik.http.services.unifi.loadbalancer.server.port: 8443
       traefik.http.services.unifi.loadbalancer.server.scheme: https
       traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file

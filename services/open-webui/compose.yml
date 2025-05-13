@@ -8,5 +8,4 @@ services:
     environment:
       CUSTOM_NAME: AI Chat
     labels:
-      traefik.http.routers.open-webui.rule: Host(`chat.nicholaslyz.com`)
       traefik.enable: true

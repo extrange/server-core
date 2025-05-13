@@ -10,7 +10,6 @@ services:
       - DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
     labels:
-      traefik.http.routers.miniflux.rule: Host(`miniflux.nicholaslyz.com`)
       traefik.enable: true
   miniflux-db:
     container_name: miniflux-db

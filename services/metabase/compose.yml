@@ -24,7 +24,6 @@ services:
       - default
       - trading-bot-db
     labels:
-      traefik.http.routers.metabase.rule: Host(`dashboard.nicholaslyz.com`)
       traefik.enable: true
 
   metabase-db:

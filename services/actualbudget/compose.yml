@@ -8,5 +8,4 @@ services:
     volumes:
       - ./data:/data
     labels:
-      traefik.http.routers.actualbudget.rule: Host(`expenses.nicholaslyz.com`)
       traefik.enable: true

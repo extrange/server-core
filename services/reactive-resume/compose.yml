@@ -79,5 +79,4 @@ services:
       - default
       - browserless
     labels:
-      traefik.http.routers.reactive-resume.rule: Host(`resume.nicholaslyz.com`)
       traefik.enable: true

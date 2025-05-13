@@ -6,6 +6,5 @@ services:
     environment:
       DOCKER_ENABLE_SECURITY: false
     labels:
-      traefik.http.routers.stirling-pdf.rule: Host(`pdf.nicholaslyz.com`)
       traefik.http.routers.stirling-pdf.middlewares: check-superuser@file
       traefik.enable: true

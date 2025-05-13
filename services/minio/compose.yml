@@ -19,7 +19,6 @@ services:
       traefik.enable: true
 
       # Minio
-      traefik.http.routers.minio.rule: Host(`minio.nicholaslyz.com`)
       traefik.http.services.minio.loadbalancer.server.port: 9000
       traefik.http.routers.minio.service: minio
 
