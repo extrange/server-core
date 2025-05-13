@@ -6,19 +6,9 @@ services:
     environment:
       TZ: Asia/Singapore
       TOKEN: ${BROWSERLESS_TOKEN}
-      DEFAULT_STEALTH: true
-      PROXY_HOST: browserless.nicholaslyz.com
-      PROXY_PORT: 443
-      PROXY_SSL: true
 
       # The following are necessary for link previews to work
-      DEFAULT_BLOCK_ADS: true
-      ENABLE_CORS: true
-      DEFAULT_IGNORE_HTTPS_ERRORS: true
+      CORS: true
     networks:
       - browserless # Allow use by other containers outside of server-core
       - default
-    labels:
-      traefik.enable: true
-      traefik.http.routers.browserless.rule: Host(`browserless.nicholaslyz.com`)
-      traefik.http.services.browserless.loadbalancer.server.port: 3000
