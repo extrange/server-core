@@ -36,37 +36,52 @@ sections:
         icon: fab fa-react
         url: https://app.nicholaslyz.com
 
-      - title: Torrents
-        description: qBittorrent
-        icon: hl-qbittorrent
-        url: https://torrents.nicholaslyz.com
-        statusCheckAcceptCodes: "403"
-
-      - title: Uptime
-        description: Uptime Kuma
+      - title: Uptime Kuma
         icon: hl-uptime-kuma
         url: https://uptime.icybat.com/manage-status-page
 
-      - title: Site Monitor
-        description: changedetection.io
+      - title: ActualBudget
+        icon: hl-actual-budget
+        url: https://actualbudget.nicholaslyz.com
+
+      - title: Audiobookshelf
+        icon: hl-audiobookshelf
+        url: https://audiobookshelf.nicholaslyz.com
+
+      - title: Calibre Web
+        icon: hl-calibre-web
+        url: https://calibre-web.nicholaslyz.com
+
+      - title: Changedetection.io
         icon: hl-changedetection
-        url: https://changedetection.nicholaslyz.com
+        url: https://changedetection-io.nicholaslyz.com
+        statusCheckAcceptCodes: "403"
+
+      - title: DDNS Updater
+        description: qmcgaw/ddns-updater
+        icon: hl-ddns-updater
+        url: https://ddns-updater.nicholaslyz.com
+        statusCheckAcceptCodes: "403"
+
+      - title: qBittorrent
+        icon: hl-qbittorrent
+        url: https://qbittorrent.nicholaslyz.com
         statusCheckAcceptCodes: "403"
 
       - title: Recipes
         description: Mealie
         icon: hl-mealie
-        url: https://recipes.nicholaslyz.com
+        url: https://mealie.nicholaslyz.com
 
       - title: Photos
         description: immich
         icon: hl-immich
-        url: https://photos.nicholaslyz.com
+        url: https://immich.nicholaslyz.com
 
       - title: Disks
         description: scrutiny
         icon: hl-scrutiny
-        url: https://disks.nicholaslyz.com
+        url: https://scrutiny.nicholaslyz.com
         statusCheckAcceptCodes: "403"
 
       - title: News
@@ -87,28 +102,12 @@ sections:
       - title: Videos
         description: Jellyfin
         icon: hl-jellyfin
-        url: https://videos.nicholaslyz.com
+        url: https://jellyfin.nicholaslyz.com
 
       - title: Syncthing
         description: Syncthing
         icon: hl-syncthing
         url: https://syncthing.nicholaslyz.com
-
-      - title: Calibre
-        description: calibre-web
-        icon: hl-calibre-web
-        url: https://calibre.nicholaslyz.com
-
-      - title: Audiobookshelf
-        description: Audiobookshelf
-        icon: hl-audiobookshelf
-        url: https://audiobooks.nicholaslyz.com
-
-      - title: DDNS Updater
-        description: qmcgaw/ddns-updater
-        icon: hl-ddns-updater
-        url: https://ddns-updater.nicholaslyz.com
-        statusCheckAcceptCodes: "403"
 
       - title: PDF Editor
         description: stirling-pdf
@@ -132,12 +131,7 @@ sections:
       - title: Dashboard
         description: Metabase
         icon: hl-metabase
-        url: https://dashboard.nicholaslyz.com
-
-      - title: Expenses
-        description: ActualBudget
-        icon: hl-actual-budget
-        url: https://expenses.nicholaslyz.com
+        url: https://metabase.nicholaslyz.com
 
       - title: Logs and Metrics
         description: Grafana
