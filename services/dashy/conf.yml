@@ -53,12 +53,6 @@ sections:
         url: https://changedetection.nicholaslyz.com
         statusCheckAcceptCodes: "403"
 
-      - title: Headless Chrome
-        description: Browserless
-        icon: hl-browserless
-        url: https://browserless.nicholaslyz.com
-        statusCheckAcceptCodes: "403"
-
       - title: Recipes
         description: Mealie
         icon: hl-mealie
