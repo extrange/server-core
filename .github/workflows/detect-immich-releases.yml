@@ -36,6 +36,9 @@ jobs:
               # Add traefik labels
               .labels."traefik.http.routers.immich.rule" = "Host(`photos.nicholaslyz.com`) || Host(`photos.angfamily.net`)" |
               .labels."traefik.enable" = true |
+              .labels."traefik.http.routers.immich.rule" = "Host(`immich.nicholaslyz.com`) || Host(`photos.angfamily.net`) || Host(`photos.nicholaslyz.com`)" |
+              .labels."traefik.http.middlewares.redirect-immich.redirectregex.replacement" = "https://immich.nicholaslyz.com/$${1}" |
+              .labels"traefik.http.routers.immich.middlewares" = "redirect-immich" |
 
               # We are using a reverse proxy so no need to expose ports
               del(.ports) |
