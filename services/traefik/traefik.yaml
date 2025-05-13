@@ -10,7 +10,6 @@ providers:
     directory: /etc/traefik/conf.d
     watch: true
 api:
-  debug: true
   disableDashboardAd: true
 certificatesResolvers:
   leresolver:
