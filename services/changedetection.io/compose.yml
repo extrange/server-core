@@ -11,3 +11,6 @@ services:
       traefik.http.routers.changedetection-io.rule: Host(`changedetection.nicholaslyz.com`)
       traefik.http.routers.changedetection-io.middlewares: check-superuser@file
       traefik.enable: true
+    networks:
+      - default
+      - browserless
