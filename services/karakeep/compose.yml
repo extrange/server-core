@@ -33,6 +33,9 @@ services:
       homepage.icon: karakeep
       homepage.href: &url https://karakeep.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: karakeep
+      homepage.widget.url: *url
+      homepage.widget.key: ${HOMEPAGE_KEY}
 
   karakeep-meilisearch:
     image: getmeili/meilisearch

@@ -81,7 +81,7 @@ services:
     labels:
       traefik.enable: true
       homepage.group: Services
-      homepage.name: qBittorrent
-      homepage.icon: qbittorrent
-      homepage.href: &url https://qbittorrent.nicholaslyz.com
+      homepage.name: Reactive Resume
+      homepage.icon: reactive-resume
+      homepage.href: &url https://reactive-resume.nicholaslyz.com
       homepage.siteMonitor: *url

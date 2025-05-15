@@ -5,7 +5,6 @@ include:
   - services/browserless/compose.yml
   - services/calibre-web/compose.yml
   - services/changedetection.io/compose.yml
-  - services/dashy/compose.yml
   - services/ddns-updater/compose.yml
   - services/factorio/compose.yml
   - services/immich/compose.yml

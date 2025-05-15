@@ -27,3 +27,7 @@ services:
       homepage.icon: grafana
       homepage.href: &url https://grafana.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: grafana
+      homepage.widget.url: *url
+      homepage.widget.username: ${USERNAME}
+      homepage.widget.password: ${PASSWORD}

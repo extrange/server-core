@@ -17,3 +17,7 @@ services:
       homepage.icon: calibre-web
       homepage.href: &url https://calibre-web.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: calibreweb
+      homepage.widget.url: *url
+      homepage.widget.username: ${USERNAME}
+      homepage.widget.password: ${PASSWORD}

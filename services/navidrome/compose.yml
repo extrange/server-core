@@ -23,3 +23,8 @@ services:
       homepage.icon: navidrome
       homepage.href: &url https://navidrome.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: navidrome
+      homepage.widget.url: *url
+      homepage.widget.user: nicholaslyz
+      homepage.widget.token: ${HOMEPAGE_TOKEN}
+      homepage.widget.salt: ${HOMEPAGE_SALT}

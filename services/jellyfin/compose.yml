@@ -17,3 +17,8 @@ services:
       homepage.icon: jellyfin
       homepage.href: &url https://jellyfin.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: jellyfin
+      homepage.widget.url: *url
+      homepage.widget.key: ${HOMEPAGE_KEY}
+      homepage.widget.enableBlocks: true # optional, defaults to false
+      homepage.widget.enableNowPlaying: false

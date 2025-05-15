@@ -17,3 +17,5 @@ services:
       homepage.icon: scrutiny
       homepage.href: &url https://scrutiny.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: scrutiny
+      homepage.widget.url: http://scrutiny:8080

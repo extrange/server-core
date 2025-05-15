@@ -4,9 +4,11 @@
 
 background:
   image: /images/bg.jpg
-cardBlur: xs
-color: slate
+  blur: xs
+  brightness: 50
 theme: dark
+color: slate
+useEqualHeights: true
 
 quicklaunch:
   searchDescriptions: true

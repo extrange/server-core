@@ -18,3 +18,5 @@ services:
       homepage.icon: qbittorrent
       homepage.href: &url https://qbittorrent.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: qbittorrent
+      homepage.widget.url: http://qbittorrent:8080

@@ -2,17 +2,22 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/bookmarks
 
-- Developer:
+- Links:
+    - Personal Blog:
+        - icon: mkdocs
+          href: https://nicholaslyz.com
+    - Uptime Kuma:
+        - icon: uptime-kuma
+          href: https://uptime.icybat.com/manage-status-page
+    - Web App:
+        - icon: reactjs
+          href: https://app.nicholaslyz.com
+    - Github (NUHS):
+        - icon: github
+          href: https://github.com/nuhs-projects
     - Github:
-        - abbr: GH
-          href: https://github.com/
-
-- Social:
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
-
-- Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+        - icon: github
+          href: https://github.com/extrange
+    - ChatGPT:
+        - icon: chatgpt
+          href: https://chatgpt.com

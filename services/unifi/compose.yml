@@ -27,3 +27,7 @@ services:
       homepage.icon: unifi
       homepage.href: &url https://unifi.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: unifi
+      homepage.widget.url: https://unifi.nicholaslyz.com
+      homepage.widget.username: ${USERNAME}
+      homepage.widget.password: ${PASSWORD}

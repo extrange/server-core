@@ -39,6 +39,10 @@ services:
       homepage.icon: immich
       homepage.href: &url https://immich.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: immich
+      homepage.widget.url: *url
+      homepage.widget.key: ${HOMEPAGE_KEY}
+      homepage.widget.version: 2
 
   immich-machine-learning:
     container_name: immich_machine_learning

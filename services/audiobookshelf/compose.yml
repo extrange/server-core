@@ -17,3 +17,6 @@ services:
       homepage.icon: audiobookshelf
       homepage.href: &url https://audiobookshelf.nicholaslyz.com
       homepage.siteMonitor: *url
+      homepage.widget.type: audiobookshelf
+      homepage.widget.url: *url
+      homepage.widget.key: ${API_KEY}
