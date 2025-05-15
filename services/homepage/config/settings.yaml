@@ -1,0 +1,21 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+background:
+  image: /images/bg.jpg
+cardBlur: xs
+color: slate
+theme: dark
+
+quicklaunch:
+  searchDescriptions: true
+  showSearchSuggestions: true
+  provider: google
+
+hideVersion: true
+layout:
+  Services:
+    style: row
+    columns: 4
+disableCollapse: true

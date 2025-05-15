@@ -1,0 +1,23 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage
+    container_name: homepage
+    restart: always
+    volumes:
+      - ./config:/app/config
+      - ./bg.jpg:/app/public/images/bg.jpg:ro
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: homepage.nicholaslyz.com
+      LOG_TARGETS: stdout
+    user: 1000:1000
+    labels:
+      traefik.enable: true
+
+  homepage-socket-proxy:
+    restart: always
+    image: ghcr.io/tecnativa/docker-socket-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      CONTAINERS: 1
+    network_mode: service:homepage
