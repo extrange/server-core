@@ -12,3 +12,8 @@ services:
       - ./data/metadata:/metadata
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Audiobookshelf
+      homepage.icon: audiobookshelf
+      homepage.href: &url https://audiobookshelf.nicholaslyz.com
+      homepage.siteMonitor: *url

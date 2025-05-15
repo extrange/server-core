@@ -9,3 +9,8 @@ services:
       CUSTOM_NAME: AI Chat
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Open WebUI
+      homepage.icon: open-webui
+      homepage.href: &url https://open-webui.nicholaslyz.com
+      homepage.siteMonitor: *url

@@ -18,3 +18,8 @@ services:
       TZ: Asia/Singapore
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Navidrome
+      homepage.icon: navidrome
+      homepage.href: &url https://navidrome.nicholaslyz.com
+      homepage.siteMonitor: *url

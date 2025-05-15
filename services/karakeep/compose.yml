@@ -23,8 +23,16 @@ services:
       NEXTAUTH_URL: https://karakeep.nicholaslyz.com
       OPENAI_API_KEY: ${OPENROUTER_API_KEY}
       OPENAI_BASE_URL: https://openrouter.ai/api/v1
+    depends_on:
+      - karakeep-meilisearch
+      - browserless
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Karakeep
+      homepage.icon: karakeep
+      homepage.href: &url https://karakeep.nicholaslyz.com
+      homepage.siteMonitor: *url
 
   karakeep-meilisearch:
     image: getmeili/meilisearch

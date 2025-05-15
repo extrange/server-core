@@ -34,6 +34,12 @@ services:
       traefik.http.middlewares.redirect-immich.redirectregex.regex: ^https://photos.nicholaslyz.com/(.*)
       traefik.http.middlewares.redirect-immich.redirectregex.replacement: https://immich.nicholaslyz.com/$${1}
       traefik.http.routers.immich.middlewares: redirect-immich
+      homepage.group: Services
+      homepage.name: Immich
+      homepage.icon: immich
+      homepage.href: &url https://immich.nicholaslyz.com
+      homepage.siteMonitor: *url
+
   immich-machine-learning:
     container_name: immich_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
@@ -62,7 +68,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_DB: ${DB_DATABASE_NAME}
-      POSTGRES_INITDB_ARGS: '--data-checksums'
+      POSTGRES_INITDB_ARGS: "--data-checksums"
     volumes:
       # Do not edit the next line. If you want to change the database storage location on your system, edit the value of DB_DATA_LOCATION in the .env file
       - ${DB_DATA_LOCATION}:/var/lib/postgresql/data

@@ -80,3 +80,8 @@ services:
       - browserless
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: qBittorrent
+      homepage.icon: qbittorrent
+      homepage.href: &url https://qbittorrent.nicholaslyz.com
+      homepage.siteMonitor: *url

@@ -20,3 +20,8 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Mealie
+      homepage.icon: mealie
+      homepage.href: &url https://mealie.nicholaslyz.com
+      homepage.siteMonitor: *url

@@ -22,3 +22,8 @@ services:
       - "./data:/var/lib/grafana"
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Grafana
+      homepage.icon: grafana
+      homepage.href: &url https://grafana.nicholaslyz.com
+      homepage.siteMonitor: *url

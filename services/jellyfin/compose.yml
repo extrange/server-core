@@ -9,6 +9,11 @@ services:
       - ./data/cache:/cache
       - /mnt/storage/Videos:/media
     environment:
-      JELLYFIN_PublishedServerUrl: https://videos.nicholaslyz.com
+      JELLYFIN_PublishedServerUrl: https://jellyfin.nicholaslyz.com
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Jellyfin
+      homepage.icon: jellyfin
+      homepage.href: &url https://jellyfin.nicholaslyz.com
+      homepage.siteMonitor: *url

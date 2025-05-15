@@ -22,3 +22,8 @@ services:
       traefik.http.services.unifi.loadbalancer.server.scheme: https
       traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Unifi Controller
+      homepage.icon: unifi
+      homepage.href: &url https://unifi.nicholaslyz.com
+      homepage.siteMonitor: *url

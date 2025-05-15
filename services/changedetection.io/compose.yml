@@ -10,6 +10,12 @@ services:
     labels:
       traefik.http.routers.changedetection-io.middlewares: check-superuser@file
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Changedetection.io
+      homepage.icon: changedetection
+      homepage.href: &url https://changedetection-io.nicholaslyz.com
+      homepage.siteMonitor: *url
+
     networks:
       - default
       - browserless

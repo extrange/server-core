@@ -11,6 +11,11 @@ services:
       - RUN_MIGRATIONS=1
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Miniflux
+      homepage.icon: miniflux
+      homepage.href: &url https://miniflux.nicholaslyz.com
+      homepage.siteMonitor: *url
   miniflux-db:
     container_name: miniflux-db
     image: postgres:17@sha256:864831322bf2520e7d03d899b01b542de6de9ece6fe29c89f19dc5e1d5568ccf

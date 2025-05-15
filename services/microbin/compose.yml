@@ -19,6 +19,11 @@ services:
       ]
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Microbin
+      homepage.icon: microbin
+      homepage.href: &url https://microbin.nicholaslyz.com
+      homepage.siteMonitor: *url
 
 volumes:
   microbin:

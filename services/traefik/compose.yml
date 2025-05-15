@@ -20,3 +20,8 @@ services:
       traefik.http.routers.dashboard.service: api@internal
       traefik.http.routers.dashboard.middlewares: auth
       traefik.http.middlewares.auth.digestauth.users: ${TRAEFIK_HTTP_DIGEST_USERS}
+      homepage.group: Services
+      homepage.name: Traefik
+      homepage.icon: traefik
+      homepage.href: &url https://traefik.nicholaslyz.com
+      homepage.siteMonitor: *url

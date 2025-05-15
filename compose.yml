@@ -10,6 +10,7 @@ include:
   - services/factorio/compose.yml
   - services/immich/compose.yml
   - services/jellyfin/compose.yml
+  - services/homepage/compose.yml
   - services/karakeep/compose.yml
   - services/logging/compose.yml
   - services/mealie/compose.yml

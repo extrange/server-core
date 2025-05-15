@@ -8,3 +8,8 @@ services:
     labels:
       traefik.http.routers.stirling-pdf.middlewares: check-superuser@file
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Stirling PDF
+      homepage.icon: stirling-pdf
+      homepage.href: &url https://stirling-pdf.nicholaslyz.com
+      homepage.siteMonitor: *url

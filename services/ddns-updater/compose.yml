@@ -10,3 +10,8 @@ services:
     labels:
       traefik.http.routers.ddns-updater.middlewares: check-superuser@file
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: DDNS Updater
+      homepage.icon: ddns-updater
+      homepage.href: &url https://ddns-updater.nicholaslyz.com
+      homepage.siteMonitor: *url

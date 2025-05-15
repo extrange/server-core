@@ -26,3 +26,8 @@ services:
       traefik.http.routers.minio-admin.rule: Host(`minio-admin.nicholaslyz.com`)
       traefik.http.services.minio-admin.loadbalancer.server.port: 9001
       traefik.http.routers.minio-admin.service: minio-admin
+      homepage.group: Services
+      homepage.name: Minio (Admin)
+      homepage.icon: minio
+      homepage.href: &url https://minio-admin.nicholaslyz.com
+      homepage.siteMonitor: *url

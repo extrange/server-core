@@ -25,6 +25,11 @@ services:
       - trading-bot-db
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Metabase
+      homepage.icon: metabase
+      homepage.href: &url https://metabase.nicholaslyz.com
+      homepage.siteMonitor: *url
 
   metabase-db:
     image: postgres:17@sha256:864831322bf2520e7d03d899b01b542de6de9ece6fe29c89f19dc5e1d5568ccf

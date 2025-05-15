@@ -12,3 +12,8 @@ services:
     labels:
       traefik.http.routers.scrutiny.middlewares: check-superuser@file
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Scrutiny
+      homepage.icon: scrutiny
+      homepage.href: &url https://scrutiny.nicholaslyz.com
+      homepage.siteMonitor: *url

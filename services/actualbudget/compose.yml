@@ -9,3 +9,8 @@ services:
       - ./data:/data
     labels:
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Actual Budget
+      homepage.icon: actual-budget
+      homepage.href: &url https://actualbudget.nicholaslyz.com
+      homepage.siteMonitor: *url

@@ -23,3 +23,8 @@ services:
     labels:
       traefik.http.routers.syncthing.rule: Host(`syncthing.nicholaslyz.com`)
       traefik.enable: true
+      homepage.group: Services
+      homepage.name: Syncthing
+      homepage.icon: syncthing
+      homepage.href: &url https://syncthing.nicholaslyz.com
+      homepage.siteMonitor: *url
