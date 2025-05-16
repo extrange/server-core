@@ -8,12 +8,13 @@ services:
     environment:
       PLAYWRIGHT_DRIVER_URL: ${PLAYWRIGHT_DRIVER_URL}
     labels:
-      traefik.http.routers.changedetection-io.middlewares: check-superuser@file
       traefik.enable: true
+      traefik.http.routers.changedetection-io.rule: Host(`changedetection-io.internal.nicholaslyz.com`)
+      traefik.http.routers.changedetection-io.entrypoints: tailscale
       homepage.group: Services
       homepage.name: Changedetection.io
       homepage.icon: changedetection
-      homepage.href: &url https://changedetection-io.nicholaslyz.com
+      homepage.href: &url https://changedetection-io.internal.nicholaslyz.com
       homepage.siteMonitor: *url
 
     networks:
