@@ -3,5 +3,5 @@
 # https://gethomepage.dev/configs/docker/
 
 my-docker:
-  host: localhost
+  host: homepage-socket-proxy
   port: 2375

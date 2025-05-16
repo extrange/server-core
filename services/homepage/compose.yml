@@ -3,21 +3,34 @@ services:
     image: ghcr.io/gethomepage/homepage
     container_name: homepage
     restart: always
+    depends_on:
+      - homepage-socket-proxy
+    networks:
+      - homepage
+      - default
     volumes:
       - ./config:/app/config
       - ./bg.jpg:/app/public/images/bg.jpg:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: homepage.nicholaslyz.com
+      HOMEPAGE_ALLOWED_HOSTS: homepage.internal.nicholaslyz.com
       LOG_TARGETS: stdout
     user: 1000:1000
     labels:
       traefik.enable: true
+      traefik.http.routers.homepage.rule: Host(`homepage.internal.nicholaslyz.com`)
+      traefik.http.routers.homepage.entrypoints: tailscale
 
   homepage-socket-proxy:
     restart: always
     image: ghcr.io/tecnativa/docker-socket-proxy
+    networks:
+      - homepage
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       CONTAINERS: 1
-    network_mode: service:homepage
+
+# Traefik can't discover containers using network_mode: service
+# https://community.traefik.io/t/docker-compose-with-network-mode-service-service-name/3395/3
+networks:
+  homepage:
