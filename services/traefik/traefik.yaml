@@ -36,7 +36,8 @@ entryPoints:
 
   https:
     address: ":443"
-    asDefault: true # Don't create HTTP routers automatically
+    asDefault: true # If no default is specified, all entrypoints are added as the default (including the http entrypoint, which we don't want)
+    reusePort: true # Allow our tailscale entrypoint to share this port
     http:
       middlewares:
         - no-index@file
@@ -46,3 +47,14 @@ entryPoints:
           - sans:
               - "*.nicholaslyz.com"
               - "*.angfamily.net"
+  tailscale:
+    # Requests via tailscale will be preferentially routed here, not over the https entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#reuseport
+    address: "100.107.7.24:443"
+    reusePort: true
+    http:
+      tls:
+        certResolver: leresolver
+        domains:
+          - sans:
+              - "*.internal.nicholaslyz.com"

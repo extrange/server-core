@@ -21,6 +21,13 @@ http:
         customResponseHeaders:
           X-Robots-Tag: none
 
+  routers:
+    dashboard:
+      rule: Host(`traefik.internal.nicholaslyz.com`)
+      entrypoints:
+        - tailscale
+      service: api@internal
+
   # Only available via the file provider
   # https://github.com/traefik/traefik/issues/7893
   serversTransports:
