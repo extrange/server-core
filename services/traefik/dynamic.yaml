@@ -32,4 +32,5 @@ http:
   # https://github.com/traefik/traefik/issues/7893
   serversTransports:
     unifi:
+      # Unifi controller uses a self-signed cert
       insecureSkipVerify: true
