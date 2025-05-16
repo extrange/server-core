@@ -43,5 +43,6 @@ entryPoints:
       tls:
         certResolver: leresolver
         domains:
-          - main: "*.nicholaslyz.com"
-          - main: "*.angfamily.net"
+          - sans:
+              - "*.nicholaslyz.com"
+              - "*.angfamily.net"
