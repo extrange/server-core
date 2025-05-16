@@ -2,12 +2,12 @@ services:
   traefik:
     image: traefik@sha256:4cf907247939b5d20bf4eff73abd21cb413c339600dde76dbc94a874b2578a27
     container_name: traefik
+    hostname: ts-traefik # Tailscale uses this as the machine name
     ports:
       - "80:80"
       - "443:443"
-      - "8081:8080"
     volumes:
-      - ./data:/etc/traefik/data
+      - ./data/traefik:/etc/traefik/data
       - ./dynamic.yaml:/etc/traefik/conf.d/dynamic.yaml:ro
       - ./traefik.yaml:/etc/traefik/traefik.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -25,3 +25,17 @@ services:
       homepage.icon: traefik
       homepage.href: &url https://traefik.nicholaslyz.com
       homepage.siteMonitor: *url
+
+  ts-traefik:
+    image: tailscale/tailscale
+    restart: always
+    network_mode: service:traefik # Not compatible with 'ports:', so we put here
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_EXTRA_ARGS=--advertise-tags=tag:container
+      - TS_STATE_DIR=/var/lib/tailscale
+    volumes:
+      - ./data/tailscale:/var/lib/tailscale
+    cap_add:
+      - net_admin
+      - sys_module
