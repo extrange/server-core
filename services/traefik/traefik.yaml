@@ -38,6 +38,7 @@ entryPoints:
     address: ":443"
     asDefault: true # If no default is specified, all entrypoints are added as the default (including the http entrypoint, which we don't want)
     reusePort: true # Allow our tailscale entrypoint to share this port
+    http3: {}
     http:
       middlewares:
         - no-index@file

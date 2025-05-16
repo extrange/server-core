@@ -29,7 +29,8 @@ services:
     hostname: ts-traefik # Tailscale uses this as the machine name
     ports:
       - "80:80"
-      - "443:443"
+      - "443:443/tcp"
+      - "443:443/udp"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:9002/healthz"]
       start_interval: 5s
