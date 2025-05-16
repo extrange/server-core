@@ -10,7 +10,7 @@ services:
       - browserless
     environment:
       BROWSER_WEBSOCKET_URL: ws://browserless:3000?token=${BROWSERLESS_TOKEN}
-      BROWSER_CONNECT_ON_DEMAND: true
+      BROWSER_CONNECT_ONDEMAND: true
       CRAWLER_NUM_WORKERS: 2
       DATA_DIR: /data
       DISABLE_SIGNUPS: true
