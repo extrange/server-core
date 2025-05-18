@@ -24,7 +24,7 @@ services:
       homepage.siteMonitor: *url
 
   ts-traefik:
-    image: tailscale/tailscale
+    image: tailscale/tailscale@sha256:9a1f2640beecac3ad42ed8ef03d75adcb7165600f5131b17f9a2a3da68505928
     restart: always
     hostname: ts-traefik # Tailscale uses this as the machine name
     ports:

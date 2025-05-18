@@ -1,6 +1,6 @@
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage
+    image: ghcr.io/gethomepage/homepage@sha256:5e6bcbb595c4e857540577135e0f8b3ffc2e97c23d6e0ddc7df183de5bfdd442
     container_name: homepage
     restart: always
     depends_on:
@@ -22,7 +22,7 @@ services:
 
   homepage-socket-proxy:
     restart: always
-    image: ghcr.io/tecnativa/docker-socket-proxy
+    image: ghcr.io/tecnativa/docker-socket-proxy@sha256:9e4b9e7517a6b660f2cc903a19b257b1852d5b3344794e3ea334ff00ae677ac2
     networks:
       - homepage
     volumes:

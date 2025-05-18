@@ -2,7 +2,7 @@ services:
   shadowsocks:
     container_name: shadowsocks
     restart: always
-    image: ghcr.io/shadowsocks/ssserver-rust@sha256:987d510266db52022e4d183abc91cebea2ecdb77be0fc274710a04157998cb47
+    image: ghcr.io/shadowsocks/ssserver-rust@sha256:1f1e415c59b057d6affcb0a1d01f3e2a029a13648f72ad96c2b2f6b4da5748a3
     volumes:
       - ./config.json:/etc/shadowsocks-rust/config.json:ro
     ports:
