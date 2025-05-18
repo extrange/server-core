@@ -53,6 +53,12 @@ entryPoints:
   tailscale:
     # Requests via tailscale will be preferentially routed here, not over the https entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#reuseport
+    #
+    # Note: Internal services have to be marked with this entrypoint specifically, e.g.
+    # traefik.http.routers.changedetection-io.entrypoints: tailscale
+    #
+    # Otherwise, the https entrypoint will instead be assigned, and requests through the entrypoint but with the internal service as the Host will work:
+    # curl -vk --resolve changedetection-io.internal.nicholaslyz.com:443:116.14.95.248 https://changedetection-io.internal.nicholaslyz.com
     address: "100.107.7.24:443"
     reusePort: true
     http:
