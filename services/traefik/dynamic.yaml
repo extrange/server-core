@@ -31,6 +31,16 @@ http:
         customResponseHeaders: # Removes response headers
           x-powered-by: ""
           server: ""
+    compress:
+      compress:
+        encodings: zstd,br,gzip
+        defaultEncoding: gzip
+        includedContentTypes:
+          - application/json
+          - text/html
+          - text/plain
+          - text/css
+          - application/javascript
 
   routers:
     dashboard:

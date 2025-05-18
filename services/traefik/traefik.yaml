@@ -43,6 +43,7 @@ entryPoints:
       middlewares:
         - no-index@file
         - security-headers@file
+        - compress@file
       tls:
         certResolver: leresolver
         domains:
