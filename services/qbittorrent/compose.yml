@@ -11,12 +11,13 @@ services:
       PGID: 1000
       TZ: Asia/Singapore
     labels:
-      traefik.http.routers.qbittorrent.middlewares: check-superuser@file
+      traefik.http.routers.qbittorrent.rule: Host(`qbittorrent.internal.nicholaslyz.com`)
+      traefik.http.routers.qbittorrent.entrypoints: tailscale
       traefik.enable: true
       homepage.group: Services
       homepage.name: qBittorrent
       homepage.icon: qbittorrent
-      homepage.href: &url https://qbittorrent.nicholaslyz.com
+      homepage.href: &url https://qbittorrent.internal.nicholaslyz.com
       homepage.siteMonitor: *url
       homepage.widget.type: qbittorrent
       homepage.widget.url: http://qbittorrent:8080

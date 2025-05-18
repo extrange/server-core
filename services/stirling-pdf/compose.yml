@@ -6,10 +6,11 @@ services:
     environment:
       DOCKER_ENABLE_SECURITY: false
     labels:
-      traefik.http.routers.stirling-pdf.middlewares: check-superuser@file
+      traefik.http.routers.stirling-pdf.rule: Host(`stirling-pdf.internal.nicholaslyz.com`)
+      traefik.http.routers.stirling-pdf.entrypoints: tailscale
       traefik.enable: true
       homepage.group: Services
       homepage.name: Stirling PDF
       homepage.icon: stirling-pdf
-      homepage.href: &url https://stirling-pdf.nicholaslyz.com
+      homepage.href: &url https://stirling-pdf.internal.nicholaslyz.com
       homepage.siteMonitor: *url

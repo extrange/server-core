@@ -10,12 +10,13 @@ services:
     environment:
       TZ: Asia/Singapore
     labels:
-      traefik.http.routers.scrutiny.middlewares: check-superuser@file
+      traefik.http.routers.scrutiny.rule: Host(`scrutiny.internal.nicholaslyz.com`)
+      traefik.http.routers.scrutiny.entrypoints: tailscale
       traefik.enable: true
       homepage.group: Services
       homepage.name: Scrutiny
       homepage.icon: scrutiny
-      homepage.href: &url https://scrutiny.nicholaslyz.com
+      homepage.href: &url https://scrutiny.internal.nicholaslyz.com
       homepage.siteMonitor: *url
       homepage.widget.type: scrutiny
       homepage.widget.url: http://scrutiny:8080
