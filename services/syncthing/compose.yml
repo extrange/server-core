@@ -13,7 +13,6 @@ services:
       - /mnt/storage/Relationship:/Relationship
       - /mnt/storage/Work/Resources:/Resources
       - "/mnt/storage/Personal/Passport and ID Photos:/Passport and ID Photos"
-      - /mnt/storage/Backups/WhatsApp:/WhatsApp
       - "/mnt/storage/Memorial Folder/Elizabeth/Ophthalmology:/Elizabeth/Ophthalmology"
     ports:
       # Required for devices without tailscale (e.g. Kindle)
