@@ -21,10 +21,11 @@ services:
       - 22000:22000/udp
       - 21027:21027/udp #discovery broadcasts
     labels:
-      traefik.http.routers.syncthing.rule: Host(`syncthing.nicholaslyz.com`)
+      traefik.http.routers.syncthing.rule: Host(`syncthing.internal.nicholaslyz.com`)
+      traefik.http.routers.syncthing.entrypoints: tailscale
       traefik.enable: true
       homepage.group: Services
       homepage.name: Syncthing
       homepage.icon: syncthing
-      homepage.href: &url https://syncthing.nicholaslyz.com
+      homepage.href: &url https://syncthing.internal.nicholaslyz.com
       homepage.siteMonitor: *url

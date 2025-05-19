@@ -18,16 +18,18 @@ services:
     environment:
       TZ: "Asia/Singapore"
     labels:
+      traefik.enable: true
       traefik.http.services.unifi.loadbalancer.server.port: 8443
       traefik.http.services.unifi.loadbalancer.server.scheme: https
       traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file
-      traefik.enable: true
+      traefik.http.routers.unifi.rule: Host(`unifi.internal.nicholaslyz.com`)
+      traefik.http.routers.unifi.entrypoints: tailscale
       homepage.group: Services
       homepage.name: Unifi Controller
       homepage.icon: unifi
-      homepage.href: &url https://unifi.nicholaslyz.com
+      homepage.href: &url https://unifi.internal.nicholaslyz.com
       homepage.siteMonitor: *url
       homepage.widget.type: unifi
-      homepage.widget.url: https://unifi.nicholaslyz.com
+      homepage.widget.url: https://unifi.internal.nicholaslyz.com
       homepage.widget.username: ${USERNAME}
       homepage.widget.password: ${PASSWORD}
