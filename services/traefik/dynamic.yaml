@@ -38,13 +38,18 @@ http:
           - text/plain
           - text/css
           - application/javascript
-
+    dashboard-auth:
+      digestAuth:
+        users:
+          - '{{env "TRAEFIK_DIGEST_AUTH"}}'
   routers:
     dashboard:
       rule: Host(`traefik.internal.nicholaslyz.com`)
       entrypoints:
         - tailscale
       service: api@internal
+      middlewares:
+        - dashboard-auth@file
 
   # Only available via the file provider
   # https://github.com/traefik/traefik/issues/7893

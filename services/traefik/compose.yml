@@ -16,6 +16,7 @@ services:
     environment:
       CF_DNS_API_TOKEN: ${TRAEFIK_CF_API_TOKEN}
       TRAEFIK_CERTIFICATESRESOLVERS_LERESOLVER_ACME_EMAIL: ${TRAEFIK_ACME_EMAIL}
+      TRAEFIK_DIGEST_AUTH: ${TRAEFIK_DIGEST_AUTH}
     labels:
       homepage.group: Services
       homepage.name: Traefik
