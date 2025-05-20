@@ -38,6 +38,13 @@ entryPoints:
     address: ":443"
     asDefault: true # If no default is specified, all entrypoints are added as the default (including the http entrypoint, which we don't want)
     reusePort: true # Allow our tailscale entrypoint to share this port
+    transport:
+      respondingTimeouts:
+        # Fixes issues with long-running requests e.g. immich uploads
+        # https://immich.app/docs/administration/reverse-proxy/#traefik-proxy-example-config
+        readTimeout: 600s
+        idleTimeout: 600s
+        writeTimeout: 600s
     http3: {}
     http:
       middlewares:
