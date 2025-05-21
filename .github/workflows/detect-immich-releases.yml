@@ -41,6 +41,18 @@ jobs:
               .labels."traefik.http.middlewares.redirect-immich.redirectregex.regex" = "^https://photos.nicholaslyz.com/(.*)" |
               .labels."traefik.http.middlewares.redirect-immich.redirectregex.replacement" = "https://immich.nicholaslyz.com/$${1}" |
               .labels."traefik.http.routers.immich.middlewares" = "redirect-immich" |
+              .labels."homepage.group" = "Services" |
+              .labels."homepage.name" = "Immich" |
+              .labels."homepage.icon" = "immich" |
+
+
+              .labels."homepage.href" = "https://immich.nicholaslyz.com" |
+              .labels."homepage.href" anchor = "url" |
+              .labels."homepage.siteMonitor" alias = "url" |
+              .labels."homepage.widget.type" = "immich" |
+              .labels."homepage.widget.url" alias = "url" |
+              .labels."homepage.widget.key" = "${HOMEPAGE_KEY}" |
+              .labels."homepage.widget.version" = 2 |
 
               # We are using a reverse proxy so no need to expose ports
               del(.ports) |
