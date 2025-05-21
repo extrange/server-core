@@ -37,6 +37,14 @@ ruler:
 
 compactor:
   working_directory: /tmp/compactor
+  retention_enabled: true
+  delete_request_store: filesystem
+  retention_delete_delay: 1m
+  compaction_interval: 10m
+  apply_retention_interval: "0"
+
+limits_config:
+  retention_period: 672h # 28 days
 
 storage_config:
   tsdb_shipper:
