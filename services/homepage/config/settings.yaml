@@ -17,6 +17,10 @@ quicklaunch:
 
 hideVersion: true
 layout:
+  Calendar:
+    header: false
+  Links:
+    header: false
   Services:
     style: row
     columns: 4
