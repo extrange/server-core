@@ -7,6 +7,11 @@ server:
   http_listen_address: 0.0.0.0
   http_listen_port: 3100
 
+  # Fixes grpc: received message larger than max errors
+  # https://github.com/grafana/loki/issues/2271
+  grpc_server_max_recv_msg_size: 104857600 # 100 MiB
+  grpc_server_max_send_msg_size: 104857600 # 100 MiB
+
 memberlist:
   join_members: ["loki"]
   dead_node_reclaim_time: 30s
