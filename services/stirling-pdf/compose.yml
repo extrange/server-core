@@ -15,8 +15,8 @@ services:
       homepage.group: Services
       homepage.name: Stirling PDF
       homepage.icon: stirling-pdf
-      homepage.href: &url https://stirling-pdf.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://stirling-pdf.internal.nicholaslyz.com
+      homepage.siteMonitor: http://stirling-pdf:8080
 
 networks:
   stirling-pdf:

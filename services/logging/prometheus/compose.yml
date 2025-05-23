@@ -29,8 +29,8 @@ services:
       homepage.group: Services
       homepage.name: Prometheus
       homepage.icon: prometheus
-      homepage.href: &url https://prometheus.internal.nicholaslyz.com
-      homepage.siteMonitor: https://prometheus.internal.nicholaslyz.com
+      homepage.href: https://prometheus.internal.nicholaslyz.com
+      homepage.siteMonitor: &url http://prometheus:9090
       homepage.widget.type: prometheus
       homepage.widget.url: *url
 

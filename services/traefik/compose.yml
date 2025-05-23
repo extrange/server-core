@@ -21,8 +21,7 @@ services:
       homepage.group: Services
       homepage.name: Traefik
       homepage.icon: traefik
-      homepage.href: &url https://traefik.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://traefik.internal.nicholaslyz.com
 
   ts-traefik:
     image: tailscale/tailscale@sha256:9a1f2640beecac3ad42ed8ef03d75adcb7165600f5131b17f9a2a3da68505928
@@ -33,7 +32,7 @@ services:
       - audiobookshelf
       - backend
       - calibre-web
-      - changedetection
+      - changedetection-io
       - ddns-updater
       - grafana
       - homepage

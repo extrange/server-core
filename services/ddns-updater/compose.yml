@@ -17,8 +17,8 @@ services:
       homepage.group: Services
       homepage.name: DDNS Updater
       homepage.icon: ddns-updater
-      homepage.href: &url https://ddns-updater.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://ddns-updater.internal.nicholaslyz.com
+      homepage.siteMonitor: http://ddns-updater:8000
 
 networks:
   ddns-updater:

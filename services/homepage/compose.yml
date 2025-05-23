@@ -6,7 +6,15 @@ services:
     depends_on:
       - homepage-socket-proxy
     networks:
+      - changedetection-io
+      - ddns-updater
       - homepage
+      - prometheus
+      - qbittorrent
+      - scrutiny
+      - stirling-pdf
+      - syncthing
+      - unifi
     volumes:
       - ./config:/app/config
       - ./bg.jpg:/app/public/images/bg.jpg:ro

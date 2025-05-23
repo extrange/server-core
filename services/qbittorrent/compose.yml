@@ -20,8 +20,8 @@ services:
       homepage.group: Services
       homepage.name: qBittorrent
       homepage.icon: qbittorrent
-      homepage.href: &url https://qbittorrent.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://qbittorrent.internal.nicholaslyz.com
+      homepage.siteMonitor: &url http://qbittorrent:8080
       homepage.widget.type: qbittorrent
       homepage.widget.url: *url
 

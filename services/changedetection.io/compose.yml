@@ -15,11 +15,10 @@ services:
       homepage.group: Services
       homepage.name: Changedetection.io
       homepage.icon: changedetection
-      homepage.href: &url https://changedetection-io.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
-
+      homepage.href: https://changedetection-io.internal.nicholaslyz.com
+      homepage.siteMonitor: http://changedetection-io:5000
     networks:
-      - changedetection
+      - changedetection-io
 
 networks:
-  changedetection:
+  changedetection-io:

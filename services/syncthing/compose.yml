@@ -29,8 +29,8 @@ services:
       homepage.group: Services
       homepage.name: Syncthing
       homepage.icon: syncthing
-      homepage.href: &url https://syncthing.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://syncthing.internal.nicholaslyz.com
+      homepage.siteMonitor: http://syncthing:8384
 
 networks:
   syncthing:

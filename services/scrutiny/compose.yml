@@ -19,8 +19,8 @@ services:
       homepage.group: Services
       homepage.name: Scrutiny
       homepage.icon: scrutiny
-      homepage.href: &url https://scrutiny.internal.nicholaslyz.com
-      homepage.siteMonitor: *url
+      homepage.href: https://scrutiny.internal.nicholaslyz.com
+      homepage.siteMonitor: &url http://scrutiny:8080
       homepage.widget.type: scrutiny
       homepage.widget.url: *url
 
