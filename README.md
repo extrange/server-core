@@ -1,6 +1,6 @@
 # My Home Server
 
-Containers comprising my home server. See my [blog] for more details.
+Containers on my home server, which are exposed to the internet or Tailscale. See my [blog] for more details.
 
 ## Updating Postgres containers across major versions
 
