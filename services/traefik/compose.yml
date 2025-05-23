@@ -29,20 +29,17 @@ services:
     restart: always
     hostname: ts-traefik # Tailscale uses this as the machine name
     networks:
-      - default # to remove
       - actualbudget
       - audiobookshelf
       - backend
       - calibre-web
       - changedetection
       - ddns-updater
+      - grafana
       - homepage
       - immich-server
       - jellyfin
       - karakeep
-      - grafana
-      - prometheus
-      - qbittorrent
       - mealie
       - metabase
       - microbin
@@ -50,6 +47,8 @@ services:
       - minio
       - navidrome
       - open-webui
+      - prometheus
+      - qbittorrent
       - reactive-resume
       - realtime-todo-server
       - scrutiny

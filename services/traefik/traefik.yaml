@@ -2,7 +2,6 @@
 providers:
   docker:
     exposedByDefault: false
-    network: server-core_default
 
     # If no router rule is specified, use the container name as the subdomain
     defaultRule: Host(`{{ index .Labels "com.docker.compose.service" }}.nicholaslyz.com`)

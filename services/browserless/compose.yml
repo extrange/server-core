@@ -10,7 +10,14 @@ services:
       # The following are necessary for link previews to work
       CORS: true
     networks:
-      - browserless
       - changedetection
       - karakeep
       - reactive-resume
+
+      # External
+      - polythought
+
+networks:
+  polythought:
+    external: true
+    name: polythought_polythought

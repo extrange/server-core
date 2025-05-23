@@ -47,3 +47,6 @@ services:
 
 networks:
   metabase:
+  trading-bot-db:
+    name: ibkr_trading-bot-db
+    external: true
