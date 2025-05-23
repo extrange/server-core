@@ -2,9 +2,6 @@ services:
   prometheus:
     image: prom/prometheus@sha256:78ed1f9050eb9eaf766af6e580230b1c4965728650e332cd1ee918c0c4699775
     container_name: prometheus
-    user: root # TODO shouldn't require this
-    ports:
-      - 9091:9090
     volumes:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
       - "prometheus:/prometheus"
@@ -19,6 +16,17 @@ services:
       - --web.console.templates=/usr/share/prometheus/consoles
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    labels:
+      traefik.enable: true
+      traefik.http.routers.prometheus.rule: Host(`prometheus.internal.nicholaslyz.com`)
+      traefik.http.routers.prometheus.entrypoints: tailscale
+      homepage.group: Services
+      homepage.name: Prometheus
+      homepage.icon: prometheus
+      homepage.href: &url https://prometheus.internal.nicholaslyz.com
+      homepage.siteMonitor: https://prometheus.internal.nicholaslyz.com
+      homepage.widget.type: prometheus
+      homepage.widget.url: http://prometheus:9090
 
 volumes:
   prometheus:
