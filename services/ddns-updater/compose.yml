@@ -7,8 +7,11 @@ services:
       - ./data:/updater/data
     environment:
       TZ: Asia/Singapore
+    networks:
+      - ddns-updater
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_ddns-updater
       traefik.http.routers.ddns-updater.rule: Host(`ddns-updater.internal.nicholaslyz.com`)
       traefik.http.routers.ddns-updater.entrypoints: tailscale
       homepage.group: Services
@@ -16,3 +19,6 @@ services:
       homepage.icon: ddns-updater
       homepage.href: &url https://ddns-updater.internal.nicholaslyz.com
       homepage.siteMonitor: *url
+
+networks:
+  ddns-updater:

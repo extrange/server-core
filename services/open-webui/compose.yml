@@ -7,10 +7,16 @@ services:
       - ./data:/app/backend/data
     environment:
       CUSTOM_NAME: AI Chat
+    networks:
+      - open-webui
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_open-webui
       homepage.group: Services
       homepage.name: Open WebUI
       homepage.icon: open-webui
       homepage.href: &url https://open-webui.nicholaslyz.com
       homepage.siteMonitor: *url
+
+networks:
+  open-webui:

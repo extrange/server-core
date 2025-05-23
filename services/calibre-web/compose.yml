@@ -10,8 +10,11 @@ services:
     volumes:
       - /mnt/storage/Books:/library
       - ./data:/config
+    networks:
+      - calibre-web
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_calibre-web
       homepage.group: Services
       homepage.name: Calibre Web
       homepage.icon: calibre-web
@@ -21,3 +24,6 @@ services:
       homepage.widget.url: *url
       homepage.widget.username: ${USERNAME}
       homepage.widget.password: ${PASSWORD}
+
+networks:
+  calibre-web:

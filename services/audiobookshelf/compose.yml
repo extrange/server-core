@@ -10,8 +10,11 @@ services:
       - ./data/podcasts:/podcasts
       - ./data/config:/config
       - ./data/metadata:/metadata
+    networks:
+      - audiobookshelf
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_audiobookshelf
       homepage.group: Services
       homepage.name: Audiobookshelf
       homepage.icon: audiobookshelf
@@ -20,3 +23,6 @@ services:
       homepage.widget.type: audiobookshelf
       homepage.widget.url: *url
       homepage.widget.key: ${API_KEY}
+
+networks:
+  audiobookshelf:

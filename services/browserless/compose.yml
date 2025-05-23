@@ -10,5 +10,7 @@ services:
       # The following are necessary for link previews to work
       CORS: true
     networks:
-      # Don't allow connections unless specifically part of the browserless network
       - browserless
+      - changedetection
+      - karakeep
+      - reactive-resume

@@ -10,8 +10,11 @@ services:
       - /mnt/storage/Videos:/media
     environment:
       JELLYFIN_PublishedServerUrl: https://jellyfin.nicholaslyz.com
+    networks:
+      - jellyfin
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_jellyfin
       homepage.group: Services
       homepage.name: Jellyfin
       homepage.icon: jellyfin
@@ -22,3 +25,6 @@ services:
       homepage.widget.key: ${HOMEPAGE_KEY}
       homepage.widget.enableBlocks: true # optional, defaults to false
       homepage.widget.enableNowPlaying: false
+
+networks:
+  jellyfin:

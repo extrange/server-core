@@ -6,6 +6,11 @@ services:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
       - "prometheus:/prometheus"
     restart: always
+    networks:
+      - cadvisor
+      - smartctl-exporter
+      - prometheus
+      - loki
     environment:
       TZ: Asia/Singapore
     command:
@@ -20,13 +25,17 @@ services:
       traefik.enable: true
       traefik.http.routers.prometheus.rule: Host(`prometheus.internal.nicholaslyz.com`)
       traefik.http.routers.prometheus.entrypoints: tailscale
+      traefik.docker.network: server-core_prometheus
       homepage.group: Services
       homepage.name: Prometheus
       homepage.icon: prometheus
       homepage.href: &url https://prometheus.internal.nicholaslyz.com
       homepage.siteMonitor: https://prometheus.internal.nicholaslyz.com
       homepage.widget.type: prometheus
-      homepage.widget.url: http://prometheus:9090
+      homepage.widget.url: *url
 
 volumes:
+  prometheus:
+
+networks:
   prometheus:

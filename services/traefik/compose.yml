@@ -28,6 +28,34 @@ services:
     image: tailscale/tailscale@sha256:9a1f2640beecac3ad42ed8ef03d75adcb7165600f5131b17f9a2a3da68505928
     restart: always
     hostname: ts-traefik # Tailscale uses this as the machine name
+    networks:
+      - default # to remove
+      - actualbudget
+      - audiobookshelf
+      - backend
+      - calibre-web
+      - changedetection
+      - ddns-updater
+      - homepage
+      - immich-server
+      - jellyfin
+      - karakeep
+      - grafana
+      - prometheus
+      - qbittorrent
+      - mealie
+      - metabase
+      - microbin
+      - miniflux
+      - minio
+      - navidrome
+      - open-webui
+      - reactive-resume
+      - realtime-todo-server
+      - scrutiny
+      - stirling-pdf
+      - syncthing
+      - unifi
     ports:
       - "80:80"
       - "443:443/tcp"

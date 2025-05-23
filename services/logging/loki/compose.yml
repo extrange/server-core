@@ -4,6 +4,9 @@ services:
     container_name: loki
     command: "-config.file=/config/loki.yml -target=all -log-config-reverse-order"
     restart: always
+    networks:
+      - loki
+      - vector
     volumes:
       - "./loki.yml:/config/loki.yml"
       - "loki:/data" # Object store, we use a Docker volume instead of a disk mount as we don't want to snapshot logs
@@ -19,4 +22,7 @@ services:
       retries: 5
 
 volumes:
+  loki:
+
+networks:
   loki:

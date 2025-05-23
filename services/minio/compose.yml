@@ -4,6 +4,9 @@ services:
     image: quay.io/minio/minio:latest@sha256:a1ea29fa28355559ef137d71fc570e508a214ec84ff8083e39bc5428980b015e
     restart: always
     command: server --console-address ":9001" /data
+    networks:
+      - minio
+      - reactive-resume
     environment:
       TZ: Asia/Singapore
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
@@ -17,6 +20,7 @@ services:
       retries: 5
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_minio
 
       # Minio
       traefik.http.services.minio.loadbalancer.server.port: 9000
@@ -31,3 +35,6 @@ services:
       homepage.icon: minio
       homepage.href: &url https://minio-admin.nicholaslyz.com
       homepage.siteMonitor: *url
+
+networks:
+  minio:

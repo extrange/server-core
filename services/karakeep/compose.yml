@@ -6,8 +6,7 @@ services:
     volumes:
       - ./data/data:/data
     networks:
-      - default
-      - browserless
+      - karakeep
     environment:
       BROWSER_WEBSOCKET_URL: ws://browserless:3000?token=${BROWSERLESS_TOKEN}
       BROWSER_CONNECT_ONDEMAND: true
@@ -28,6 +27,7 @@ services:
       - browserless
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_karakeep
       homepage.group: Services
       homepage.name: Karakeep
       homepage.icon: karakeep
@@ -41,8 +41,13 @@ services:
     image: getmeili/meilisearch@sha256:8cd411ba5d9ec2dfce02e241305208eebacce0fd74a72bece21cadd03dc566ce
     container_name: karakeep-meilisearch
     restart: always
+    networks:
+      - karakeep
     environment:
       MEILI_NO_ANALYTICS: "true"
       MEILI_MASTER_KEY: ${KARAKEEP_MEILI_MASTER_KEY}
     volumes:
       - ./data/meilisearch:/meili_data
+
+networks:
+  karakeep:

@@ -11,6 +11,7 @@ services:
       traefik.enable: true
       traefik.http.routers.changedetection-io.rule: Host(`changedetection-io.internal.nicholaslyz.com`)
       traefik.http.routers.changedetection-io.entrypoints: tailscale
+      traefik.docker.network: server-core_changedetection
       homepage.group: Services
       homepage.name: Changedetection.io
       homepage.icon: changedetection
@@ -18,5 +19,7 @@ services:
       homepage.siteMonitor: *url
 
     networks:
-      - default
-      - browserless
+      - changedetection
+
+networks:
+  changedetection:

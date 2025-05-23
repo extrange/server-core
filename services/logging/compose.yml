@@ -9,6 +9,8 @@ services:
     image: gcr.io/cadvisor/cadvisor:v0.52.1@sha256:f40e65878e25c2e78ea037f73a449527a0fb994e303dc3e34cb6b187b4b91435
     container_name: cadvisor
     restart: always
+    networks:
+      - cadvisor
     command:
       - "--housekeeping_interval=10s"
     volumes:
@@ -23,6 +25,8 @@ services:
 
   smartctl-exporter:
     image: prometheuscommunity/smartctl-exporter@sha256:cfe22c36d7d2fac48ebf619707305acb65eb0fb670656eb80f356e606d782bc1
+    networks:
+      - smartctl-exporter
     container_name: smartctl-exporter
     restart: always
     privileged: true
@@ -39,3 +43,7 @@ services:
     command:
       - "--path.rootfs=/rootfs"
       - "--path.udev.data=/rootfs/run/udev/data"
+
+networks:
+  smartctl-exporter:
+  cadvisor:

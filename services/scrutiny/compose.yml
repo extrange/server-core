@@ -9,14 +9,20 @@ services:
       - ./data/influxdb:/opt/scrutiny/influxdb
     environment:
       TZ: Asia/Singapore
+    networks:
+      - scrutiny
     labels:
       traefik.http.routers.scrutiny.rule: Host(`scrutiny.internal.nicholaslyz.com`)
       traefik.http.routers.scrutiny.entrypoints: tailscale
       traefik.enable: true
+      traefik.docker.network: server-core_scrutiny
       homepage.group: Services
       homepage.name: Scrutiny
       homepage.icon: scrutiny
       homepage.href: &url https://scrutiny.internal.nicholaslyz.com
       homepage.siteMonitor: *url
       homepage.widget.type: scrutiny
-      homepage.widget.url: http://scrutiny:8080
+      homepage.widget.url: *url
+
+networks:
+  scrutiny:

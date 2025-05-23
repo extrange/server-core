@@ -17,8 +17,11 @@ services:
         "--public-path",
         "https://microbin.nicholaslyz.com",
       ]
+    networks:
+      - microbin
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_microbin
       homepage.group: Services
       homepage.name: Microbin
       homepage.icon: microbin
@@ -26,4 +29,7 @@ services:
       homepage.siteMonitor: *url
 
 volumes:
+  microbin:
+
+networks:
   microbin:

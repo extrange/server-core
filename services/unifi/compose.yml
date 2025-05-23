@@ -17,8 +17,11 @@ services:
       - 3478:3478/udp # STUN
     environment:
       TZ: "Asia/Singapore"
+    networks:
+      - unifi
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_unifi
       traefik.http.services.unifi.loadbalancer.server.port: 8443
       traefik.http.services.unifi.loadbalancer.server.scheme: https
       traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file
@@ -33,3 +36,6 @@ services:
       homepage.widget.url: https://unifi.internal.nicholaslyz.com
       homepage.widget.username: ${USERNAME}
       homepage.widget.password: ${PASSWORD}
+
+networks:
+  unifi:

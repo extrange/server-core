@@ -21,6 +21,7 @@ services:
       traefik.enable: true
       traefik.http.routers.homepage.rule: Host(`homepage.internal.nicholaslyz.com`)
       traefik.http.routers.homepage.entrypoints: tailscale
+      traefik.docker.network: server-core_homepage
 
   homepage-socket-proxy:
     restart: always

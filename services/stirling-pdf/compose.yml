@@ -5,12 +5,18 @@ services:
     restart: always
     environment:
       DOCKER_ENABLE_SECURITY: false
+    networks:
+      - stirling-pdf
     labels:
       traefik.http.routers.stirling-pdf.rule: Host(`stirling-pdf.internal.nicholaslyz.com`)
       traefik.http.routers.stirling-pdf.entrypoints: tailscale
       traefik.enable: true
+      traefik.docker.network: server-core_stirling-pdf
       homepage.group: Services
       homepage.name: Stirling PDF
       homepage.icon: stirling-pdf
       homepage.href: &url https://stirling-pdf.internal.nicholaslyz.com
       homepage.siteMonitor: *url
+
+networks:
+  stirling-pdf:

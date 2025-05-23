@@ -9,8 +9,11 @@ services:
     environment:
       - DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
+    networks:
+      - miniflux
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_miniflux
       homepage.group: Services
       homepage.name: Miniflux
       homepage.icon: miniflux
@@ -23,6 +26,8 @@ services:
     container_name: miniflux-db
     image: postgres:17@sha256:864831322bf2520e7d03d899b01b542de6de9ece6fe29c89f19dc5e1d5568ccf
     restart: always
+    networks:
+      - miniflux
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
@@ -33,3 +38,6 @@ services:
       test: ["CMD", "pg_isready", "-U", "miniflux"]
       interval: 10s
       start_period: 30s
+
+networks:
+  miniflux:

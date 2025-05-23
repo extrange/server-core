@@ -3,6 +3,8 @@ services:
     container_name: navidrome
     image: deluan/navidrome:latest@sha256:3a66e262b7ea836faa06c08ad5b32076c49e9e63e2fa4de10080c8e9be9f0846
     restart: always
+    networks:
+      - navidrome
     volumes:
       - ./data:/data
       - /mnt/storage/Music2:/music:ro
@@ -18,6 +20,7 @@ services:
       TZ: Asia/Singapore
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_navidrome
       homepage.group: Services
       homepage.name: Navidrome
       homepage.icon: navidrome
@@ -28,3 +31,6 @@ services:
       homepage.widget.user: nicholaslyz
       homepage.widget.token: ${HOMEPAGE_TOKEN}
       homepage.widget.salt: ${HOMEPAGE_SALT}
+
+networks:
+  navidrome:

@@ -7,10 +7,16 @@ services:
       TZ: Asia/Singapore
     volumes:
       - ./data:/data
+    networks:
+      - actualbudget
     labels:
       traefik.enable: true
+      traefik.docker.network: server-core_actualbudget
       homepage.group: Services
       homepage.name: Actual Budget
       homepage.icon: actual-budget
       homepage.href: &url https://actualbudget.nicholaslyz.com
       homepage.siteMonitor: *url
+
+networks:
+  actualbudget:
