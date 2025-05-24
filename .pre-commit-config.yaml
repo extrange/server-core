@@ -24,3 +24,7 @@ repos:
     rev: 0.29.4
     hooks:
       - id: check-renovate
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.4
+    hooks:
+      - id: actionlint-docker

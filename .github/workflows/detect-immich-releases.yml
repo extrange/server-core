@@ -22,10 +22,11 @@ jobs:
 
       - name: Fail if immich compose.yml does not exist
         run: |
-          [ -f $IMMICH_COMPOSE_FILE ]
+          [ -f "$IMMICH_COMPOSE_FILE" ]
 
       - name: Add my own modifications to that compose.yml, overwriting the existing
         run: |
+          # shellcheck disable=SC2016
           yq '
             with(.services.immich-server;
 
@@ -33,9 +34,13 @@ jobs:
               .volumes += "./data/.config:/root/.config" |
               .volumes[-1] line_comment="Save immich-cli logins on container restarts" |
 
+              # Network
+              .networks = ["immich-server"] |
+
               # Add traefik labels
               .labels."traefik.http.routers.immich.rule" = "Host(`immich.nicholaslyz.com`) || Host(`photos.nicholaslyz.com`) || Host(`photos.angfamily.net`)" |
               .labels."traefik.enable" = true |
+              .labels."traefik.docker.network" = "server-core_immich-server" |
 
               # Redirect photos.nicholaslyz.com to immich.nicholaslyz.com
               .labels."traefik.http.middlewares.redirect-immich.redirectregex.regex" = "^https://photos.nicholaslyz.com/(.*)" |
@@ -61,10 +66,25 @@ jobs:
               .depends_on[] |= "immich-" + .
             ) |
 
-            # Append immich- prefix to redis and database services
-            (.services.redis | key) = "immich-redis" |
-            (.services.database | key) = "immich-database"
-          ' /tmp/compose.yml > $IMMICH_COMPOSE_FILE
+            with(.services.immich-machine-learning;
+              .networks = ["immich-server"]
+            ) |
+
+            with(.services.redis;
+              key = "immich-redis" |
+              .networks = ["immich-server"]
+            ) |
+
+            with(.services.database;
+              key = "immich-database" |
+              .networks = ["immich-server"]
+            ) |
+
+            with(.networks.immich-server;
+              . = "" |
+              . tag = "!!null"
+            )
+          ' /tmp/compose.yml > "$IMMICH_COMPOSE_FILE"
 
       - name: Create PR
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
