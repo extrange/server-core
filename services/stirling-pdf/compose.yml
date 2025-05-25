@@ -1,7 +1,7 @@
 services:
   stirling-pdf:
     container_name: stirling-pdf
-    image: frooodle/s-pdf@sha256:0297ac115103d07bed12dd98ac138d610c82994602199feb25233df4dd50ceca
+    image: frooodle/s-pdf@sha256:396ca949b81198a65b9abfec38518fa44e871b1970dad9f9718ffd030eef9b92
     restart: always
     environment:
       DOCKER_ENABLE_SECURITY: false
