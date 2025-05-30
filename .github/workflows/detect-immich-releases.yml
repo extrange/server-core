@@ -77,7 +77,8 @@ jobs:
 
             with(.services.database;
               key = "immich-database" |
-              .networks = ["immich-server"]
+              .networks = ["immich-server"] |
+              .environment.DB_STORAGE_TYPE = "HDD"
             ) |
 
             with(.networks.immich-server;
