@@ -15,3 +15,5 @@ services:
       - /factorio/local.zip
       - --server-settings
       - /factorio/data/server-settings.json
+    environment:
+      TZ: "Asia/Singapore"
