@@ -3,6 +3,7 @@ services:
     image: traefik@sha256:cd40ab7bc1f047731d5b22595203812343efcb6538014c4e93221cfc3a77217a
     container_name: traefik
     network_mode: service:ts-traefik
+    restart: always
     depends_on:
       ts-traefik:
         # Even though network_mode adds a dependency, we need healthchecks to pass otherwise we cannot bind to the tailscale iface
