@@ -3,6 +3,12 @@
 # https://gethomepage.dev/configs/bookmarks
 
 - Links:
+    - ChatGPT:
+        - icon: chatgpt
+          href: https://chatgpt.com
+    - Gmail:
+        - icon: gmail
+          href: https://mail.google.com
     - Personal Blog:
         - icon: mkdocs
           href: https://nicholaslyz.com
@@ -12,12 +18,3 @@
     - Web App:
         - icon: reactjs
           href: https://app.nicholaslyz.com
-    - Github (NUHS):
-        - icon: github
-          href: https://github.com/nuhs-projects
-    - Github:
-        - icon: github
-          href: https://github.com/extrange
-    - ChatGPT:
-        - icon: chatgpt
-          href: https://chatgpt.com
