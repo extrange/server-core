@@ -80,7 +80,7 @@ services:
       # GOOGLE_CALLBACK_URL: http://localhost:3000/api/auth/google/callback
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_reactive-resume
+      traefik.docker.network: core_reactive-resume
       homepage.group: Services
       homepage.name: Reactive Resume
       homepage.icon: reactive-resume

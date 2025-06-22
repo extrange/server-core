@@ -40,7 +40,7 @@ jobs:
               # Add traefik labels
               .labels."traefik.http.routers.immich.rule" = "Host(`immich.nicholaslyz.com`) || Host(`photos.nicholaslyz.com`) || Host(`photos.angfamily.net`)" |
               .labels."traefik.enable" = true |
-              .labels."traefik.docker.network" = "server-core_immich-server" |
+              .labels."traefik.docker.network" = "core_immich-server" |
 
               # Redirect photos.nicholaslyz.com to immich.nicholaslyz.com
               .labels."traefik.http.middlewares.redirect-immich.redirectregex.regex" = "^https://photos.nicholaslyz.com/(.*)" |

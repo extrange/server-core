@@ -23,7 +23,7 @@ services:
       - "./data:/var/lib/grafana"
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_grafana
+      traefik.docker.network: core_grafana
       homepage.group: Services
       homepage.name: Grafana
       homepage.icon: grafana

@@ -21,7 +21,7 @@ services:
       - microbin
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_microbin
+      traefik.docker.network: core_microbin
       homepage.group: Services
       homepage.name: Microbin
       homepage.icon: microbin

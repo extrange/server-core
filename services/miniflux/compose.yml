@@ -13,7 +13,7 @@ services:
       - miniflux
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_miniflux
+      traefik.docker.network: core_miniflux
       homepage.group: Services
       homepage.name: Miniflux
       homepage.icon: miniflux

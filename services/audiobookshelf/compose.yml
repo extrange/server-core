@@ -15,7 +15,7 @@ services:
       - audiobookshelf
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_audiobookshelf
+      traefik.docker.network: core_audiobookshelf
       homepage.group: Services
       homepage.name: Audiobookshelf
       homepage.icon: audiobookshelf

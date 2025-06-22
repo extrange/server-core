@@ -25,7 +25,7 @@ services:
       traefik.http.routers.syncthing.rule: Host(`syncthing.internal.nicholaslyz.com`)
       traefik.http.routers.syncthing.entrypoints: tailscale
       traefik.enable: true
-      traefik.docker.network: server-core_syncthing
+      traefik.docker.network: core_syncthing
       homepage.group: Services
       homepage.name: Syncthing
       homepage.icon: syncthing

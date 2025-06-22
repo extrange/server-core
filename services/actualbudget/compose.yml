@@ -11,7 +11,7 @@ services:
       - actualbudget
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_actualbudget
+      traefik.docker.network: core_actualbudget
       homepage.group: Services
       homepage.name: Actual Budget
       homepage.icon: actual-budget

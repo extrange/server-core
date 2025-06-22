@@ -22,7 +22,7 @@ services:
       - mealie
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_mealie
+      traefik.docker.network: core_mealie
       homepage.group: Services
       homepage.name: Mealie
       homepage.icon: mealie

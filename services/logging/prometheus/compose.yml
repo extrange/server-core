@@ -25,7 +25,7 @@ services:
       traefik.enable: true
       traefik.http.routers.prometheus.rule: Host(`prometheus.internal.nicholaslyz.com`)
       traefik.http.routers.prometheus.entrypoints: tailscale
-      traefik.docker.network: server-core_prometheus
+      traefik.docker.network: core_prometheus
       homepage.group: Services
       homepage.name: Prometheus
       homepage.icon: prometheus

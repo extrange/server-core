@@ -27,7 +27,7 @@ services:
       - browserless
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_karakeep
+      traefik.docker.network: core_karakeep
       homepage.group: Services
       homepage.name: Karakeep
       homepage.icon: karakeep

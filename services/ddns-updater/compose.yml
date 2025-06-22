@@ -11,7 +11,7 @@ services:
       - ddns-updater
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_ddns-updater
+      traefik.docker.network: core_ddns-updater
       traefik.http.routers.ddns-updater.rule: Host(`ddns-updater.internal.nicholaslyz.com`)
       traefik.http.routers.ddns-updater.entrypoints: tailscale
       homepage.group: Services

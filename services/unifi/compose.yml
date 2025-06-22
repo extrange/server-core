@@ -21,7 +21,7 @@ services:
       - unifi
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_unifi
+      traefik.docker.network: core_unifi
       traefik.http.services.unifi.loadbalancer.server.port: 8443
       traefik.http.services.unifi.loadbalancer.server.scheme: https
       traefik.http.services.unifi.loadbalancer.serverstransport: unifi@file

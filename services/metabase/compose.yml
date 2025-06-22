@@ -25,7 +25,7 @@ services:
       - trading-bot-db
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_metabase
+      traefik.docker.network: core_metabase
       homepage.group: Services
       homepage.name: Metabase
       homepage.icon: metabase

@@ -14,7 +14,7 @@ services:
       - jellyfin
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_jellyfin
+      traefik.docker.network: core_jellyfin
       homepage.group: Services
       homepage.name: Jellyfin
       homepage.icon: jellyfin

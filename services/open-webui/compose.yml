@@ -11,7 +11,7 @@ services:
       - open-webui
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_open-webui
+      traefik.docker.network: core_open-webui
       homepage.group: Services
       homepage.name: Open WebUI
       homepage.icon: open-webui

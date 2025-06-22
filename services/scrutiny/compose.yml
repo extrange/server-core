@@ -15,7 +15,7 @@ services:
       traefik.http.routers.scrutiny.rule: Host(`scrutiny.internal.nicholaslyz.com`)
       traefik.http.routers.scrutiny.entrypoints: tailscale
       traefik.enable: true
-      traefik.docker.network: server-core_scrutiny
+      traefik.docker.network: core_scrutiny
       homepage.group: Services
       homepage.name: Scrutiny
       homepage.icon: scrutiny

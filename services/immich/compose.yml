@@ -33,7 +33,7 @@ services:
     labels:
       traefik.http.routers.immich.rule: Host(`immich.nicholaslyz.com`) || Host(`photos.nicholaslyz.com`) || Host(`photos.angfamily.net`)
       traefik.enable: true
-      traefik.docker.network: server-core_immich-server
+      traefik.docker.network: core_immich-server
       traefik.http.middlewares.redirect-immich.redirectregex.regex: ^https://photos.nicholaslyz.com/(.*)
       traefik.http.middlewares.redirect-immich.redirectregex.replacement: https://immich.nicholaslyz.com/$${1}
       traefik.http.routers.immich.middlewares: redirect-immich
@@ -78,7 +78,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_DB: ${DB_DATABASE_NAME}
-      POSTGRES_INITDB_ARGS: '--data-checksums'
+      POSTGRES_INITDB_ARGS: "--data-checksums"
       # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
       # DB_STORAGE_TYPE: 'HDD'
 

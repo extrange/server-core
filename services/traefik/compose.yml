@@ -26,6 +26,7 @@ services:
 
   ts-traefik:
     image: tailscale/tailscale@sha256:8fcad6613f57c42f3073a58823b83b7c961f8e042fb784dc97378828660d65dc
+    container_name: ts-traefik
     restart: always
     hostname: ts-traefik # Tailscale uses this as the machine name
     networks:

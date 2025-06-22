@@ -20,7 +20,7 @@ services:
       TZ: Asia/Singapore
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_navidrome
+      traefik.docker.network: core_navidrome
       homepage.group: Services
       homepage.name: Navidrome
       homepage.icon: navidrome

@@ -14,7 +14,7 @@ services:
       - calibre-web
     labels:
       traefik.enable: true
-      traefik.docker.network: server-core_calibre-web
+      traefik.docker.network: core_calibre-web
       homepage.group: Services
       homepage.name: Calibre Web
       homepage.icon: calibre-web

@@ -15,7 +15,7 @@ services:
     labels:
       traefik.http.routers.qbittorrent.rule: Host(`qbittorrent.internal.nicholaslyz.com`)
       traefik.http.routers.qbittorrent.entrypoints: tailscale
-      traefik.docker.network: server-core_qbittorrent
+      traefik.docker.network: core_qbittorrent
       traefik.enable: true
       homepage.group: Services
       homepage.name: qBittorrent
