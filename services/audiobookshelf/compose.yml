@@ -3,11 +3,12 @@ services:
     container_name: audiobookshelf
     image: ghcr.io/advplyr/audiobookshelf:latest@sha256:5154518d8215f8e795fde1c1561080b450af8a6bc0c0bd60c2a920084bf930d6
     restart: always
+    user: 1000:1000
     environment:
       TZ: Asia/Singapore
     volumes:
-      - /mnt/storage/Audiobooks:/audiobooks
-      - ./data/podcasts:/podcasts
+      - /mnt/storage/Audio/Audiobooks:/audiobooks
+      - /mnt/storage/Audio/Podcasts:/podcasts
       - ./data/config:/config
       - ./data/metadata:/metadata
     networks:
