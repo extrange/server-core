@@ -1,7 +1,7 @@
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: ghcr.io/hotio/qbittorrent@sha256:ad427d9f05bb709470adebf9d951b7ed208ad34a203d91064718a9d0eac5a1b8
+    image: lscr.io/linuxserver/qbittorrent
     restart: always
     volumes:
       - ./data:/config/config:rw
@@ -10,11 +10,13 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Asia/Singapore
+      DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
     networks:
       - qbittorrent
     labels:
       traefik.http.routers.qbittorrent.rule: Host(`qbittorrent.internal.nicholaslyz.com`)
       traefik.http.routers.qbittorrent.entrypoints: tailscale
+      traefik.http.services.qbittorrent.loadbalancer.server.port: 8080
       traefik.docker.network: core_qbittorrent
       traefik.enable: true
       homepage.group: Services
