@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/qbittorrent@sha256:ca6325989299ff807ab94c9505c138b6cadfe8a77c4ef14c5690094cbbe40d7d
     restart: always
     volumes:
-      - ./data:/config/config:rw
-      - /mnt/storage/Downloads:/app/qBittorrent/downloads:rw
+      - ./data:/config/qBittorrent:rw
+      - /mnt/storage/Downloads:/config/Downloads:rw
     environment:
       PUID: 1000
       PGID: 1000
