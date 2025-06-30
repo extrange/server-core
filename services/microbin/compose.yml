@@ -19,6 +19,8 @@ services:
       ]
     networks:
       - microbin
+    environment:
+      MICROBIN_THREADS: 2
     labels:
       traefik.enable: true
       traefik.docker.network: core_microbin
