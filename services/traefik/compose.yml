@@ -41,6 +41,7 @@ services:
       - immich-server
       - jellyfin
       - karakeep
+      - librespeed
       - mealie
       - metabase
       - microbin

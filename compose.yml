@@ -7,10 +7,11 @@ include:
   - services/changedetection.io/compose.yml
   - services/ddns-updater/compose.yml
   - services/factorio/compose.yml
+  - services/homepage/compose.yml
   - services/immich/compose.yml
   - services/jellyfin/compose.yml
-  - services/homepage/compose.yml
   - services/karakeep/compose.yml
+  - services/librespeed/compose.yml
   - services/logging/compose.yml
   - services/mealie/compose.yml
   - services/metabase/compose.yml
