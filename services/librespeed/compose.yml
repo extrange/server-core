@@ -15,6 +15,11 @@ services:
     labels:
       traefik.enable: true
       traefik.docker.network: core_librespeed
+      homepage.group: Services
+      homepage.name: Librespeed
+      homepage.icon: librespeed
+      homepage.href: &url https://librespeed.nicholaslyz.com
+      homepage.siteMonitor: *url
 
 networks:
   librespeed:
