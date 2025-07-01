@@ -22,11 +22,11 @@ http:
         # securityheaders.com
         stsSeconds: 31536000
         stsIncludeSubdomains: true
-        frameDeny: true
         contentTypeNosniff: true
         referrerPolicy: no-referrer
         customResponseHeaders: # Removes response headers
           x-powered-by: ""
+          x-frame-options: SAMEORIGIN # Fix for Reactive Resume
           server: ""
     compress:
       compress:
