@@ -24,7 +24,7 @@ http:
         stsIncludeSubdomains: true
         contentTypeNosniff: true
         referrerPolicy: no-referrer
-        customResponseHeaders: # Removes response headers
+        customResponseHeaders:
           x-powered-by: ""
           x-frame-options: SAMEORIGIN # Fix for Reactive Resume
           server: ""
