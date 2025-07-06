@@ -1,7 +1,7 @@
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: lscr.io/linuxserver/qbittorrent@sha256:1afa9ee70f38adaebb4b2ade4e720d9add5b7d4f0ef4e679f17d94ca002f00bc
+    image: lscr.io/linuxserver/qbittorrent@sha256:a3fe8465b4fa5e711358338ee90a958424033ec1e5030dda98d565efc25e0816
     restart: always
     volumes:
       - ./data:/config/qBittorrent:rw
