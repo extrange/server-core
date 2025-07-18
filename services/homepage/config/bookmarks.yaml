@@ -3,6 +3,9 @@
 # https://gethomepage.dev/configs/bookmarks
 
 - Links:
+    - AWS:
+        - icon: aws
+          href: https://d-9667b76e76.awsapps.com/start/#/?tab=accounts
     - ChatGPT:
         - icon: chatgpt
           href: https://chatgpt.com
