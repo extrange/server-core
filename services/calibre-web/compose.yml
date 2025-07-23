@@ -7,6 +7,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Asia/Singapore
+      DOCKER_MODS: linuxserver/mods:universal-calibre # Enable ebook conversion
     volumes:
       - /mnt/storage/Books:/library
       - ./data:/config
