@@ -1,6 +1,6 @@
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage@sha256:63434aafeb3d49be1f21ebd3c5d777fe5b7794c31342daad4e96f09b72a57188
+    image: ghcr.io/gethomepage/homepage@sha256:ce3389bbd09d6e144088891c8abf532f6fe0b7b70a601ca87053d559d2933f75
     container_name: homepage
     restart: always
     depends_on:
