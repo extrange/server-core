@@ -1,6 +1,6 @@
 services:
   factorio:
-    image: debian@sha256:b6507e340c43553136f5078284c8c68d86ec8262b1724dde73c325e8d3dcdeba
+    image: debian@sha256:6d87375016340817ac2391e670971725a9981cfc24e221c47734681ed0f6c0f5
     container_name: factorio
     restart: always
     user: 1000:1000

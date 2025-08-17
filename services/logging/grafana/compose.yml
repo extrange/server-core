@@ -1,7 +1,7 @@
 services:
   grafana:
     container_name: grafana
-    image: grafana/grafana:latest@sha256:1bf0ac005f1bf15bb5840c94cea715516526fb98dc28d0c630db24d02cd2ef17
+    image: grafana/grafana:latest@sha256:38e62c46a4a0f8b6124ad318f42c65ad6ac7644ab1f7d90a582d847ced28180c
     restart: always
     user: 1000:1000 # Allow grafana to write to data dirs
     environment:
