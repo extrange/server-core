@@ -20,6 +20,8 @@ volumes:
 Dump database:
 
 ```sh
+# Ensure the DB container is running!
+docker compose exec -it <CONTAINER_NAME> bash
 pg_dumpall -U $POSTGRES_USER -l $POSTGRES_DB > /var/lib/postgresql/data/dump.sql
 ```
 
