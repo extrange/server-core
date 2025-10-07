@@ -41,6 +41,9 @@ services:
     image: getmeili/meilisearch@sha256:328dc1698cc6f54bb811b8030ff864c6345144cded5ac89b6ab23fe9f747d723
     container_name: karakeep-meilisearch
     restart: always
+    command:
+      - meilisearch
+      - --experimental-dumpless-upgrade
     networks:
       - karakeep
     environment:
