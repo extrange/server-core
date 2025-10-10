@@ -33,7 +33,7 @@ services:
       NODE_ENV: production
 
       # -- URLs --
-      PUBLIC_URL: https://resume.nicholaslyz.com
+      PUBLIC_URL: https://reactive-resume.nicholaslyz.com
       STORAGE_URL: https://minio.nicholaslyz.com/reactive-resume
 
       # -- Printer (Chrome) --
