@@ -10,10 +10,3 @@
       hour: numeric
       minute: 2-digit
       weekday: long
-
-- openmeteo:
-    label: Singapore
-    cache: 5
-    units: metric
-    latitude: 1.290270
-    longitude: 103.851959

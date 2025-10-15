@@ -9,6 +9,7 @@ background:
 theme: dark
 color: slate
 useEqualHeights: true
+headerStyle: clean
 
 quicklaunch:
   searchDescriptions: true
@@ -17,11 +18,9 @@ quicklaunch:
 
 hideVersion: true
 layout:
-  Calendar:
-    header: false
   Links:
-    header: false
+    style: column
   Services:
     style: row
-    columns: 4
+    columns: 5
 disableCollapse: true

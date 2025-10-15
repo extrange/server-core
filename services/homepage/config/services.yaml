@@ -1,22 +1,3 @@
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/services/
-
-- Calendar:
-    - Calendar:
-        widget:
-          type: calendar
-          showTime: true # optional - show time for event happening today - defaults to false
-          integrations:
-            - type: ical
-              url: "{{HOMEPAGE_VAR_MY_CALENDAR}}"
-              name: My Events # required - name for these calendar events
-              color: blue # optional - defaults to pre-defined color for the service (zinc for ical)
-              params: # optional - additional params for the service
-                showName: true # optional - show name before event title in event line - defaults to false
-            - type: ical
-              url: "{{HOMEPAGE_VAR_CHANEL_CALENDAR}}"
-              name: Chanel
-              color: amber
-              params:
-                showName: true

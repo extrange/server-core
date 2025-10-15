@@ -1,0 +1,23 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    restart: always
+    networks:
+      - glance
+    volumes:
+      - ./config:/app/config
+      - ./assets:/app/assets
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      traefik.http.routers.glance.rule: Host(`glance.nicholaslyz.com`)
+      traefik.enable: true
+      traefik.docker.network: core_glance
+      homepage.group: Services
+      homepage.name: Glance
+      homepage.icon: glance
+      homepage.href: &url https://glance.nicholaslyz.com
+      homepage.siteMonitor: *url
+
+networks:
+  glance:

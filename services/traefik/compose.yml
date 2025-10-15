@@ -36,6 +36,7 @@ services:
       - calibre-web
       - changedetection-io
       - ddns-updater
+      - glance
       - grafana
       - homepage
       - immich-server

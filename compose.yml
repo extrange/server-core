@@ -7,6 +7,7 @@ include:
   - services/changedetection.io/compose.yml
   - services/ddns-updater/compose.yml
   - services/factorio/compose.yml
+  - services/glance/compose.yml
   - services/homepage/compose.yml
   - services/immich/compose.yml
   - services/jellyfin/compose.yml
