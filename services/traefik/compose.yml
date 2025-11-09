@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik@sha256:4df0a50fcf71b454c0d7ad17675776dc8d37359deae3291895bdaa008c1b9972
+    image: traefik@sha256:e8405d7ad57fa9870d66e4ddac854836551cff869f3b8059c997c98869eadd08
     container_name: traefik
     network_mode: service:ts-traefik
     restart: always
