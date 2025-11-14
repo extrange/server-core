@@ -1,7 +1,7 @@
 services:
   changedetection-io:
     container_name: changedetection-io
-    image: dgtlmoon/changedetection.io@sha256:a3684335bc4806b305b40271abc787687e716fbf68bfdb8e7e069ee19c599670
+    image: dgtlmoon/changedetection.io@sha256:d4f6b022282e5d06c732592a50a0cbe35217046da6d0a663dcd483119541e65e
     restart: always
     volumes:
       - ./data:/datastore
