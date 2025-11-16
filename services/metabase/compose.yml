@@ -33,7 +33,7 @@ services:
       homepage.siteMonitor: *url
 
   metabase-db:
-    image: postgres:18@sha256:e43c4a753b8c524ef7658236c2bb0bda820142cf2d629d8ed5d8233b68459fbe
+    image: postgres:18@sha256:41bfa2e5b168fff0847a5286694a86cff102bdc4d59719869f6b117bb30b3a24
     restart: always
     container_name: metabase-db
     networks:

@@ -1,7 +1,7 @@
 services:
   reactive-resume-postgres:
     container_name: reactive-resume-postgres
-    image: postgres:18-alpine@sha256:5213b241b52da823d1ade71905c91ba101e593971d62020cccf01493ea69dc35
+    image: postgres:18-alpine@sha256:154ea39af68ff30dec041cd1f1b5600009993724c811dbadde54126eb10bedd1
     restart: always
     networks:
       - reactive-resume
