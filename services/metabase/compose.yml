@@ -22,7 +22,6 @@ services:
       - metabase-db
     networks:
       - metabase
-      - trading-bot-db
     labels:
       traefik.enable: true
       traefik.docker.network: core_metabase
@@ -47,6 +46,3 @@ services:
 
 networks:
   metabase:
-  trading-bot-db:
-    name: ibkr_trading-bot-db
-    external: true
