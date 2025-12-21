@@ -38,7 +38,7 @@ services:
       homepage.widget.key: ${HOMEPAGE_KEY}
 
   karakeep-meilisearch:
-    image: getmeili/meilisearch@sha256:9af2a48719a1afadbe932a35329ecb504d034234319150a8eaad8de85b621754
+    image: getmeili/meilisearch@sha256:d04371d3a649d27f84d6faaa8a8cecbdc1b833ebb6466383816935b8e9c6ed2a
     container_name: karakeep-meilisearch
     restart: always
     command:
