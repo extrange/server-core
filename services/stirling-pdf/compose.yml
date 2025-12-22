@@ -4,18 +4,19 @@ services:
     image: frooodle/s-pdf@sha256:e8b96ebd749ee6c087f853c31fbbb79dc35bb08792bdd5ef0e72e74f5b209ea1
     restart: always
     environment:
-      DOCKER_ENABLE_SECURITY: false
+      SECURITY_ENABLELOGIN: true
+      DISABLE_ADDITIONAL_FEATURES: false
     networks:
       - stirling-pdf
+    volumes:
+      - ./data/config:/configs
     labels:
-      traefik.http.routers.stirling-pdf.rule: Host(`stirling-pdf.internal.nicholaslyz.com`)
-      traefik.http.routers.stirling-pdf.entrypoints: tailscale
       traefik.enable: true
       traefik.docker.network: core_stirling-pdf
       homepage.group: Services
       homepage.name: Stirling PDF
       homepage.icon: stirling-pdf
-      homepage.href: https://stirling-pdf.internal.nicholaslyz.com
+      homepage.href: https://stirling-pdf.nicholaslyz.com
       homepage.siteMonitor: http://stirling-pdf:8080
 
 networks:
