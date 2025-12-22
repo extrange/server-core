@@ -9,7 +9,7 @@ services:
     networks:
       - stirling-pdf
     volumes:
-      - ./data/config:/configs
+      - ./data/configs:/configs
     labels:
       traefik.enable: true
       traefik.docker.network: core_stirling-pdf
