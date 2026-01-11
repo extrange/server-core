@@ -1,7 +1,7 @@
 services:
   syncthing:
     container_name: syncthing
-    image: lscr.io/linuxserver/syncthing:latest@sha256:b2dbc42f95154986ae3578256f3fa9612fa7e930184d823aa56192b478fa0b8a
+    image: lscr.io/linuxserver/syncthing:latest@sha256:4e3e8de1ada041942b6f34df6d646404a90aa8a2a49a022446ec577c9f8f88ed
     restart: always
     environment:
       PUID: 1000
