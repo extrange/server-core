@@ -10,7 +10,6 @@ sources:
     type: journald
     journal_directory: /hostfs/var/log/journal
     since_now: true
-    current_boot_only: false
 
   vector:
     type: internal_logs
