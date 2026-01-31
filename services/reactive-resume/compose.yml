@@ -6,7 +6,7 @@ services:
     networks:
       - reactive-resume
     volumes:
-      - ./data:/var/lib/postgresql
+      - ./data/postgres:/var/lib/postgresql
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -19,65 +19,45 @@ services:
 
   reactive-resume:
     container_name: reactive-resume
-    image: amruthpillai/reactive-resume:latest@sha256:5fc05515143fcbfaf63a3e3407027ff89bee97e8d28add70277d264438dbcdfa
+    image: amruthpillai/reactive-resume:sha-cabacdc
     restart: always
     depends_on:
-      - reactive-resume-postgres
-      - minio
-      - browserless
+      reactive-resume-postgres:
+        condition: service_healthy
+      browserless:
+        condition: service_started
+    volumes:
+      - ./data/reactive-resume:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
     networks:
       - reactive-resume
     environment:
-      # -- Environment Variables --
-      PORT: 3000
-      NODE_ENV: production
 
-      # -- URLs --
-      PUBLIC_URL: https://reactive-resume.nicholaslyz.com
-      STORAGE_URL: https://minio.nicholaslyz.com/reactive-resume
+      # --- Server ---
+      TZ: "Asia/Singapore"
+      APP_URL: https://reactive-resume.nicholaslyz.com
 
-      # -- Printer (Chrome) --
-      CHROME_TOKEN: ${BROWSERLESS_TOKEN}
-      CHROME_URL: ws://browserless:3000
+      # --- Printer ---
+      PRINTER_ENDPOINT: ${PRINTER_ENDPOINT}
 
-      # -- Database (Postgres) --
+      # --- Database (PostgreSQL) ---
       DATABASE_URL: postgresql://postgres:postgres@reactive-resume-postgres:5432/postgres
 
-      # -- Auth --
-      ACCESS_TOKEN_SECRET: access_token_secret
-      REFRESH_TOKEN_SECRET: refresh_token_secret
+      # --- Authentication ---
+      AUTH_SECRET: ${AUTH_SECRET}
 
-      # -- Emails --
-      MAIL_FROM: ${RR_MAIL_FROM}
-      SMTP_URL: ${RR_SMTP_URL}
+      # --- Email (optional) ---
+      # If all keys are disabled, the app logs the email to be sent to the console instead.
+      SMTP_HOST: smtp.forwardemail.net
+      SMTP_PORT: 465
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM: ${SMTP_FROM}
+      SMTP_SECURE: "true"
 
-      # -- Storage (Minio) --
-      STORAGE_ENDPOINT: minio
-      STORAGE_PORT: 9000
-      STORAGE_REGION: us-east-1 # Optional
-      STORAGE_BUCKET: reactive-resume
-      STORAGE_ACCESS_KEY: ${RR_MINIO_ACCESS_KEY}
-      STORAGE_SECRET_KEY: ${RR_MINIO_SECRET_KEY}
-      STORAGE_USE_SSL: false
-      STORAGE_SKIP_BUCKET_CHECK: false
+      FLAG_DISABLE_SIGNUPS: "true"
 
-      # -- Crowdin (Optional) --
-      # CROWDIN_PROJECT_ID:
-      # CROWDIN_PERSONAL_TOKEN:
-
-      # -- Email (Optional) --
-      # DISABLE_SIGNUPS: false
-      # DISABLE_EMAIL_AUTH: false
-
-      # -- GitHub (Optional) --
-      # GITHUB_CLIENT_ID: github_client_id
-      # GITHUB_CLIENT_SECRET: github_client_secret
-      # GITHUB_CALLBACK_URL: http://localhost:3000/api/auth/github/callback
-
-      # -- Google (Optional) --
-      # GOOGLE_CLIENT_ID: google_client_id
-      # GOOGLE_CLIENT_SECRET: google_client_secret
-      # GOOGLE_CALLBACK_URL: http://localhost:3000/api/auth/google/callback
     labels:
       traefik.enable: true
       traefik.docker.network: core_reactive-resume
