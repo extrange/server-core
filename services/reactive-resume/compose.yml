@@ -1,7 +1,7 @@
 services:
   reactive-resume-postgres:
     container_name: reactive-resume-postgres
-    image: postgres:18-alpine@sha256:b40d931bd0e7ce6eecc59a5a6ac3b3c04a01e559750e73e7086b6dbd7f8bf545
+    image: postgres:18-alpine@sha256:aa6eb304ddb6dd26df23d05db4e5cb05af8951cda3e0dc57731b771e0ef4ab29
     restart: always
     networks:
       - reactive-resume
@@ -19,7 +19,7 @@ services:
 
   reactive-resume:
     container_name: reactive-resume
-    image: amruthpillai/reactive-resume:sha-cabacdc
+    image: amruthpillai/reactive-resume:sha-cabacdc@sha256:0d7b28e79483b80db85c71fc4e8f3402a22a37b574e015c46d2b861cef5635aa
     restart: always
     depends_on:
       reactive-resume-postgres:
