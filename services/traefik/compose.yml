@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik@sha256:a9890c898f379c1905ee5b28342f6b408dc863f08db2dab20e46c267d1ff463a
+    image: traefik@sha256:90099f8948c828ecf0ababd711a4359a2443eba12261c1df2f548a3b1d815938
     container_name: traefik
     network_mode: service:ts-traefik
     restart: always
@@ -25,7 +25,7 @@ services:
       homepage.href: https://traefik.internal.nicholaslyz.com
 
   ts-traefik:
-    image: tailscale/tailscale@sha256:21df0b5a84efa35c0a507f4dd2340e1b1295683634a28968707354d5bd991d9c
+    image: tailscale/tailscale@sha256:95e528798bebe75f39b10e74e7051cf51188ee615934f232ba7ad06a3390ffa1
     container_name: ts-traefik
     restart: always
     hostname: ts-traefik # Tailscale uses this as the machine name
