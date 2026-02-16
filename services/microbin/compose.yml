@@ -21,6 +21,9 @@ services:
       - microbin
     environment:
       MICROBIN_THREADS: 2
+      MICROBIN_QR: true
+      MICROBIN_ETERNAL_PASTA: true
+      MICROBIN_GC_DAYS: 365 # Auto delete after 1 year of no access
     labels:
       traefik.enable: true
       traefik.docker.network: core_microbin
