@@ -24,6 +24,8 @@ services:
       MICROBIN_QR: true
       MICROBIN_ETERNAL_PASTA: true
       MICROBIN_GC_DAYS: 365 # Auto delete after 1 year of no access
+      MICROBIN_ADMIN_USERNAME: ${MICROBIN_ADMIN_USERNAME}
+      MICROBIN_ADMIN_PASSWORD: ${MICROBIN_ADMIN_PASSWORD}
     labels:
       traefik.enable: true
       traefik.docker.network: core_microbin
