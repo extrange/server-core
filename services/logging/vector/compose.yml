@@ -1,6 +1,6 @@
 services:
   vector:
-    image: timberio/vector:0.53.0-debian@sha256:a3c2790c83180f89569981173d34a9680c05dc0da114fbe2a55235a099acfa13
+    image: timberio/vector:0.54.0-debian@sha256:099732c890b095d5222f59bdc82a0579ae3d48b9e2407f3680586dd8d2f75f64
     container_name: vector
     restart: always
     networks:
