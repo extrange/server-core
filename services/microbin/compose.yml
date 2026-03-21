@@ -5,27 +5,23 @@ services:
     restart: always
     volumes:
       - microbin:/app
-    command:
-      [
-        "--editable",
-        "--enable-burn-after",
-        "--qr",
-        "--private",
-        "--default-expiry",
-        "1week",
-        "--hide-footer",
-        "--public-path",
-        "https://microbin.nicholaslyz.com",
-      ]
     networks:
       - microbin
     environment:
-      MICROBIN_THREADS: 2
-      MICROBIN_QR: true
+      MICROBIN_ADMIN_PASSWORD: ${MICROBIN_ADMIN_PASSWORD}
+      MICROBIN_ADMIN_USERNAME: ${MICROBIN_ADMIN_USERNAME}
+      MICROBIN_DEFAULT_EXPIRY: never
+      MICROBIN_EDITABLE: true
+      MICROBIN_ENABLE_BURN_AFTER: true
       MICROBIN_ETERNAL_PASTA: true
       MICROBIN_GC_DAYS: 365 # Auto delete after 1 year of no access
-      MICROBIN_ADMIN_USERNAME: ${MICROBIN_ADMIN_USERNAME}
-      MICROBIN_ADMIN_PASSWORD: ${MICROBIN_ADMIN_PASSWORD}
+      MICROBIN_HASH_IDS: true
+      MICROBIN_HIDE_FOOTER: true
+      MICROBIN_MAX_EXPIRY: never # https://github.com/szabodanika/microbin/issues/331
+      MICROBIN_NO_LISTING: true
+      MICROBIN_PUBLIC_PATH: https://microbin.nicholaslyz.com
+      MICROBIN_QR: true
+
     labels:
       traefik.enable: true
       traefik.docker.network: core_microbin
