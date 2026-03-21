@@ -20,7 +20,6 @@ include:
   - services/miniflux/compose.yml
   - services/minio/compose.yml
   - services/navidrome/compose.yml
-  - services/open-webui/compose.yml
   - services/qbittorrent/compose.yml
   - services/reactive-resume/compose.yml
   - services/realtime-todo-server/compose.yml
