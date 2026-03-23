@@ -49,6 +49,7 @@ services:
       - miniflux
       - minio
       - navidrome
+      - open-webui
       - prometheus
       - qbittorrent
       - reactive-resume
