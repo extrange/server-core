@@ -1,7 +1,7 @@
 services:
   stirling-pdf:
     container_name: stirling-pdf
-    image: frooodle/s-pdf@sha256:f2e9ab8c82174cc96d573889d91228ad01f489dcbfe0ef7916c969e3a61cafca
+    image: frooodle/s-pdf@sha256:5737322ca558f881f5a7823a53c43b4fe48bf28103f62b2d0f2ec748d0bc5e80
     restart: always
     environment:
       SECURITY_ENABLELOGIN: true
