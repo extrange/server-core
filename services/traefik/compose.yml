@@ -38,6 +38,7 @@ services:
       - ddns-updater
       - glance
       - grafana
+      - home-assistant
       - homepage
       - immich-server
       - jellyfin

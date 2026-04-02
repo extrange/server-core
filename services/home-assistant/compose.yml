@@ -1,0 +1,25 @@
+
+services:
+  home-assistant:
+    image: ghcr.io/home-assistant/home-assistant
+    container_name: home-assistant
+    restart: always
+    user: 1000:1000
+    networks:
+      - home-assistant
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_home-assistant
+      traefik.http.services.home-assistant.loadbalancer.server.port: 8123
+      homepage.group: Services
+      homepage.name: Home Assistant
+      homepage.icon: home-assistant
+      homepage.href: &url https://home-assistant.nicholaslyz.com
+      homepage.siteMonitor: *url
+
+networks:
+  home-assistant:
