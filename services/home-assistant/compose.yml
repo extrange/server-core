@@ -5,8 +5,13 @@ services:
     container_name: home-assistant
     restart: always
     user: 1000:1000
+    post_start:
+      - command: udhcpc -i eth1 -x hostname:home-assistant
+        user: root
     networks:
-      - home-assistant
+      home-assistant:
+      home-assistant-macvlan:
+        mac_address: 3a:bb:ab:31:7e:5c # Fix MAC to prevent IP address exhaustion on container restarts
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
@@ -20,6 +25,13 @@ services:
       homepage.icon: home-assistant
       homepage.href: &url https://home-assistant.nicholaslyz.com
       homepage.siteMonitor: *url
+    cap_add:
+      - net_admin
 
 networks:
   home-assistant:
+  home-assistant-macvlan:
+    driver: macvlan # Required for device discovery
+    driver_opts:
+      parent: enp5s0
+      # ipvlan does not support DHCP
