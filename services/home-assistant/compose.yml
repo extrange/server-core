@@ -1,4 +1,3 @@
-
 services:
   home-assistant:
     image: ghcr.io/home-assistant/home-assistant@sha256:8848691147f01a6eee7753de2ade21b04d6168fcd2e2a7089f6f84e3b7b86960
@@ -6,16 +5,16 @@ services:
     restart: always
     user: 1000:1000
     post_start:
-      - command: udhcpc -i eth1 -x hostname:home-assistant
+      - command: udhcpc -i eth1 -x hostname:home-assistant # Get a DHCP address for itself
         user: root
     networks:
       home-assistant:
       home-assistant-macvlan:
-        mac_address: 3a:bb:ab:31:7e:5c # Fix MAC to prevent IP address exhaustion on container restarts
+        mac_address: 3a:bb:ab:31:7e:5c # Use a fixed MAC to prevent IP address exhaustion on container restarts
+      zigbee2mqtt:
     volumes:
-      - ./config:/config
+      - ./data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
-      - /run/dbus:/run/dbus:ro
     labels:
       traefik.enable: true
       traefik.docker.network: core_home-assistant
@@ -26,12 +25,50 @@ services:
       homepage.href: &url https://home-assistant.nicholaslyz.com
       homepage.siteMonitor: *url
     cap_add:
-      - net_admin
+      - net_admin # Allow HA to discover devices on the network
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: ghcr.io/koenkk/zigbee2mqtt
+    restart: always
+    user: 1000:1000
+    networks:
+      - zigbee2mqtt
+      - mosquitto
+      - home-assistant
+    volumes:
+      - ./data/zigbee2mqtt:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_zigbee2mqtt
+      traefik.http.routers.zigbee2mqtt.rule: Host(`zigbee2mqtt.internal.nicholaslyz.com`)
+      traefik.http.routers.zigbee2mqtt.entrypoints: tailscale
+      homepage.group: Services
+      homepage.name: Zigbee2MQTT
+      homepage.icon: zigbee2mqtt
+      homepage.href: https://zigbee2mqtt.internal.nicholaslyz.com
+      homepage.siteMonitor: http://zigbee2mqtt:8080
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: always
+    user: 1000:1000
+    networks:
+      - zigbee2mqtt
+      - mosquitto
+    volumes:
+      - ./data/mosquitto/config:/mosquitto/config
+      - ./data/mosquitto/data:/mosquitto/data
 
 networks:
   home-assistant:
   home-assistant-macvlan:
-    driver: macvlan # Required for device discovery
+    # Required for device discovery
+    # ipvlan does not support DHCP
+    driver: macvlan
     driver_opts:
       parent: enp5s0
-      # ipvlan does not support DHCP
+  zigbee2mqtt:
+  mosquitto:

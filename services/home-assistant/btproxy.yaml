@@ -1,0 +1,26 @@
+esphome:
+  name: btproxy
+
+esp32:
+  variant: esp32
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret key
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: "2GroveCrescent"
+  password: !secret wifi_password
+
+esp32_ble_tracker:
+
+bluetooth_proxy:

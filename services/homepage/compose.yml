@@ -15,6 +15,7 @@ services:
       - stirling-pdf
       - syncthing
       - unifi
+      - zigbee2mqtt
     volumes:
       - ./config:/app/config
       - ./bg.jpg:/app/public/images/bg.jpg:ro
