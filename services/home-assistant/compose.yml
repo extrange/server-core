@@ -4,6 +4,8 @@ services:
     container_name: home-assistant
     restart: always
     user: 1000:1000
+    depends_on:
+      - mosquitto
     post_start:
       - command: udhcpc -i eth1 -x hostname:home-assistant # Get a DHCP address for itself
         user: root
@@ -11,7 +13,7 @@ services:
       home-assistant:
       home-assistant-macvlan:
         mac_address: 3a:bb:ab:31:7e:5c # Use a fixed MAC to prevent IP address exhaustion on container restarts
-      zigbee2mqtt:
+      mosquitto:
     volumes:
       - ./data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
