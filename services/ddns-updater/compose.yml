@@ -1,7 +1,7 @@
 services:
   ddns-updater:
     container_name: ddns-updater
-    image: qmcgaw/ddns-updater@sha256:ee16ab4f6203bf9e5b0925d38a0b4ebf2d9f23771f933cfb2f5a2dbd5f9a2f88
+    image: qmcgaw/ddns-updater@sha256:9c1a3eba51ecfba90d566a980d661149a9a1ff5706d2b47e4d26f6c5a62d3962
     restart: always
     volumes:
       - ./data:/updater/data

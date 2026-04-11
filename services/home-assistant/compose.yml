@@ -31,7 +31,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: ghcr.io/koenkk/zigbee2mqtt
+    image: ghcr.io/koenkk/zigbee2mqtt@sha256:2a21bbf7a664a149024bbe1f776e3151f28ed9db15948270dcbffb89544a41f0
     restart: always
     user: 1000:1000
     networks:
@@ -53,7 +53,7 @@ services:
       homepage.siteMonitor: http://zigbee2mqtt:8080
 
   mosquitto:
-    image: eclipse-mosquitto
+    image: eclipse-mosquitto@sha256:9cfdd46ad59f3e3e5f592f6baf57ab23e1ad00605509d0f5c1e9b179c5314d87
     container_name: mosquitto
     restart: always
     user: 1000:1000
