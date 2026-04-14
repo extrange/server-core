@@ -13,7 +13,6 @@ services:
       home-assistant:
       home-assistant-macvlan:
         mac_address: 3a:bb:ab:31:7e:5c # Use a fixed MAC to prevent IP address exhaustion on container restarts
-      mosquitto:
     volumes:
       - ./data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -36,8 +35,6 @@ services:
     user: 1000:1000
     networks:
       - zigbee2mqtt
-      - mosquitto
-      - home-assistant
     volumes:
       - ./data/zigbee2mqtt:/app/data
       - /etc/localtime:/etc/localtime:ro
@@ -59,7 +56,7 @@ services:
     user: 1000:1000
     networks:
       - zigbee2mqtt
-      - mosquitto
+      - home-assistant
     volumes:
       - ./data/mosquitto/config:/mosquitto/config
       - ./data/mosquitto/data:/mosquitto/data
@@ -73,4 +70,3 @@ networks:
     driver_opts:
       parent: enp5s0
   zigbee2mqtt:
-  mosquitto:
