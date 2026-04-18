@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:4c940155cfd5b0187a6faee2db5d52b98bb573edc1aeee95d0818bb17b6534d7
+    image: ghcr.io/home-assistant/home-assistant@sha256:ae0800c81fea16bc1241ce03bddb9c6260566e90f58b09d3e5a629e4f68bdc0b
     container_name: home-assistant
     restart: always
     user: 1000:1000
@@ -50,7 +50,7 @@ services:
       homepage.siteMonitor: http://zigbee2mqtt:8080
 
   mosquitto:
-    image: eclipse-mosquitto@sha256:9cfdd46ad59f3e3e5f592f6baf57ab23e1ad00605509d0f5c1e9b179c5314d87
+    image: eclipse-mosquitto@sha256:a908c65cc8e67ec9d292ef27c2c0360dbaaee7eb1b935cdd194e67697f15dea1
     container_name: mosquitto
     restart: always
     user: 1000:1000
