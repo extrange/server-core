@@ -28,6 +28,30 @@ services:
     cap_add:
       - net_admin # Allow HA to discover devices on the network
 
+  music-assistant:
+    image: ghcr.io/music-assistant/server
+    container_name: music-assistant
+    restart: always
+    networks:
+      home-assistant:
+      music-assistant-macvlan:
+        mac_address: B2:13:B2:C2:30:53 # Use a fixed MAC to prevent IP address exhaustion on container restarts
+    post_start:
+      - command: /bin/bash -c 'apt-get update && apt-get install -y udhcpc && udhcpc -i eth1 -x hostname:music-assistant' # Get a DHCP address for itself
+        user: root
+    volumes:
+      - ./data/music-assistant:/data/
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_home-assistant
+      homepage.group: Services
+      homepage.name: Music Assistant
+      homepage.icon: music-assistant
+      homepage.href: &url https://music-assistant.nicholaslyz.com
+      homepage.siteMonitor: *url
+    cap_add:
+      - net_admin # Allow HA to discover devices on the network/obtain DHCP address
+
   zigbee2mqtt:
     container_name: zigbee2mqtt
     image: ghcr.io/koenkk/zigbee2mqtt@sha256:2a21bbf7a664a149024bbe1f776e3151f28ed9db15948270dcbffb89544a41f0
@@ -69,4 +93,9 @@ networks:
     driver: macvlan
     driver_opts:
       parent: enp5s0
+  music-assistant-macvlan:
+    driver: macvlan
+    driver_opts:
+      parent: enp5s0
+
   zigbee2mqtt:
