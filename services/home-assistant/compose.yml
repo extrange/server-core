@@ -80,6 +80,7 @@ services:
     networks:
       - zigbee2mqtt
       - home-assistant
+      - frigate
     volumes:
       - ./data/mosquitto/config:/mosquitto/config
       - ./data/mosquitto/data:/mosquitto/data

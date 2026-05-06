@@ -1,0 +1,48 @@
+services:
+  frigate:
+    container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:stable-tensorrt
+    restart: always
+    stop_grace_period: 30s # allow enough time to shut down the various services
+    shm_size: "512mb" # update for your cameras based on calculation above
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/config
+      - /mnt/cctv:/media/frigate
+      - type: tmpfs # 1GB In-memory filesystem for recording segment storage
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    # ports:
+    # - "8971:8971"
+    # - "5000:5000" # Internal unauthenticated access. Expose carefully.
+    # - "8554:8554" # RTSP feeds
+    # - "8555:8555/tcp" # WebRTC over tcp
+    # - "8555:8555/udp" # WebRTC over udp
+    environment:
+      FRIGATE_RTSP_PASSWORD: ${FRIGATE_RTSP_PASSWORD}
+    networks:
+      - frigate
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_frigate
+      traefik.http.services.frigate.loadbalancer.server.port: 8971
+      homepage.group: Services
+      homepage.name: Frigate
+      homepage.icon: frigate
+      homepage.href: &url https://frigate.nicholaslyz.com
+      homepage.siteMonitor: *url
+      homepage.widget.type: frigate
+      homepage.widget.url: *url
+      homepage.widget.username: ${USERNAME}
+      homepage.widget.password: ${PASSWORD}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+networks:
+  frigate:

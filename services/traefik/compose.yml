@@ -38,6 +38,7 @@ services:
       - ddns-updater
       - glance
       - grafana
+      - frigate
       - home-assistant
       - homepage
       - immich-server
