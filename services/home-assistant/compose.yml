@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:c1e5f0147f4cb51ccb05bb30b62a1269cc1bd48a6274792d3b38a77ab274dfd2
+    image: ghcr.io/home-assistant/home-assistant@sha256:d4fbec16196d5c8bedf32647f0ca7165f654d92a2e81f35a373508d3226cb867
     container_name: home-assistant
     restart: always
     depends_on:
@@ -28,7 +28,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:400697b305e45bd1712c019e67d22681219e91deb41afe88939f921b5fae137f
+    image: ghcr.io/music-assistant/server@sha256:eef3ee7810d0e4702afa4a0ff55b10bbbfcaa16c98a277fe1b7f4cb6d5d426b4
     container_name: music-assistant
     restart: always
     networks:
@@ -53,7 +53,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: ghcr.io/koenkk/zigbee2mqtt@sha256:e9279e580bb25c512cf6e54c36e215a5cbd2881d1f201cf2a8213a97b14be3d2
+    image: ghcr.io/koenkk/zigbee2mqtt@sha256:67c26dcf8346aced02fe1380a6afd1b57268bcef10faae3f6057c13d5d3dfa80
     restart: always
     user: 1000:1000
     networks:
