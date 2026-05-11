@@ -52,6 +52,7 @@ services:
       - minio
       - navidrome
       - open-webui
+      - paperless
       - prometheus
       - qbittorrent
       - reactive-resume

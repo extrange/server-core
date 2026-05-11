@@ -23,7 +23,7 @@ http:
         stsSeconds: 31536000
         stsIncludeSubdomains: true
         contentTypeNosniff: true
-        referrerPolicy: no-referrer
+        referrerPolicy: same-origin # fixes paperless CSRF issues
         customResponseHeaders:
           x-powered-by: ""
           x-frame-options: SAMEORIGIN # Fix for Reactive Resume
