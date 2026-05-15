@@ -4,6 +4,10 @@ Ensure devices have static DHCP leases, otherwise, detection will fail.
 
 A useful HardwareZone [thread] on HA in general.
 
+## Coordinator Re-pair
+
+Note that in the event a re-pair is required, apart from following the instructions on the Zigbee2MQTT FAQ site, the IEEE address of the coordinator should be changed as well, and then the devices subsequently re-paired.
+
 ## Automating Motion Sensor Lights
 
 Under the 'Actions' panel, it is necessary to wait until all the triggering motion sensors have detected the `off` occupancy. Otherwise, in the case where a sensor is in the `on` state for a prolonged period of time, the delay will still run and the light will turn off.
@@ -24,9 +28,13 @@ They are wildly inaccurate, keep reading 100% and not waterproof. Use the Thirdr
 - Refer to `btproxy.yaml`
 - Flash with `esphome run btproxy.yaml` over USB
 
-### Philips Hue BLE
+### Philips Hue
 
-- Doesn't work with the USB RTL8821CU adaptor. Only works with the ESP32 bluetooth proxy.
+- BLE: Doesn't work with the USB RTL8821CU adaptor. Only works with the ESP32 bluetooth proxy.
+- Serial numbers for resetting purposes:
+  - Pianie: 89C3D3
+  - Bulby: CEFC0B
+  - Fado: E4F170
 
 [thread]: https://forums.hardwarezone.com.sg/threads/starting-home-assistant-ha-for-new-users.6751695/
 
