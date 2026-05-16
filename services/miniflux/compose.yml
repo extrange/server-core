@@ -1,7 +1,7 @@
 services:
   miniflux:
     container_name: miniflux
-    image: miniflux/miniflux@sha256:8810dfe7f4d9979f9dc1385607695c116f049daa586c635a9a1fb3c58936b074
+    image: miniflux/miniflux@sha256:65266db84761d09d999946218adfc91fd7abbd4a1086f74b3ad0e51083e30df2
     restart: always
     depends_on:
       miniflux-db:
@@ -24,7 +24,7 @@ services:
       homepage.widget.key: ${HOMEPAGE_KEY}
   miniflux-db:
     container_name: miniflux-db
-    image: postgres:18@sha256:c5bd032fb659503bf121faf5cea5894dcfece30286a3db59e3c060f3e9f60cb0
+    image: postgres:18@sha256:f7ce845ee6873dd84be93c9828fe0d1fab0f9707dc9ac569694657398b290bce
     restart: always
     networks:
       - miniflux
