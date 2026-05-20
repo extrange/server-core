@@ -10,6 +10,7 @@ include:
   - services/frigate/compose.yml
   - services/glance/compose.yml
   - services/hermes-agent/xiaoyun/compose.yml
+  - services/hermes-agent/gdfm/compose.yml
   - services/home-assistant/compose.yml
   - services/homepage/compose.yml
   - services/immich/compose.yml
