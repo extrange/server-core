@@ -24,8 +24,8 @@ services:
       homepage.group: Services
       homepage.name: Hermes Agent (Xiao Yun)
       homepage.icon: hermesagent
-      homepage.href: https://hermes-agent-xiaoyun.internal.nicholaslyz.com
-      homepage.siteMonitor: http://hermes-agent-xiaoyun:9119
+      homepage.href: &url https://hermes-agent-xiaoyun.internal.nicholaslyz.com
+      homepage.siteMonitor: *url
 
 networks:
   hermes-agent-xiaoyun:

@@ -27,8 +27,8 @@ services:
       homepage.group: Services
       homepage.name: Hermes Agent (GDFM)
       homepage.icon: hermes-agent
-      homepage.href: https://hermes-agent-gdfm.internal.nicholaslyz.com
-      homepage.siteMonitor: http://hermes-agent-gdfm:9119
+      homepage.href: &url https://hermes-agent-gdfm.internal.nicholaslyz.com
+      homepage.siteMonitor: *url
 
 networks:
   hermes-agent-gdfm:
