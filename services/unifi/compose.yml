@@ -27,8 +27,8 @@ services:
       homepage.group: Services
       homepage.name: Unifi Controller
       homepage.icon: unifi
-      homepage.href: https://unifi.internal.nicholaslyz.com
-      homepage.siteMonitor: &url https://unifi:8443
+      homepage.href: &url https://unifi.internal.nicholaslyz.com
+      homepage.siteMonitor: *url
       homepage.widget.type: unifi
       homepage.widget.url: *url
       homepage.widget.username: ${USERNAME}
