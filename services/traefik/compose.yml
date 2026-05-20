@@ -39,6 +39,7 @@ services:
       - glance
       - grafana
       - frigate
+      - hermes-agent-xiaoyun
       - home-assistant
       - homepage
       - immich-server

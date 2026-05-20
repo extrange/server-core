@@ -1,0 +1,31 @@
+services:
+  hermes-agent-xiaoyun:
+    build: # Hack for https://github.com/NousResearch/hermes-agent/issues/14980
+      dockerfile: ../Containerfile
+    container_name: hermes-agent-xiaoyun
+    restart: always
+    command: gateway run
+    networks:
+      - hermes-agent-xiaoyun
+    # ports:
+    # - "8642:8642" # gateway API
+    volumes:
+      - ./data:/opt/data
+    environment:
+      HERMES_DASHBOARD: 1
+      HERMES_UID: 1000
+      HERMES_GID: 1000
+    labels:
+      traefik.enable: true
+      traefik.http.routers.hermes-agent-xiaoyun.rule: Host(`hermes-agent-xiaoyun.internal.nicholaslyz.com`)
+      traefik.http.routers.hermes-agent-xiaoyun.entrypoints: tailscale
+      traefik.http.services.hermes-agent-xiaoyun.loadbalancer.server.port: 9119
+      traefik.docker.network: core_hermes-agent-xiaoyun
+      homepage.group: Services
+      homepage.name: Hermes Agent (Xiao Yun)
+      homepage.icon: hermesagent
+      homepage.href: https://hermes-agent-xiaoyun.internal.nicholaslyz.com
+      homepage.siteMonitor: http://hermes-agent-xiaoyun:9119
+
+networks:
+  hermes-agent-xiaoyun:
