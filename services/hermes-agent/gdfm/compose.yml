@@ -14,6 +14,9 @@ services:
       HERMES_DASHBOARD: 1
       HERMES_UID: 1000
       HERMES_GID: 1000
+      API_SERVER_ENABLED: true
+      API_SERVER_HOST: 0.0.0.0
+      API_SERVER_MODEL_NAME: Hermes Agent (GDFM)
       OBSIDIAN_VAULT_PATH: /opt/data/GDFM
     labels:
       traefik.enable: true

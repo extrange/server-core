@@ -7,8 +7,10 @@ services:
       - ./data:/app/backend/data
     environment:
       CUSTOM_NAME: AI Chat
+      ENABLE_OLLAMA_API: false
     networks:
       - open-webui
+      - hermes-agent-gdfm
     labels:
       traefik.enable: true
       traefik.docker.network: core_open-webui
