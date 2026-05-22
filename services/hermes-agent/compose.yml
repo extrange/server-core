@@ -30,6 +30,8 @@ services:
     container_name: hermes-agent-gdfm
     restart: always
     command: gateway run
+    depends_on:
+      - hindsight
     networks:
       - hermes-agent-gdfm
       - hindsight
