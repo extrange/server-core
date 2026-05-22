@@ -9,8 +9,7 @@ include:
   - services/factorio/compose.yml
   - services/frigate/compose.yml
   - services/glance/compose.yml
-  - services/hermes-agent/xiaoyun/compose.yml
-  - services/hermes-agent/gdfm/compose.yml
+  - services/hermes-agent/compose.yml
   - services/home-assistant/compose.yml
   - services/homepage/compose.yml
   - services/immich/compose.yml

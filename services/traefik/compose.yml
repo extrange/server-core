@@ -41,6 +41,7 @@ services:
       - frigate
       - hermes-agent-xiaoyun
       - hermes-agent-gdfm
+      - hindsight
       - home-assistant
       - homepage
       - immich-server
