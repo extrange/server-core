@@ -13,12 +13,6 @@ services:
         target: /tmp/cache
         tmpfs:
           size: 1000000000
-    # ports:
-    # - "8971:8971"
-    # - "5000:5000" # Internal unauthenticated access. Expose carefully.
-    # - "8554:8554" # RTSP feeds
-    # - "8555:8555/tcp" # WebRTC over tcp
-    # - "8555:8555/udp" # WebRTC over udp
     environment:
       FRIGATE_RTSP_PASSWORD: ${FRIGATE_RTSP_PASSWORD}
     networks:

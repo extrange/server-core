@@ -77,6 +77,8 @@ services:
     container_name: mosquitto
     restart: always
     user: 1000:1000
+    # We don't create a mosquitto network, as that would allow cross-communication between
+    # containers that use mosquitto.
     networks:
       - zigbee2mqtt
       - home-assistant
