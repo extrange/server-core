@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:f0baa7922ecec7790c40c41baf08ab218b6ab8db5f96dc03b03a0ae33d987c3d
+    image: ghcr.io/home-assistant/home-assistant@sha256:ceb1202133a5a036e8b03e20a10eb113186cc2f871968323c6fc6c3fc4205716
     container_name: home-assistant
     restart: always
     depends_on:
@@ -28,7 +28,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:eef3ee7810d0e4702afa4a0ff55b10bbbfcaa16c98a277fe1b7f4cb6d5d426b4
+    image: ghcr.io/music-assistant/server@sha256:81d256df059d09d4fbdf1cab33b0dcf5f8e216b65efe9cadd8624b7f00d2faf9
     container_name: music-assistant
     restart: always
     networks:
