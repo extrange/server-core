@@ -5,6 +5,7 @@ services:
     restart: always
     depends_on:
       - mosquitto
+      - frigate
     post_start:
       - command: udhcpc -i eth1 -x hostname:home-assistant # Get a DHCP address for itself
         user: root
