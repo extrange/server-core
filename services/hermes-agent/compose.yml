@@ -4,6 +4,7 @@ services:
     container_name: hindsight
     restart: always
     environment:
+      TZ: Asia/Singapore
       HINDSIGHT_API_LLM_API_KEY: ${HINDSIGHT_API_LLM_API_KEY}
       HINDSIGHT_API_LLM_PROVIDER: deepseek
       HINDSIGHT_API_LLM_MODEL: deepseek-v4-flash
@@ -39,6 +40,7 @@ services:
       - ./data/gdfm:/opt/data
       - /mnt/storage/Notes/GDFM:/opt/data/GDFM
     environment:
+      TZ: Asia/Singapore
       HERMES_DASHBOARD: 1
       HERMES_UID: 1000
       HERMES_GID: 1000
