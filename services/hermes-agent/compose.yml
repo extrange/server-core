@@ -40,7 +40,6 @@ services:
       - ./data/gdfm:/opt/data
       - /mnt/storage/Notes/GDFM:/opt/data/GDFM
     environment:
-      TZ: Asia/Singapore
       HERMES_DASHBOARD: 1
       HERMES_UID: 1000
       HERMES_GID: 1000
