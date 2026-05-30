@@ -1,0 +1,22 @@
+services:
+  searxng:
+    container_name: searxng
+    image: docker.io/searxng/searxng:latest
+    restart: always
+    user: 1000:1000
+    volumes:
+      - ./data:/etc/searxng/
+      - core-data:/var/cache/searxng/
+    networks:
+      # This is used purely as a cheap search backend for Hermes/Open WebUI.
+      # To fallback to Serper/Tavily if this gets blocked in the future.
+      - searxng
+      - hermes-agent-xiaoyun
+      - hermes-agent-gdfm
+      - open-webui
+
+volumes:
+  core-data:
+
+networks:
+  searxng:
