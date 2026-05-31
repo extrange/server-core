@@ -29,7 +29,6 @@ include:
   - services/reactive-resume/compose.yml
   - services/realtime-todo-server/compose.yml
   - services/scrutiny/compose.yml
-  - services/searxng/compose.yml
   - services/shadowsocks/compose.yml
   - services/stirling-pdf/compose.yml
   - services/syncthing/compose.yml
