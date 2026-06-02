@@ -70,7 +70,6 @@ services:
     networks:
       - hermes-agent-xiaoyun
       - hindsight
-      - home-assistant
     volumes:
       - ./data/xiaoyun:/opt/data
     environment:
