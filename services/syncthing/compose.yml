@@ -13,6 +13,7 @@ services:
       - /mnt/storage/Relationship:/Relationship
       - "/mnt/storage/Personal/Passport and ID Photos:/Passport and ID Photos"
       - "/mnt/storage/Memorial Folder/Elizabeth/Ophthalmology:/Elizabeth/Ophthalmology"
+      - /mnt/storage/chanel:/chanel
     ports:
       # Required for devices without tailscale (e.g. Kindle)
       - 22000:22000/tcp
