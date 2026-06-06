@@ -1,6 +1,6 @@
 services:
   hindsight:
-    image: ghcr.io/vectorize-io/hindsight:latest@sha256:e82b2c051784affa73243108c06402655043999e362bb3b7226b4da1000e1660
+    image: ghcr.io/vectorize-io/hindsight:latest@sha256:ac2559b567de94732b0213f54c82df49496e49b5eb6df4bba8e23d555e708bc8
     container_name: hindsight
     restart: always
     environment:
