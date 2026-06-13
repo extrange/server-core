@@ -9,6 +9,7 @@ services:
       HINDSIGHT_API_LLM_PROVIDER: openrouter
       HINDSIGHT_API_LLM_MODEL: deepseek/deepseek-v4-flash
       HINDSIGHT_API_WORKER_ID: hindsight
+      HINDSIGHT_API_LLM_EXTRA_BODY: '{"provider": {"order": ["deepseek"]}}'
     volumes:
       - ./data/hindsight:/home/hindsight/.pg0
     networks:
