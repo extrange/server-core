@@ -42,6 +42,7 @@ services:
       - /mnt/storage/Notes/GDFM:/opt/data/GDFM
     environment:
       HERMES_DASHBOARD: 1
+      HERMES_DASHBOARD_INSECURE: 1
       HERMES_UID: 1000
       HERMES_GID: 1000
       API_SERVER_ENABLED: true
@@ -75,6 +76,7 @@ services:
       - ./data/xiaoyun:/opt/data
     environment:
       HERMES_DASHBOARD: 1
+      HERMES_DASHBOARD_INSECURE: 1
       HERMES_UID: 1000
       HERMES_GID: 1000
     labels:
