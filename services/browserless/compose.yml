@@ -1,7 +1,7 @@
 services:
   browserless:
     container_name: browserless
-    image: ghcr.io/browserless/chromium@sha256:c2abacf88698dc6750038363e1205c2f141856db21d564df9f7e2d8c9fb8fc22
+    image: ghcr.io/browserless/chromium@sha256:18d3e547a04941e57665b8f38a695177c4ddc89aad8d62483341643b59032e0a
     restart: always
     environment:
       TZ: Asia/Singapore

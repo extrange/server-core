@@ -1,3 +1,3 @@
-FROM nousresearch/hermes-agent:latest@sha256:47d80115ce62603fa0cab8af2b8d1816c5e800fbae851f7e66608435cfbb76f7
+FROM nousresearch/hermes-agent:latest@sha256:71b4ffb4683bf843a9523d6189caeab2221211401384eaff17421cb6244f57b4
 RUN uv pip install --python /opt/hermes/.venv/bin/python3 hindsight-client
 RUN cd /opt/hermes/scripts/whatsapp-bridge && npm install
