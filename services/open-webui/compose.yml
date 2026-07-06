@@ -10,7 +10,6 @@ services:
       ENABLE_OLLAMA_API: false
     networks:
       - open-webui
-      - hermes-agent-gdfm
     labels:
       traefik.enable: true
       traefik.docker.network: core_open-webui

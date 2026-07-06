@@ -40,7 +40,6 @@ services:
       - grafana
       - frigate
       - hermes-agent-xiaoyun
-      - hermes-agent-gdfm
       - hindsight
       - home-assistant
       - homepage
