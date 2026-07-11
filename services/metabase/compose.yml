@@ -1,6 +1,6 @@
 services:
   metabase:
-    image: metabase/metabase:latest@sha256:423728317bb515df24b87d66a5980aa1a97a43ef53fb25e595d0954bb4f51fac
+    image: metabase/metabase:latest@sha256:8eaebc20adb7a775d509cdfcf8d752ad521933e6fc218421d4af3197a84f1d70
     container_name: metabase
     restart: always
     volumes:
@@ -32,7 +32,7 @@ services:
       homepage.siteMonitor: *url
 
   metabase-db:
-    image: postgres:18@sha256:4aabea78cf39b90e834caf3af7d602a18565f6fe2508705c8d01aa63245c2e20
+    image: postgres:18@sha256:22c89fe0d0f507606260237fd55e51f6137f58b2d5bcf6152242b96d9fe8f9a4
     restart: always
     container_name: metabase-db
     networks:
