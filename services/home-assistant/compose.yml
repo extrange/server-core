@@ -29,7 +29,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:4c2992c3cd9b5f26e82a97c196e19b1d3f5ed037df01f4fd26aa0e15799d2539
+    image: ghcr.io/music-assistant/server@sha256:750c1f4e08d0f3a31603ea4954de51183297d80ea6760287469f76f526a2ff8b
     container_name: music-assistant
     restart: always
     networks:
