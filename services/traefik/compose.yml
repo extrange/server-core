@@ -36,9 +36,10 @@ services:
       - calibre-web
       - changedetection-io
       - ddns-updater
+      - esphome
+      - frigate
       - glance
       - grafana
-      - frigate
       - hermes-agent-xiaoyun
       - hindsight
       - home-assistant
