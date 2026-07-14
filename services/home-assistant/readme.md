@@ -25,8 +25,7 @@ They are wildly inaccurate, keep reading 100% and not waterproof. Use the Thirdr
 ### Bluetooth Proxy
 
 - Model is `ESP32-D0WD-V3`
-- Refer to `btproxy.yaml`
-- Flash with `esphome run btproxy.yaml` over USB
+- Flash via ESPHome (`esphome.internal.nicholaslyz.com`).
 
 ### Philips Hue
 
