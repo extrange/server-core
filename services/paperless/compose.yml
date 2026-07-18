@@ -1,13 +1,13 @@
 services:
   paperless-redis:
-    image: docker.io/library/redis:8@sha256:2838d5524559494f6f1cd66e97e76b200d64a633a8614200620755ed395daf32
+    image: docker.io/library/redis:8@sha256:234c902a2db49461a129e2d4aeff85b28cf20187ed274a67f6e50995fa713c7b
     restart: always
     volumes:
       - paperless-redis:/data
     networks:
       - paperless
   paperless-db:
-    image: docker.io/library/postgres:18@sha256:22c89fe0d0f507606260237fd55e51f6137f58b2d5bcf6152242b96d9fe8f9a4
+    image: docker.io/library/postgres:18@sha256:32ca0af8e77bfb8c6610c488e4691f83f972a3e9e64d3b02facf3ab111ad5500
     restart: always
     volumes:
       - ./data/postgresql:/var/lib/postgresql

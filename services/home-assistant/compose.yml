@@ -29,7 +29,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:fffa9e7c91c583da8df3f9851093fbb5fa65c9da686a2988cceea6b0cc75327b
+    image: ghcr.io/music-assistant/server@sha256:50666a6f8d7f87d53d993dc41860ab06dda11047f6e433bb5bdbcb6e309ac74c
     container_name: music-assistant
     restart: always
     networks:
@@ -75,7 +75,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome
+    image: ghcr.io/esphome/esphome@sha256:959ef36e5ea97c8309429f0ba1405ddb2eead19019b81e6e9518e683dff5191c
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
