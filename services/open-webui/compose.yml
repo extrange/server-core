@@ -1,15 +1,21 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main@sha256:a26effeb220e132482bf7e0560b3404843e7bc40d23051144e062960df8df6b0
+    image: ghcr.io/open-webui/open-webui:cuda
     container_name: open-webui
     restart: always
     volumes:
-      - ./data:/app/backend/data
+      - ./data/open-webui:/app/backend/data
     environment:
       CUSTOM_NAME: AI Chat
       ENABLE_OLLAMA_API: false
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
+      # As a stopgap measure, until the issue with tavily extract is resolved
+      WEB_LOADER_TIMEOUT: 15
+      WEB_FETCH_MAX_CONTENT_LENGTH: 100000
     networks:
       - open-webui
+    devices:
+      - nvidia.com/gpu=all
     labels:
       traefik.enable: true
       traefik.docker.network: core_open-webui
@@ -18,6 +24,45 @@ services:
       homepage.icon: open-webui
       homepage.href: &url https://open-webui.nicholaslyz.com
       homepage.siteMonitor: *url
+
+  # paddleocr-vl-api:
+  #   image: ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-vl:latest-nvidia-gpu
+  #   command: >
+  #     paddlex --serve
+  #     --pipeline PaddleOCR-VL-1.6
+  #     --host 0.0.0.0
+  #     --port 8080
+  #   networks:
+  #     - open-webui
+  #   devices:
+  #     - nvidia.com/gpu=all
+  #   restart: unless-stopped
+
+  mineru-api:
+    build: .
+    container_name: mineru-api
+    restart: always
+    environment:
+      MINERU_MODEL_SOURCE: local
+      MINERU_API_MAX_CONCURRENT_REQUESTS: 1
+      MINERU_PROCESSING_WINDOW_SIZE: 32
+    networks:
+      - open-webui
+    volumes:
+      - ./data/mineru:/vllm-workspace/output
+    entrypoint: mineru-api
+    command: --host 0.0.0.0
+      --port 8000
+      --enable-vlm-preload true
+      --gpu-memory-utilization 0.5 # If encountering VRAM shortage, reduce the KV cache size by this parameter; if VRAM issues persist, try lowering it further to `0.4` or below.
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ipc: host
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+    devices:
+      - nvidia.com/gpu=all
 
 networks:
   open-webui:

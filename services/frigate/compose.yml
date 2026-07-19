@@ -13,6 +13,8 @@ services:
         target: /tmp/cache
         tmpfs:
           size: 1000000000
+    devices:
+      - nvidia.com/gpu=all
     environment:
       FRIGATE_RTSP_PASSWORD: ${FRIGATE_RTSP_PASSWORD}
     networks:
@@ -31,13 +33,6 @@ services:
       homepage.widget.url: *url
       homepage.widget.username: ${USERNAME}
       homepage.widget.password: ${PASSWORD}
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
 
 networks:
   frigate:

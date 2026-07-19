@@ -13,6 +13,7 @@ services:
       - changedetection-io
       - karakeep
       - reactive-resume
+      - open-webui
 
       # External
       - polythought
