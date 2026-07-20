@@ -3,6 +3,7 @@ services:
     image: ghcr.io/vectorize-io/hindsight:latest@sha256:2c60f233eaba8f51db31adb920a560735aaf6f314e4b63c36c73159742dfa1a7
     container_name: hindsight
     restart: always
+    shm_size: 1g
     environment:
       TZ: Asia/Singapore
       HINDSIGHT_API_LLM_API_KEY: ${HINDSIGHT_API_LLM_API_KEY}
@@ -35,6 +36,7 @@ services:
       - hindsight
     networks:
       - hermes-agent-xiaoyun
+      - open-webui
       - hindsight
     volumes:
       - ./data/xiaoyun:/opt/data
