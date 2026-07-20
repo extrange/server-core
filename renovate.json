@@ -9,5 +9,10 @@
       "services/unifi"
     ]
   },
+  "dockerfile": {
+    "ignorePaths": [
+      "services/open-webui/Dockerfile"
+    ]
+  },
   "ignoreTests": true
 }

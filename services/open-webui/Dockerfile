@@ -1,4 +1,4 @@
-FROM vllm/vllm-openai:v0.25.1@sha256:e4f88a835143cd22aee2397a26ec6bb80b3a4a6fe0c882bcbc63822904766089
+FROM vllm/vllm-openai:v0.21.0
 
 # Install libgl for opencv support & Noto fonts for Chinese characters
 RUN apt-get update && \
