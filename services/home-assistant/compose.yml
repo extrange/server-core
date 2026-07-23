@@ -36,9 +36,7 @@ services:
       home-assistant:
       music-assistant-macvlan:
         mac_address: B2:13:B2:C2:30:53 # Use a fixed MAC to prevent IP address exhaustion on container restarts
-    post_start:
-      - command: /bin/bash -c 'apt-get update && apt-get install -y udhcpc && udhcpc -i eth1 -x hostname:music-assistant' # Get a DHCP address for itself
-        user: root
+        ipv4_address: 192.168.1.80 # Static IP since Docker's macvlan driver doesn't support DHCP. TODO move to podman, which supports it
     volumes:
       - ./data/music-assistant:/data/
     labels:
@@ -130,6 +128,10 @@ networks:
     driver: macvlan
     driver_opts:
       parent: enp5s0
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          gateway: "192.168.1.1"
   esphome:
   esphome-macvlan:
     driver: macvlan
