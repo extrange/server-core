@@ -9,6 +9,7 @@ services:
       CUSTOM_NAME: AI Chat
       ENABLE_OLLAMA_API: false
       WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
+      USER_AGENT: Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0 # For fetch_url tool (affects the default loader only)
     networks:
       - open-webui
     devices:
