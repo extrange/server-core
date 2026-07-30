@@ -9,9 +9,6 @@ services:
       CUSTOM_NAME: AI Chat
       ENABLE_OLLAMA_API: false
       WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
-      # As a stopgap measure, until the issue with tavily extract is resolved
-      WEB_LOADER_TIMEOUT: 15
-      WEB_FETCH_MAX_CONTENT_LENGTH: 100000
     networks:
       - open-webui
     devices:
