@@ -29,7 +29,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:50666a6f8d7f87d53d993dc41860ab06dda11047f6e433bb5bdbcb6e309ac74c
+    image: ghcr.io/music-assistant/server@sha256:5500c53c5129bbabfb0de2c2c298fd0ef15fe34207bbe5794f49c587b76bde95
     container_name: music-assistant
     restart: always
     networks:
@@ -52,7 +52,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: ghcr.io/koenkk/zigbee2mqtt@sha256:80f7f04f72a99e4c4ef51ef7e98ee736edba6db0ecbb7abc626d0c4b0f1871f1
+    image: ghcr.io/koenkk/zigbee2mqtt@sha256:4fb4db4d49a217bed6d0204f454ce809febc565bbe051b85c556ee2bcef73d8c
     restart: always
     user: 1000:1000
     networks:
@@ -73,7 +73,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:ef2e15e0007536345fddcebd5968eb32f4d949b3178627f091be8ddc0793db9f
+    image: ghcr.io/esphome/esphome@sha256:de90d689b89e20f171b0fbdd0dfea31b21ef647aa7e83d6efd2916ca6e7a30d2
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro

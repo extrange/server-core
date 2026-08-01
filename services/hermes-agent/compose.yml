@@ -1,6 +1,6 @@
 services:
   hindsight:
-    image: ghcr.io/vectorize-io/hindsight:latest@sha256:0710076cd1539b4f89537d2e5b0ea1e4d179885bc12809a56cf748c538c8c4fb
+    image: ghcr.io/vectorize-io/hindsight:latest@sha256:ffa391a77284e49f6b55e32c86f33529ac4257831407b14038a72b6a0a232039
     container_name: hindsight
     restart: always
     shm_size: 1g
@@ -28,7 +28,7 @@ services:
       homepage.siteMonitor: *url
 
   hermes-agent-xiaoyun:
-    image: nousresearch/hermes-agent@sha256:aae02915ceda0adcc299b42fa170cb71d9418cec0a6a9c5ea946193d3364afed
+    image: nousresearch/hermes-agent@sha256:8aab4fb9665995cafc118546d071caf7b12fc36ef038dbb81bd4ca1cdb2a1ccc
     container_name: hermes-agent-xiaoyun
     restart: always
     command: gateway run
