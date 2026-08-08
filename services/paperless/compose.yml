@@ -1,13 +1,13 @@
 services:
   paperless-redis:
-    image: docker.io/library/redis:8@sha256:077ba791400f390cb96d9d419d90259d5e72e697fca7abc3bbde6d83285d7346
+    image: docker.io/library/redis:8@sha256:344e3945a0b431c8ff1eecd58c5573538126bd756f02fc7e218ddf1fc2546366
     restart: always
     volumes:
       - paperless-redis:/data
     networks:
       - paperless
   paperless-db:
-    image: docker.io/library/postgres:18@sha256:3a82e1f56c8f0f5616a11103ac3d47e632c3938698946a7ad26da0df1334744a
+    image: docker.io/library/postgres:18@sha256:a02db8cac496f15b094798a38254f14d6e00741f709360e5e00bb6668ea31636
     restart: always
     volumes:
       - ./data/postgresql:/var/lib/postgresql
@@ -52,7 +52,7 @@ services:
       homepage.href: &url https://paperless.nicholaslyz.com
       homepage.siteMonitor: *url
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.34@sha256:67097317623a503ba2a6a7e9ae8db6929a1f7e1bbd88077bacf2d325fbdab923
+    image: docker.io/gotenberg/gotenberg:8.35@sha256:a16a14e1f18a71405624bc028e90d4ef50ea774c352b303639c10bf7b141f760
     restart: always
     # The gotenberg chromium route is used to convert .eml files. We do not want to allow external content like tracking pixels or even javascript.
     command:

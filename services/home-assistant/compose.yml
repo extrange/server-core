@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:5a531753cea96444200158fc2b0ac7ccd739291ec50414877b396de6e0bb29b3
+    image: ghcr.io/home-assistant/home-assistant@sha256:6340a3de3917a9b19368e767310a96dd090f6a19aca8aeadf87fd1145cec9682
     container_name: home-assistant
     restart: always
     depends_on:
@@ -29,7 +29,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:5500c53c5129bbabfb0de2c2c298fd0ef15fe34207bbe5794f49c587b76bde95
+    image: ghcr.io/music-assistant/server@sha256:dd0605ba528af46bb1c36ceb71fa57f5e9b23d10ec2fff787bd16495271f5681
     container_name: music-assistant
     restart: always
     networks:
@@ -73,7 +73,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:de90d689b89e20f171b0fbdd0dfea31b21ef647aa7e83d6efd2916ca6e7a30d2
+    image: ghcr.io/esphome/esphome@sha256:e636269c6390c2124916510d45f55febb1d9ce41365f8445c9083ee41e43c92b
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
