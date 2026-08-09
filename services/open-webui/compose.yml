@@ -43,31 +43,31 @@ services:
   #     - nvidia.com/gpu=all
   #   restart: unless-stopped
 
-  # mineru-api:
-  #   build: .
-  #   container_name: mineru-api
-  #   restart: always
-  #   environment:
-  #     MINERU_MODEL_SOURCE: local
-  #     MINERU_API_MAX_CONCURRENT_REQUESTS: 1
-  #     MINERU_PROCESSING_WINDOW_SIZE: 32
-  #   networks:
-  #     - open-webui
-  #   volumes:
-  #     - ./data/mineru:/vllm-workspace/output
-  #   entrypoint: mineru-api
-  #   command: --host 0.0.0.0
-  #     --port 8000
-  #     --enable-vlm-preload true
-  #     --gpu-memory-utilization 0.5 # If encountering VRAM shortage, reduce the KV cache size by this parameter; if VRAM issues persist, try lowering it further to `0.4` or below.
-  #   ulimits:
-  #     memlock: -1
-  #     stack: 67108864
-  #   ipc: host
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
-  #   devices:
-  #     - nvidia.com/gpu=all
+  mineru-api:
+    build: .
+    container_name: mineru-api
+    restart: always
+    environment:
+      MINERU_MODEL_SOURCE: local
+      MINERU_API_MAX_CONCURRENT_REQUESTS: 1
+      MINERU_PROCESSING_WINDOW_SIZE: 32
+    networks:
+      - open-webui
+    volumes:
+      - ./data/mineru:/vllm-workspace/output
+    entrypoint: mineru-api
+    command: --host 0.0.0.0
+      --port 8000
+      --enable-vlm-preload true
+      --gpu-memory-utilization 0.5 # If encountering VRAM shortage, reduce the KV cache size by this parameter; if VRAM issues persist, try lowering it further to `0.4` or below.
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ipc: host
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+    devices:
+      - nvidia.com/gpu=all
 
 networks:
   open-webui:
