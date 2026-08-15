@@ -9,6 +9,8 @@ services:
       - 27015:27015/tcp
     volumes:
       - ./data:/factorio
+      - ./server-settings.json:/factorio/data/server-settings.json
+      - ./player-data.json:/factorio/player-data.json
     command:
       - /factorio/bin/x64/factorio
       - --start-server
