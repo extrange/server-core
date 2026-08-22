@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:56690a89c79a0de98035e1719f8324a92d5859c1192ff45adb0230ea81cb42a5
+    image: ghcr.io/home-assistant/home-assistant@sha256:14931c6b13756317849f46da1d01b45937a1150db66c081cfe529d48215943fe
     container_name: home-assistant
     restart: always
     depends_on:
@@ -73,7 +73,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:e636269c6390c2124916510d45f55febb1d9ce41365f8445c9083ee41e43c92b
+    image: ghcr.io/esphome/esphome@sha256:5ca1a7e39926cdf3cd48239ec5c9f5b429c9ac84390bd940c26c296d3cecc72e
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
