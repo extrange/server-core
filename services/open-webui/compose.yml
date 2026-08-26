@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:cuda@sha256:4b2e025b4017cf810162ae45cef4998df8b019c449bce791094b87e9765b6934
+    image: ghcr.io/open-webui/open-webui:cuda@sha256:d47d5fbbc7818d00928980e3f5a19756d77f17f1152d69974923e0f845e4f4e3
     container_name: open-webui
     # Workaround for tavily extract not working
     # https://github.com/open-webui/open-webui/issues/27602
