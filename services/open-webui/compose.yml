@@ -2,13 +2,6 @@ services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:cuda@sha256:d47d5fbbc7818d00928980e3f5a19756d77f17f1152d69974923e0f845e4f4e3
     container_name: open-webui
-    # Workaround for tavily extract not working
-    # https://github.com/open-webui/open-webui/issues/27602
-    entrypoint: ["/bin/sh", "-c"]
-    command:
-      [
-        "sed -i '/api_base_url/d' /app/backend/open_webui/retrieval/web/utils.py && exec bash start.sh",
-      ]
     restart: always
     volumes:
       - ./data/open-webui:/app/backend/data
