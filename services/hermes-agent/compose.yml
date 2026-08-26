@@ -40,6 +40,7 @@ services:
       - hindsight
     volumes:
       - ./data/xiaoyun:/opt/data
+      - ./config.yaml:/opt/data/config.yaml
     environment:
       HERMES_DASHBOARD: 1
       HERMES_DASHBOARD_BASIC_AUTH_USERNAME: ${HERMES_DASHBOARD_BASIC_AUTH_USERNAME}
