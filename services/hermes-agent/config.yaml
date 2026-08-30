@@ -1,24 +1,17 @@
 model:
   provider: openrouter
+  default: &default z-ai/glm-5.3-flash
   base_url: https://openrouter.ai/api/v1
   api_mode: chat_completions
-  default: &default_model deepseek/deepseek-v4-flash-0731
 fallback_providers:
   - provider: openrouter
-    model: *default_model
+    model: *default
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
 cron:
-  model: *default_model
+  model: *default
   model_provider: openrouter
-auxiliary:
-  vision:
-    provider: openrouter
-    model: openai/gpt-5.6-luna
-provider_routing:
-  only:
-    - deepseek
-    - baidu/fp8
+  wrap_response: false
 web:
   search_backend: tavily
   extract_backend: tavily
@@ -31,6 +24,10 @@ display:
   streaming: true
   tool_progress: false
   cleanup_progress: true
+  interim_assistant_messages: false
+  long_running_notifications: false
+  busy_ack_detail: false
+  background_process_notifications: false
 stt:
   provider: openai
   openai:
@@ -68,8 +65,12 @@ image_gen:
 platforms:
   whatsapp:
     enabled: true
-_config_version: 38
+_config_version: 39
 onboarding:
   seen:
     busy_input_prompt: true
 agent: {}
+security:
+  redact_secrets: false
+approvals:
+  destructive_slash_confirm: false
