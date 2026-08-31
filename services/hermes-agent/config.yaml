@@ -82,3 +82,7 @@ gateway:
     whatsapp:
       gateway_restart_notification: false
       typing_indicator: false
+session_reset:
+  mode: both
+  idle_minutes: 1440
+  at_hour: 4
