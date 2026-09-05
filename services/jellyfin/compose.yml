@@ -10,8 +10,11 @@ services:
       - /mnt/storage/Videos:/media
     environment:
       JELLYFIN_PublishedServerUrl: https://jellyfin.nicholaslyz.com
+      NVIDIA_VISIBLE_DEVICES: all
     networks:
       - jellyfin
+    devices:
+      - nvidia.com/gpu=all
     labels:
       traefik.enable: true
       traefik.docker.network: core_jellyfin
