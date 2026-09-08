@@ -1,15 +1,15 @@
 model:
   provider: openrouter
-  default: &default z-ai/glm-5.3-flash
+  default: z-ai/glm-5.3-flash
   base_url: https://openrouter.ai/api/v1
   api_mode: chat_completions
 fallback_providers:
   - provider: openrouter
-    model: *default
+    model: z-ai/glm-5.3-flash
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
 cron:
-  model: *default
+  model: z-ai/glm-5.3-flash
   model_provider: openrouter
   wrap_response: false
 web:
@@ -36,14 +36,6 @@ stt:
 memory:
   provider: hindsight
 timezone: Asia/Singapore
-whatsapp:
-  require_mention: false
-  extra:
-    group_policy: allowlist
-    group_allow_from:
-      - 6598795366-1372771767@g.us
-      - 120363422641179682@g.us
-      - 120363410218408492@g.us
 telegram:
   require_mention: false
   extra:
@@ -57,16 +49,11 @@ group_sessions_per_user: false
 platform_toolsets:
   telegram:
     - hermes-cli
-  whatsapp:
-    - hermes-cli
 image_gen:
   provider: openai
   use_gateway: false
   model: gpt-image-2-medium
-platforms:
-  whatsapp:
-    enabled: true
-_config_version: 39
+_config_version: 40
 onboarding:
   seen:
     busy_input_prompt: true
@@ -79,10 +66,29 @@ gateway:
   platforms:
     telegram:
       gateway_restart_notification: false
-    whatsapp:
-      gateway_restart_notification: false
-      typing_indicator: false
 session_reset:
   mode: both
   idle_minutes: 1440
   at_hour: 4
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
