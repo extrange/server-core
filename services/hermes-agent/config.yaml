@@ -50,9 +50,9 @@ platform_toolsets:
   telegram:
     - hermes-cli
 image_gen:
-  provider: openai
+  provider: openrouter
   use_gateway: false
-  model: gpt-image-2-medium
+  model: openai/gpt-image-2.5-sunburst
 _config_version: 40
 onboarding:
   seen:
