@@ -1,15 +1,15 @@
 model:
   provider: openrouter
-  default: z-ai/glm-5.3-flash
+  default: &model deepseek/deepseek-v4.1-flash
   base_url: https://openrouter.ai/api/v1
   api_mode: chat_completions
 fallback_providers:
   - provider: openrouter
-    model: z-ai/glm-5.3-flash
+    model: *model
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
 cron:
-  model: z-ai/glm-5.3-flash
+  model: *model
   model_provider: openrouter
   wrap_response: false
 web:
@@ -32,7 +32,7 @@ display:
 stt:
   provider: openai
   openai:
-    model: gpt-transcribe
+    model: openai/gpt-transcribe
 memory:
   provider: hindsight
 timezone: Asia/Singapore
