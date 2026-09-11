@@ -43,7 +43,7 @@ services:
     restart: always
     command:
       - meilisearch
-      - --experimental-dumpless-upgrade
+      - --upgrade-db
     networks:
       - karakeep
     environment:
