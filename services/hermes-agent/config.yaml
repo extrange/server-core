@@ -57,9 +57,6 @@ _config_version: 40
 onboarding:
   seen:
     busy_input_prompt: true
-agent: {}
-security:
-  redact_secrets: false
 approvals:
   destructive_slash_confirm: false
 gateway:
