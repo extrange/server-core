@@ -60,8 +60,7 @@ services:
       homepage.siteMonitor: *url
 
   camofox:
-    image: camofox-browser:135.0.1-x86_64
-    pull_policy: never
+    image: ghcr.io/jo-inc/camofox-browser
     container_name: camofox
     restart: always
     shm_size: 2G
@@ -78,6 +77,9 @@ services:
       VNC_BIND: 0.0.0.0
       CAMOFOX_LOCALE: en-SG
       CAMOFOX_TIMEZONE: Asia/Singapore
+      SESSION_TIMEOUT_MS: 0
+      BROWSER_IDLE_TIMEOUT_MS: 0
+      TAB_INACTIVITY_MS: 0
     labels:
       traefik.enable: true
       traefik.http.routers.camofox.rule: Host(`camofox.internal.nicholaslyz.com`)
