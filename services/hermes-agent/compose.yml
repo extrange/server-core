@@ -37,6 +37,7 @@ services:
       - hermes-agent-xiaoyun
       - open-webui
       - hindsight
+      - camofox
     volumes:
       - ./data/xiaoyun:/opt/data
       - ./config.yaml:/opt/data/config.yaml
@@ -54,10 +55,41 @@ services:
       traefik.docker.network: core_hermes-agent-xiaoyun
       homepage.group: Services
       homepage.name: Hermes Agent (Xiao Yun)
-      homepage.icon: hermesagent
+      homepage.icon: hermes-icon
       homepage.href: &url https://hermes-agent-xiaoyun.internal.nicholaslyz.com
+      homepage.siteMonitor: *url
+
+  camofox:
+    image: camofox-browser:135.0.1-x86_64
+    container_name: camofox
+    restart: always
+    shm_size: 2G
+    volumes:
+      - ./data/camofox:/root/.camofox
+    networks:
+      - camofox
+    ports:
+      - 6080:6080
+    environment:
+      MAX_OLD_SPACE_SIZE: 2048
+      CAMOFOX_CRASH_REPORT_ENABLED: false
+      ENABLE_VNC: 1
+      VNC_BIND: 0.0.0.0
+      CAMOFOX_LOCALE: en-SG
+      CAMOFOX_TIMEZONE: Asia/Singapore
+    labels:
+      traefik.enable: true
+      traefik.http.routers.camofox.rule: Host(`camofox.internal.nicholaslyz.com`)
+      traefik.http.routers.camofox.entrypoints: tailscale
+      traefik.http.services.camofox.loadbalancer.server.port: 6080
+      traefik.docker.network: core_camofox
+      homepage.group: Services
+      homepage.name: Camofox (Hermes Agent)
+      homepage.icon: firefox
+      homepage.href: &url https://camofox.internal.nicholaslyz.com/vnc.html
       homepage.siteMonitor: *url
 
 networks:
   hindsight:
   hermes-agent-xiaoyun:
+  camofox:

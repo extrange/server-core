@@ -34,6 +34,7 @@ services:
       - audiobookshelf
       - backend
       - calibre-web
+      - camofox
       - changedetection-io
       - ddns-updater
       - esphome
