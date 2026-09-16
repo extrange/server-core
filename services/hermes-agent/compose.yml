@@ -61,6 +61,7 @@ services:
 
   camofox:
     image: camofox-browser:135.0.1-x86_64
+    pull_policy: never
     container_name: camofox
     restart: always
     shm_size: 2G
