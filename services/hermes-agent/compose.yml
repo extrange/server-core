@@ -27,7 +27,7 @@ services:
       homepage.siteMonitor: *url
 
   hermes-agent-xiaoyun:
-    image: nousresearch/hermes-agent@sha256:ab40f4ed0711db7c59a6097c50f7756e8aa746dccd25f29bb5724afdd0731c3e
+    image: nousresearch/hermes-agent@sha256:efae0f12b31097d00d47bdd6b9ffecadcbb82139a43417d2db19b985ce413fb8
     container_name: hermes-agent-xiaoyun
     restart: always
     command: gateway run
