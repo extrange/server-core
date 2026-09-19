@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:a1bc133af84ee6505fe2c266d9805b7c75b780dfdc188edfee3b11e8f3cd8efe
+    image: ghcr.io/home-assistant/home-assistant@sha256:d8922685169707fd91e8b9729902d975f06157d005e422874d201e0261dda196
     container_name: home-assistant
     restart: always
     depends_on:
@@ -29,7 +29,7 @@ services:
       - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:885872224fa541c0faefc936625c939ba705a00e89c180f89e877f58448ea5d5
+    image: ghcr.io/music-assistant/server@sha256:37a9a2776e838a754c9f5b38c432567389952304e7cb8f6b44b6cd28043de6de
     container_name: music-assistant
     restart: always
     networks:
@@ -73,7 +73,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:000c5ee5ee96d57208ee48f2d255f73713236f183959803e64cd0b00c39b277b
+    image: ghcr.io/esphome/esphome@sha256:f6509fcf917a732fd80058567b237d5b9286b9dc6c8dde1b655fbb69ebd600ad
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
@@ -102,7 +102,7 @@ services:
       - net_admin # Allow HA to discover devices on the network/obtain DHCP address
 
   mosquitto:
-    image: eclipse-mosquitto@sha256:6f8d8a947c506f8a2290ec65cd4bd2bc7cb4d43fb5f6271f861cb013e2ef9797
+    image: eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408
     container_name: mosquitto
     restart: always
     user: 1000:1000
