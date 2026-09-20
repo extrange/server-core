@@ -1,0 +1,22 @@
+services:
+  todhay-backend:
+    image: ghcr.io/cheeseecake/todhay
+    container_name: todhay-backend
+    restart: always
+    environment:
+      DB_PATH: /data/db.sqlite3
+      TZ: Asia/Singapore
+      DEBUG: false
+      ALLOWED_HOSTS: api.todhay.chanelng.com
+      SECRET_KEY: ${SECRET_KEY}
+    volumes:
+      - ./data:/data
+    networks:
+      - todhay-backend
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_todhay-backend
+      traefik.http.routers.todhay-api.rule: Host(`api.todhay.chanelng.com`)
+
+networks:
+  todhay-backend:

@@ -32,5 +32,6 @@ include:
   - services/shadowsocks/compose.yml
   - services/stirling-pdf/compose.yml
   - services/syncthing/compose.yml
+  - services/todhay/compose.yml
   - services/traefik/compose.yml
   - services/unifi/compose.yml

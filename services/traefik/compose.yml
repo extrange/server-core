@@ -64,6 +64,7 @@ services:
       - scrutiny
       - stirling-pdf
       - syncthing
+      - todhay-backend
       - unifi
       - zigbee2mqtt
     ports:
