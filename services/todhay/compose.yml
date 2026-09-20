@@ -17,6 +17,8 @@ services:
       traefik.enable: true
       traefik.docker.network: core_todhay-backend
       traefik.http.routers.todhay-api.rule: Host(`api.todhay.chanelng.com`)
+      # Required since this domain is not covered in traefik.yaml
+      traefik.http.routers.todhay-api.tls.certresolver: leresolver
 
 networks:
   todhay-backend:
