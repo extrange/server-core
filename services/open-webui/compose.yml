@@ -46,8 +46,6 @@ services:
       MINERU_PROCESSING_WINDOW_SIZE: 32
     networks:
       - open-webui
-    volumes:
-      - ./data/mineru:/vllm-workspace/output
     entrypoint: mineru-api
     command: --host 0.0.0.0
       --port 8000
