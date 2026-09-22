@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:cuda@sha256:5a81e5605e35dc12e477d310fd6627351fffc27df709557c169a72f9ed04cb1e
+    image: ghcr.io/open-webui/open-webui:cuda@sha256:19d67779c48057ccfc8f133ec9585995e1e1c200498ed3444706df2961f2c7a9
     container_name: open-webui
     restart: always
     volumes:
@@ -36,29 +36,32 @@ services:
   #     - nvidia.com/gpu=all
   #   restart: unless-stopped
 
-  mineru-api:
-    build: .
-    container_name: mineru-api
-    restart: always
-    environment:
-      MINERU_MODEL_SOURCE: local
-      MINERU_API_MAX_CONCURRENT_REQUESTS: 1
-      MINERU_PROCESSING_WINDOW_SIZE: 32
-    networks:
-      - open-webui
-    entrypoint: mineru-api
-    command: --host 0.0.0.0
-      --port 8000
-      --enable-vlm-preload true
-      --gpu-memory-utilization 0.5 # If encountering VRAM shortage, reduce the KV cache size by this parameter; if VRAM issues persist, try lowering it further to `0.4` or below.
-    ulimits:
-      memlock: -1
-      stack: 67108864
-    ipc: host
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
-    devices:
-      - nvidia.com/gpu=all
+  # Wait until API support in open-webui for V4 is released
+  # mineru-api:
+  #   build: .
+  #   container_name: mineru-api
+  #   restart: always
+  #   environment:
+  #     MINERU_MODEL_SOURCE: local
+  #     MINERU_API_MAX_CONCURRENT_REQUESTS: 1
+  #     MINERU_PROCESSING_WINDOW_SIZE: 32
+  #   networks:
+  #     - open-webui
+  #   entrypoint: mineru-kit
+  #   command:
+  #     - api-server
+  #     - --host
+  #     - 0.0.0.0
+  #     - --port
+  #     - "8000"
+  #   ulimits:
+  #     memlock: -1
+  #     stack: 67108864
+  #   ipc: host
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+  #   devices:
+  #     - nvidia.com/gpu=all
 
 networks:
   open-webui:
