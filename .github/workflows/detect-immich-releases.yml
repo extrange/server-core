@@ -18,7 +18,12 @@ jobs:
 
       - name: Pull latest compose.yml
         run: |
-          curl -L https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml -o /tmp/compose.yml
+          curl -fsSL \
+            --retry 5 --retry-all-errors --retry-delay 5 \
+            --connect-timeout 10 --max-time 60 \
+            --remove-on-error \
+            -o /tmp/compose.yml \
+            https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
 
       - name: Fail if immich compose.yml does not exist
         run: |
