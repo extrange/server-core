@@ -1,6 +1,6 @@
 services:
   todhay-backend:
-    image: ghcr.io/cheeseecake/todhay
+    image: ghcr.io/cheeseecake/todhay@sha256:0d1affe121f25a0eaafb4b3a46661bf8d6451de5ffb2e42f25f7eeee91f6542d
     container_name: todhay-backend
     restart: always
     environment:

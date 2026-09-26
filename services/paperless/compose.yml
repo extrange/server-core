@@ -1,13 +1,13 @@
 services:
   paperless-redis:
-    image: docker.io/library/redis:8@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    image: docker.io/library/redis:8@sha256:718f745deb7dfefeac6eed7041fc7ec9476b50e61b247932682457c41adafa0e
     restart: always
     volumes:
       - paperless-redis:/data
     networks:
       - paperless
   paperless-db:
-    image: docker.io/library/postgres:18@sha256:86c951e05bf56c93d95d397747fb8820ac76cc3bedb78f43abd83eedbe3666ae
+    image: docker.io/library/postgres:18@sha256:5a5a84b19854a9ffaa54082c166ff4ec27473a361e496e5ea167f298f2da9722
     restart: always
     volumes:
       - ./data/postgresql:/var/lib/postgresql
@@ -18,7 +18,7 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   paperless:
-    image: ghcr.io/paperless-ngx/paperless-ngx:latest@sha256:22dc423ff48ac1629977dbf0c9625ba9f60d3bd1291a2ff173c65351984a14c2
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest@sha256:5fa76604a81df6945086e0837b14b56543d137e8ce4f311cc5d9ebe907e74e79
     restart: always
     depends_on:
       - paperless-redis
