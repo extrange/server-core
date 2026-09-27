@@ -1,6 +1,8 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:cuda@sha256:19d67779c48057ccfc8f133ec9585995e1e1c200498ed3444706df2961f2c7a9
+    build:
+      context: ./fts
+    image: open-webui-fts:local
     container_name: open-webui
     restart: always
     volumes:
