@@ -60,6 +60,9 @@ gateway:
   platforms:
     telegram:
       gateway_restart_notification: false
+      extra:
+        rich_messages: true
+        rich_drafts: false # keep the DM stream preview plain
 streaming:
   enabled: true
 onboarding:
@@ -76,7 +79,7 @@ image_gen:
   model: openai/gpt-image-2.5-sunburst
 session_reset:
   mode: both
-  idle_minutes: 1440
+  idle_minutes: 60
   at_hour: 4
 
 # ── Security ──────────────────────────────────────────────────────────
