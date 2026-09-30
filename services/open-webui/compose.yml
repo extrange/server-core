@@ -3,6 +3,7 @@ services:
     build:
       context: ./fts
     image: open-webui-fts:local
+    pull_policy: never
     container_name: open-webui
     restart: always
     volumes:
