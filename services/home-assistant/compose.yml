@@ -74,13 +74,11 @@ services:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
     restart: always
-    post_start:
-      - command: /bin/bash -c 'apt-get update && apt-get install -y udhcpc && udhcpc -i eth1 -x hostname:esphome' # Get a DHCP address for itself
-        user: root
     networks:
       esphome:
-      esphome-macvlan:
+      macvlan:
         mac_address: AE:48:AA:B8:7D:56 # Use a fixed MAC to prevent IP address exhaustion on container restarts
+        ipv4_address: 192.168.1.81
     environment:
       ESPHOME_USERNAME: admin
       ESPHOME_PASSWORD: ${ESPHOME_PASSWORD}
@@ -125,9 +123,4 @@ networks:
         # No gateway, so containers' default routes stay on their Docker bridge networks
         - subnet: "192.168.1.0/24"
   esphome:
-  esphome-macvlan:
-    driver: macvlan
-    driver_opts:
-      parent: enp5s0
-
   zigbee2mqtt:
