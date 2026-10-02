@@ -6,13 +6,11 @@ services:
     depends_on:
       - mosquitto
       - frigate
-    post_start:
-      - command: udhcpc -i eth1 -x hostname:home-assistant # Get a DHCP address for itself
-        user: root
     networks:
       home-assistant:
-      home-assistant-macvlan:
-        mac_address: 3a:bb:ab:31:7e:5c # Use a fixed MAC to prevent IP address exhaustion on container restarts
+      macvlan:
+        mac_address: 3a:bb:ab:31:7e:5c # Fixed MAC to prevent MAC address exhaustion on container restarts
+        ipv4_address: 192.168.1.178
     volumes:
       - ./data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -25,8 +23,6 @@ services:
       homepage.icon: home-assistant
       homepage.href: &url https://home-assistant.nicholaslyz.com
       homepage.siteMonitor: *url
-    cap_add:
-      - net_admin # Allow HA to discover devices on the network
 
   music-assistant:
     image: ghcr.io/music-assistant/server@sha256:37a9a2776e838a754c9f5b38c432567389952304e7cb8f6b44b6cd28043de6de
@@ -34,7 +30,7 @@ services:
     restart: always
     networks:
       home-assistant:
-      music-assistant-macvlan:
+      macvlan:
         mac_address: B2:13:B2:C2:30:53 # Use a fixed MAC to prevent IP address exhaustion on container restarts
         ipv4_address: 192.168.1.80 # Static IP since Docker's macvlan driver doesn't support DHCP. TODO move to podman, which supports it
     volumes:
@@ -99,7 +95,7 @@ services:
       homepage.href: &url https://esphome.internal.nicholaslyz.com
       homepage.siteMonitor: *url
     cap_add:
-      - net_admin # Allow HA to discover devices on the network/obtain DHCP address
+      - net_admin # Allow applying DHCP leases
 
   mosquitto:
     image: eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408
@@ -118,20 +114,16 @@ services:
 
 networks:
   home-assistant:
-  home-assistant-macvlan:
-    # Required for device discovery
-    # ipvlan does not support DHCP
-    driver: macvlan
-    driver_opts:
-      parent: enp5s0
-  music-assistant-macvlan:
+  macvlan:
+    # Shared L2 network on the LAN, required for device discovery and Wake-on-LAN.
+    # Docker permits each subnet only once, so all containers on the LAN share this network.
     driver: macvlan
     driver_opts:
       parent: enp5s0
     ipam:
       config:
+        # No gateway, so containers' default routes stay on their Docker bridge networks
         - subnet: "192.168.1.0/24"
-          gateway: "192.168.1.1"
   esphome:
   esphome-macvlan:
     driver: macvlan
