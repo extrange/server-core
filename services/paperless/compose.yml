@@ -1,6 +1,6 @@
 services:
   paperless-redis:
-    image: docker.io/library/redis:8@sha256:718f745deb7dfefeac6eed7041fc7ec9476b50e61b247932682457c41adafa0e
+    image: docker.io/library/redis:8@sha256:6f81e8915c60b065a524e6967e0ad1c639ba6efa84d669f823683ea04d9150ee
     restart: always
     volumes:
       - paperless-redis:/data
@@ -62,7 +62,7 @@ services:
     networks:
       - paperless
   paperless-tika:
-    image: docker.io/apache/tika:latest@sha256:a8b442501f601fb15015de974f9afe13dd242b0f14e49a2b144fadcb214a555b
+    image: docker.io/apache/tika:latest@sha256:06bcdbd09aca073293e5a171ad161418cc93c91d58d9e4e205064eade84889d4
     restart: always
     networks:
       - paperless

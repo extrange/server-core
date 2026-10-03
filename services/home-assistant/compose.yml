@@ -25,7 +25,7 @@ services:
       homepage.siteMonitor: *url
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:37a9a2776e838a754c9f5b38c432567389952304e7cb8f6b44b6cd28043de6de
+    image: ghcr.io/music-assistant/server@sha256:28023f8c0d96ca2496391f3218a6d70d7ef3ba84db846b3a3f3cd9ce7ef8aedc
     container_name: music-assistant
     restart: always
     networks:
@@ -48,7 +48,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: ghcr.io/koenkk/zigbee2mqtt@sha256:fef0de769dcd04c27b3a6d277b61046eb96284bdd4198dcb1687c3a01b3020f3
+    image: ghcr.io/koenkk/zigbee2mqtt@sha256:addbfb08fcef2e4477de1535636118241e10d13e898fbe4d9faba8a4d7396311
     restart: always
     user: 1000:1000
     networks:
@@ -69,7 +69,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:f6509fcf917a732fd80058567b237d5b9286b9dc6c8dde1b655fbb69ebd600ad
+    image: ghcr.io/esphome/esphome@sha256:776a845d508909bf426d2ee7bdd81796361ebe6a7f091807ce1d6d0b48985413
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro

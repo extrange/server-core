@@ -1,6 +1,6 @@
 services:
   hindsight:
-    image: ghcr.io/vectorize-io/hindsight:latest@sha256:b4d3b76f363aa40cf348450e7f8f52a50653008731b99824b14623a196182e73
+    image: ghcr.io/vectorize-io/hindsight:latest@sha256:d1840062a5b79940ab7a9f4809ceb90fc776d4ad737cd9329e9b5836cc64ab70
     container_name: hindsight
     restart: always
     shm_size: 1g
@@ -60,7 +60,7 @@ services:
       homepage.siteMonitor: *url
 
   camofox:
-    image: ghcr.io/jo-inc/camofox-browser@sha256:3cc29763d3c784ae71a7d56853a12c43e100ff2f13da1e2eb88322b08e12d6a0
+    image: ghcr.io/jo-inc/camofox-browser@sha256:e7789fd79fbe0004b3d25fabf4f1f1eb4a1984801e2a102b50b5433333a0a011
     container_name: camofox
     restart: always
     shm_size: 2G
