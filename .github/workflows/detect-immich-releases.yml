@@ -68,11 +68,18 @@ jobs:
               del(.ports) |
 
               # Update depends_on container names
-              .depends_on[] |= "immich-" + .
+              .depends_on[] |= "immich-" + . |
+
+              # GPU access for NVENC transcoding
+              .devices = ["nvidia.com/gpu=all"]
             ) |
 
             with(.services.immich-machine-learning;
-              .networks = ["immich-server"]
+              .networks = ["immich-server"] |
+
+              # Hardware-accelerated machine learning (CUDA)
+              .image = "ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}-cuda" |
+              .devices = ["nvidia.com/gpu=all"]
             ) |
 
             with(.services.redis;
