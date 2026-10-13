@@ -68,7 +68,7 @@ streaming:
 onboarding:
   seen:
     busy_input_prompt: true
-_config_version: 46
+_config_version: 50
 group_sessions_per_user: false
 platform_toolsets:
   telegram:
