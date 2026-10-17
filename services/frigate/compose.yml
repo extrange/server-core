@@ -1,7 +1,7 @@
 services:
   frigate:
     container_name: frigate
-    image: ghcr.io/blakeblackshear/frigate:stable-tensorrt@sha256:82d7475ba7e5f950911bd9d06f2392de96881f39eeacd78824a526dde9b5cad9
+    image: ghcr.io/blakeblackshear/frigate:stable-tensorrt@sha256:1cafb6ebbaff0aaf275cc3f31951bcf7e29f3989f18a10ba9565091367d8736c
     restart: always
     stop_grace_period: 30s # allow enough time to shut down the various services
     shm_size: "512mb" # update for your cameras based on calculation above

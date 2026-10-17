@@ -1,7 +1,7 @@
 # Custom Open WebUI image adding an FTS5 fast path for sqlite chat search.
 # See fts_hook.py (runtime monkeypatch) and fts_migrate.py (index maintenance).
 # The base digest is intentionally pinned; Renovate tracks it in this file.
-FROM ghcr.io/open-webui/open-webui:cuda@sha256:3e6d0369575843ab8ac77ebcb00803986cf2eccffd3c35e4ffccb51fc4a51ef2
+FROM ghcr.io/open-webui/open-webui:cuda@sha256:0e3ab14446a1a6c980a3e4a23ad4be45723f23226b7b5b94d576b3a54b99d0e6
 
 COPY fts_hook.py /usr/local/lib/python3.11/site-packages/fts_hook.py
 COPY fts_hook.pth /usr/local/lib/python3.11/site-packages/zz_open_webui_fts.pth
