@@ -9,8 +9,6 @@ services:
       - karakeep
     environment:
       BROWSER_WEB_URL: http://karakeep-chrome:9222
-      CHAT_ENABLED: true
-      CHAT_MODEL: "@preset/default"
       CRAWLER_NUM_WORKERS: 2
       DATA_DIR: /data
       DB_WAL_MODE: true
