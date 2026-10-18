@@ -1,11 +1,11 @@
 model:
   provider: openrouter
-  default: ~deepseek/deepseek-flash-latest
+  default: "@preset/default"
   base_url: https://openrouter.ai/api/v1
   api_mode: chat_completions
 fallback_providers:
   - provider: openrouter
-    model: ~deepseek/deepseek-flash-latest
+    model: "@preset/default"
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
 web:
