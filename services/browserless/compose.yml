@@ -11,7 +11,6 @@ services:
       CORS: true
     networks:
       - changedetection-io
-      - karakeep
       - reactive-resume
       - open-webui
 

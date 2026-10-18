@@ -8,23 +8,33 @@ services:
     networks:
       - karakeep
     environment:
-      BROWSER_WEBSOCKET_URL: ws://browserless:3000/chromium/playwright?token=${BROWSERLESS_TOKEN}
-      BROWSER_CONNECT_ONDEMAND: true
+      BROWSER_WEB_URL: http://karakeep-chrome:9222
+      CHAT_ENABLED: true
+      CHAT_MODEL: "@preset/default"
       CRAWLER_NUM_WORKERS: 2
       DATA_DIR: /data
+      DB_WAL_MODE: true
       DISABLE_SIGNUPS: true
-      INFERENCE_CONTEXT_LENGTH: 512000
+      EMBEDDING_DIMENSIONS: 4096
+      EMBEDDING_ENABLE_AUTO_INDEXING: true
+      EMBEDDING_OPENAI_API_KEY: ${OPENROUTER_API_KEY}
+      EMBEDDING_OPENAI_BASE_URL: https://openrouter.ai/api/v1
+      EMBEDDING_TEXT_MODEL: qwen/qwen3-embedding-8b
+      INFERENCE_CONTEXT_LENGTH: 64000
       INFERENCE_IMAGE_MODEL: "@preset/default"
+      INFERENCE_JOB_TIMEOUT_SEC: 120
       INFERENCE_TEXT_MODEL: "@preset/default"
       MEILI_ADDR: http://karakeep-meilisearch:7700
       MEILI_MASTER_KEY: ${KARAKEEP_MEILI_MASTER_KEY}
       NEXTAUTH_SECRET: ${KARAKEEP_NEXTAUTH_SECRET}
       NEXTAUTH_URL: https://karakeep.nicholaslyz.com
+      OCR_USE_LLM: true
       OPENAI_API_KEY: ${OPENROUTER_API_KEY}
       OPENAI_BASE_URL: https://openrouter.ai/api/v1
+      OPENAI_TIMEOUT_SEC: 300
     depends_on:
       - karakeep-meilisearch
-      - browserless
+      - karakeep-chrome
     labels:
       traefik.enable: true
       traefik.docker.network: core_karakeep
@@ -36,6 +46,20 @@ services:
       homepage.widget.type: karakeep
       homepage.widget.url: *url
       homepage.widget.key: ${HOMEPAGE_KEY}
+
+  karakeep-chrome:
+    image: ghcr.io/karakeep-app/karakeep-chrome:release@sha256:c51a8c8e6c3c1040a50fa0ecfd0b2fc298401b4229262636552458151f6f18fa
+    container_name: karakeep-chrome
+    restart: always
+    init: true
+    command:
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --hide-scrollbars
+      - --disable-blink-features=AutomationControlled
+      - --window-size=1440,900
+    networks:
+      - karakeep
 
   karakeep-meilisearch:
     image: getmeili/meilisearch@sha256:ff546679970126f8822e15d1b6a06bfbff1f2ce2e43f810cfb5258012f92de5c
