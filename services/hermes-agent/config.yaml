@@ -9,8 +9,8 @@ fallback_providers:
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
 web:
-  search_backend: tavily
-  extract_backend: tavily
+  search_backend: deepseek
+  extract_backend: deepseek
 browser:
   camofox:
     managed_persistence: true
@@ -51,6 +51,7 @@ plugins:
     - disk-cleanup
     - hermes-session-reset-policy
     - hindsight
+    - deepseek-web
   disabled: []
 cron:
   model: deepseek/deepseek-v4.1-flash
