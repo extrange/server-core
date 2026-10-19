@@ -39,32 +39,44 @@ services:
   #     - nvidia.com/gpu=all
   #   restart: unless-stopped
 
-  # Wait until API support in open-webui for V4 is released
-  # mineru-api:
-  #   build: .
-  #   container_name: mineru-api
-  #   restart: always
-  #   environment:
-  #     MINERU_MODEL_SOURCE: local
-  #     MINERU_API_MAX_CONCURRENT_REQUESTS: 1
-  #     MINERU_PROCESSING_WINDOW_SIZE: 32
-  #   networks:
-  #     - open-webui
-  #   entrypoint: mineru-kit
-  #   command:
-  #     - api-server
-  #     - --host
-  #     - 0.0.0.0
-  #     - --port
-  #     - "8000"
-  #   ulimits:
-  #     memlock: -1
-  #     stack: 67108864
-  #   ipc: host
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
-  #   devices:
-  #     - nvidia.com/gpu=all
+  mineru-api:
+    build: .
+    image: open-webui-mineru:local
+    pull_policy: never
+    container_name: mineru-api
+    restart: always
+    environment:
+      MINERU_MODEL_SOURCE: local
+    networks:
+      - open-webui
+    entrypoint: ["mineru-kit"]
+    command:
+      - api-server
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      # Keep "standard": it is the server capability tier that exposes
+      # flash/basic/standard/advanced. "advanced" itself is not a valid
+      # api-server --tier value; it is requested per job by Open WebUI.
+      - --tier
+      - standard
+      - --concurrency
+      - "1"
+      # Load the hybrid + VLM models at startup instead of the first request.
+      - --preload-models
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ipc: host
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/v1/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 300s
+    devices:
+      - nvidia.com/gpu=all
 
 networks:
   open-webui:
