@@ -11,6 +11,7 @@ services:
     environment:
       ND_SEARCHFULLSTRING: true
       ND_SCANSCHEDULE: 1h
+      ND_SCANNER_PURGEMISSING: full
       ND_LOGLEVEL: info
       ND_SESSIONTIMEOUT: 72h
       ND_LASTFM_APIKEY: ${ND_LASTFM_APIKEY}
