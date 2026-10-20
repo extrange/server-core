@@ -8,6 +8,10 @@ fallback_providers:
     model: "@preset/default"
     base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
+cron:
+  model: "@preset/default"
+  model_provider: openrouter
+  wrap_response: false
 web:
   search_backend: deepseek
   extract_backend: deepseek
@@ -53,10 +57,6 @@ plugins:
     - hindsight
     - deepseek-web
   disabled: []
-cron:
-  model: deepseek/deepseek-v4.1-flash
-  model_provider: openrouter
-  wrap_response: false
 gateway:
   platforms:
     telegram:
