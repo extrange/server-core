@@ -7,7 +7,7 @@ services:
       - navidrome
     volumes:
       - ./data:/data
-      - /mnt/storage/Music2:/music:ro
+      - /mnt/storage/Music:/music:ro
     environment:
       ND_SEARCHFULLSTRING: true
       ND_SCANSCHEDULE: 1h

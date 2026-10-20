@@ -7,8 +7,8 @@ services:
     environment:
       TZ: Asia/Singapore
     volumes:
-      - /mnt/storage/Audio/Audiobooks:/audiobooks
-      - /mnt/storage/Audio/Podcasts:/podcasts
+      - /mnt/storage/Audiobooks:/audiobooks
+      - /mnt/storage/Podcasts:/podcasts
       - ./data/config:/config
       - ./data/metadata:/metadata
     networks:
