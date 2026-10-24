@@ -1,6 +1,6 @@
 services:
   librespeed:
-    image: lscr.io/linuxserver/librespeed@sha256:376c85ebfc8630b16351a2d02b1e10fcb2853e9ca5c3a80a07bcc4b738b844d9
+    image: lscr.io/linuxserver/librespeed@sha256:0f85aac620b60a2566049f95d085fd2b044c720abfe88d1f1e14496ea0496833
     container_name: librespeed
     restart: unless-stopped
     mem_limit: 1g

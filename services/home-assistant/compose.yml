@@ -1,6 +1,6 @@
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant@sha256:33afb0659d786213264c2211f8d91c5fe87461c56eba6a3a546eb05fc71e89f4
+    image: ghcr.io/home-assistant/home-assistant@sha256:407b89cd11a8cb67d388d21739a226c74acbbebe1ac59e3b83b11b43ce76b98f
     container_name: home-assistant
     restart: always
     depends_on:
@@ -25,7 +25,7 @@ services:
       homepage.siteMonitor: *url
 
   music-assistant:
-    image: ghcr.io/music-assistant/server@sha256:dce482dc3bf4093735acf217b3bead74a05c46d40922341e775580c6d05394cd
+    image: ghcr.io/music-assistant/server@sha256:661e88bea76a9e79f38feca791f6c7373376ab60766ee01f56b66418ca243b68
     container_name: music-assistant
     restart: always
     networks:
@@ -69,7 +69,7 @@ services:
 
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome@sha256:776a845d508909bf426d2ee7bdd81796361ebe6a7f091807ce1d6d0b48985413
+    image: ghcr.io/esphome/esphome@sha256:1dff19a59070cdb523b76576cdc74d200f862d43c1407809088855920cf57145
     volumes:
       - ./data/esphome:/config
       - /etc/localtime:/etc/localtime:ro
@@ -96,7 +96,7 @@ services:
       - net_admin # Allow applying DHCP leases
 
   mosquitto:
-    image: eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408
+    image: eclipse-mosquitto@sha256:860aeb5d63ce509508f6dcfb2bc8a1c1dd2bc60555b562b45ce90e52d8dabb0f
     container_name: mosquitto
     restart: always
     user: 1000:1000
