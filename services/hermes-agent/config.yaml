@@ -3,6 +3,7 @@ model:
   default: "@preset/default"
   base_url: https://openrouter.ai/api/v1
   api_mode: chat_completions
+  context_length: 1048576
 fallback_providers:
   - provider: openrouter
     model: "@preset/default"
