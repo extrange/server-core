@@ -53,8 +53,6 @@ command_allowlist:
   - script execution via -e/-c flag
 plugins:
   enabled:
-    - disk-cleanup
-    - hermes-session-reset-policy
     - hindsight
     - deepseek-web
   disabled: []
@@ -79,10 +77,6 @@ image_gen:
   provider: openrouter
   use_gateway: false
   model: openai/gpt-image-2.5-sunburst
-session_reset:
-  mode: both
-  idle_minutes: 60
-  at_hour: 4
 
 # ── Security ──────────────────────────────────────────────────────────
 # Secret redaction is ON by default — strings that look like API keys,
@@ -121,3 +115,8 @@ session_reset:
 # fallback_model:
 #   provider: openrouter
 #   model: anthropic/claude-sonnet-4
+telemetry:
+  shared_metrics:
+    enabled: false
+    send: false
+    offer_version: 2
