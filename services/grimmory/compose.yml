@@ -38,7 +38,7 @@ services:
 
   grimmory-mariadb:
     container_name: grimmory-mariadb
-    image: lscr.io/linuxserver/mariadb:11.4.8@sha256:91de7f701bc7fc3a424b81beafca7a7c6c4c5b7c8be6afd2ae148698695c0b0c
+    image: lscr.io/linuxserver/mariadb:11.8.9@sha256:d0f9ffd4d00878b8892888e70cb8ea12f4d2dfa63ac940ceb9fd1b36a1b449e3
     restart: always
     environment:
       PUID: 1000

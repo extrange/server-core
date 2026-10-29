@@ -1,6 +1,6 @@
 services:
   karakeep:
-    image: ghcr.io/karakeep-app/karakeep:release@sha256:151cdd6b5f2e21635645983e126f411675bfa35becb02c028c1a727f45f899c6
+    image: ghcr.io/karakeep-app/karakeep:release@sha256:69ae5315c618b7c14c1af3e34c6e211acdb231793af424ecd1cab0b70691d987
     container_name: karakeep
     restart: always
     volumes:
@@ -46,7 +46,7 @@ services:
       homepage.widget.key: ${HOMEPAGE_KEY}
 
   karakeep-chrome:
-    image: ghcr.io/karakeep-app/karakeep-chrome:release@sha256:c51a8c8e6c3c1040a50fa0ecfd0b2fc298401b4229262636552458151f6f18fa
+    image: ghcr.io/karakeep-app/karakeep-chrome:release@sha256:4ad61127638dd27bfe685222787c5780dd1d083d23a7658c39af657775814c44
     container_name: karakeep-chrome
     restart: always
     init: true
@@ -60,7 +60,7 @@ services:
       - karakeep
 
   karakeep-meilisearch:
-    image: getmeili/meilisearch@sha256:ff546679970126f8822e15d1b6a06bfbff1f2ce2e43f810cfb5258012f92de5c
+    image: getmeili/meilisearch@sha256:1f578fa865f8251894b3bf38d6668d6209a3f451f8f65ab953e129d4c1db5ef4
     container_name: karakeep-meilisearch
     restart: always
     command:
