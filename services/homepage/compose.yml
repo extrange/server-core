@@ -11,7 +11,6 @@ services:
       - homepage
       - prometheus
       - qbittorrent
-      - scrutiny
       - stirling-pdf
       - syncthing
       - unifi
