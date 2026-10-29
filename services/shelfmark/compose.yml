@@ -1,0 +1,34 @@
+services:
+  shelfmark:
+    container_name: shelfmark
+    image: ghcr.io/calibrain/shelfmark:latest@sha256:4ef757349c3c7a7d90ba95b1e2a46ce4dd460a4776efbcf2aa1b1c476e7d5de5
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Singapore
+      # Local accounts; admin credentials are managed in Shelfmark's Users tab
+      AUTH_METHOD: builtin
+    volumes:
+      - ./data:/config
+      # Downloads land in Grimmory's bookdrop and are imported automatically
+      - /mnt/storage/Books-Grimmory-BookDrop:/books
+    networks:
+      - shelfmark
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_shelfmark
+      homepage.group: Services
+      homepage.name: Shelfmark
+      homepage.icon: shelfmark
+      homepage.href: &url https://shelfmark.nicholaslyz.com
+      homepage.siteMonitor: *url
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8084/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  shelfmark:

@@ -1,0 +1,40 @@
+services:
+  yamtrack:
+    container_name: yamtrack
+    image: ghcr.io/fuzzygrim/yamtrack:0.26.3@sha256:78497b454b2b52d3b1062f6fd238351d714cff0895db4369e49ace36f4622e75
+    restart: always
+    depends_on:
+      yamtrack-redis:
+        condition: service_started
+    environment:
+      TZ: Asia/Singapore
+      PUID: 1000
+      PGID: 1000
+      SECRET: ${YAMTRACK_SECRET}
+      URLS: https://yamtrack.nicholaslyz.com
+      REGISTRATION: false
+      REDIS_URL: redis://yamtrack-redis:6379
+    volumes:
+      - ./data/db:/yamtrack/db
+    networks:
+      - yamtrack
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_yamtrack
+      homepage.group: Services
+      homepage.name: Yamtrack
+      homepage.icon: yamtrack
+      homepage.href: &url https://yamtrack.nicholaslyz.com
+      homepage.siteMonitor: *url
+
+  yamtrack-redis:
+    container_name: yamtrack-redis
+    image: redis:8-alpine@sha256:3811787313eba226a2ef38658c6ccb91cd5e110edc89c37767de373120a0e5a0
+    restart: always
+    networks:
+      - yamtrack
+    volumes:
+      - ./data/redis:/data
+
+networks:
+  yamtrack:
