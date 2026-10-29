@@ -1,0 +1,21 @@
+# This is included into the main compose file in core
+# Do not run this, as it will not be connected to the default network
+# and not be visible to nginx.
+services:
+  realtime-todo-server:
+    container_name: realtime-todo-server
+    image: ghcr.io/extrange/realtime-todo-server:latest
+    init: true
+    restart: always
+    networks:
+      - realtime-todo-server
+    volumes:
+      - ./data:/data
+    labels:
+      traefik.http.routers.realtime-todo-server.rule: Host(`tasks-server.nicholaslyz.com`)
+      traefik.http.services.realtime-todo-server.loadbalancer.server.port: 1234
+      traefik.enable: true
+      traefik.docker.network: core_realtime-todo-server
+
+networks:
+  realtime-todo-server:

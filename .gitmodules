@@ -1,6 +1,3 @@
 [submodule "services/backend"]
 	path = services/backend
 	url = ./services/backend/
-[submodule "services/realtime-todo-server"]
-	path = services/realtime-todo-server
-	url = ./services/realtime-todo-server/
