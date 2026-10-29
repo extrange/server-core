@@ -3,12 +3,11 @@ include:
   - services/audiobookshelf/compose.yml
   - services/backend/compose.yml
   - services/browserless/compose.yml
-  - services/calibre-web/compose.yml
   - services/changedetection.io/compose.yml
   - services/ddns-updater/compose.yml
   - services/factorio/compose.yml
   - services/frigate/compose.yml
-  - services/glance/compose.yml
+  - services/grimmory/compose.yml
   - services/hermes-agent/compose.yml
   - services/home-assistant/compose.yml
   - services/homepage/compose.yml
@@ -28,10 +27,11 @@ include:
   - services/qbittorrent/compose.yml
   - services/reactive-resume/compose.yml
   - services/realtime-todo-server/compose.yml
-  - services/scrutiny/compose.yml
   - services/shadowsocks/compose.yml
+  - services/shelfmark/compose.yml
   - services/stirling-pdf/compose.yml
   - services/syncthing/compose.yml
   - services/todhay/compose.yml
   - services/traefik/compose.yml
   - services/unifi/compose.yml
+  - services/yamtrack/compose.yml

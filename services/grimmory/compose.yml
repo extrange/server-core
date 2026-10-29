@@ -1,0 +1,62 @@
+services:
+  grimmory:
+    container_name: grimmory
+    image: grimmory/grimmory:latest@sha256:bf6fe21c6e247597f7869664a440b5a34242e2d2940575cae39c17bfaa66dc0b
+    restart: always
+    depends_on:
+      grimmory-mariadb:
+        condition: service_healthy
+    environment:
+      USER_ID: 1000
+      GROUP_ID: 1000
+      TZ: Asia/Singapore
+      DATABASE_URL: jdbc:mariadb://grimmory-mariadb:3306/grimmory
+      DATABASE_USERNAME: ${DB_USER}
+      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DISK_TYPE: LOCAL
+    volumes:
+      - ./data/app:/app/data
+      # Isolated test copy of the Calibre library
+      - /mnt/storage/Books-Grimmory:/books
+      - /mnt/storage/Books-Grimmory-BookDrop:/bookdrop
+    networks:
+      - grimmory
+    labels:
+      traefik.enable: true
+      traefik.docker.network: core_grimmory
+      homepage.group: Services
+      homepage.name: Grimmory
+      homepage.icon: booklore
+      homepage.href: &url https://grimmory.nicholaslyz.com
+      homepage.siteMonitor: *url
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:6060/api/v1/healthcheck"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  grimmory-mariadb:
+    container_name: grimmory-mariadb
+    image: lscr.io/linuxserver/mariadb:11.4.8@sha256:91de7f701bc7fc3a424b81beafca7a7c6c4c5b7c8be6afd2ae148698695c0b0c
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Singapore
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./data/mariadb:/config
+    networks:
+      - grimmory
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+networks:
+  grimmory:
