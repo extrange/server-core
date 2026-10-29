@@ -19,9 +19,11 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
-    privileged: true
+    # No privileged: it only bought access to /dev/kmsg, which CAP_SYSLOG covers.
     devices:
       - /dev/kmsg
+    cap_add:
+      - SYSLOG
 
   smartctl-exporter:
     image: prometheuscommunity/smartctl-exporter@sha256:a76e08dbf5db4781fefd1ed81c65ad46ae8d2849dae6b6d3acebcde2fc4e59d6
@@ -29,8 +31,20 @@ services:
       - smartctl-exporter
     container_name: smartctl-exporter
     restart: always
-    privileged: true
     user: root
+    # SATA SMART (ATA pass-through) needs SYS_RAWIO; NVMe SMART/health needs
+    # SYS_ADMIN (NVME_IOCTL_ADMIN_CMD).
+    cap_add:
+      - SYS_RAWIO
+      - SYS_ADMIN
+    # Mount /dev rather than listing disks, so hot-added drives are picked up by
+    # the exporter's rescan (--smartctl.rescan). The cgroup rules are what
+    # actually grant access; read-only is enough for SMART polling.
+    volumes:
+      - /dev:/dev:ro
+    device_cgroup_rules:
+      - "b *:* r" # all block devices (sd*, nvme*ns, md, dm-*)
+      - "c 239:* r" # NVMe controller char devices (SMART/health ioctls)
 
   node-exporter:
     image: quay.io/prometheus/node-exporter@sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0

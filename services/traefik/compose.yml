@@ -33,14 +33,12 @@ services:
       - actualbudget
       - audiobookshelf
       - backend
-      - calibre-web
       - camofox
-      - changedetection-io
       - ddns-updater
       - esphome
       - frigate
-      - glance
       - grafana
+      - grimmory
       - hermes-agent-xiaoyun
       - hindsight
       - home-assistant
@@ -61,11 +59,12 @@ services:
       - qbittorrent
       - reactive-resume
       - realtime-todo-server
-      - scrutiny
+      - shelfmark
       - stirling-pdf
       - syncthing
       - todhay-backend
       - unifi
+      - yamtrack
       - zigbee2mqtt
     ports:
       - "80:80"
