@@ -6,7 +6,6 @@ services:
     depends_on:
       - homepage-socket-proxy
     networks: # Allow widgets to update via API calls
-      - changedetection-io
       - ddns-updater
       - homepage
       - prometheus

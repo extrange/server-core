@@ -10,7 +10,6 @@ services:
       # The following are necessary for link previews to work
       CORS: true
     networks:
-      - changedetection-io
       - reactive-resume
       - open-webui
 

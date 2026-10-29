@@ -3,7 +3,6 @@ include:
   - services/audiobookshelf/compose.yml
   - services/backend/compose.yml
   - services/browserless/compose.yml
-  - services/changedetection.io/compose.yml
   - services/ddns-updater/compose.yml
   - services/factorio/compose.yml
   - services/frigate/compose.yml
