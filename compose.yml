@@ -16,7 +16,6 @@ include:
   - services/librespeed/compose.yml
   - services/logging/compose.yml
   - services/mealie/compose.yml
-  - services/metabase/compose.yml
   - services/microbin/compose.yml
   - services/miniflux/compose.yml
   - services/minio/compose.yml

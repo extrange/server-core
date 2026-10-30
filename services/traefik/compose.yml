@@ -48,7 +48,6 @@ services:
       - karakeep
       - librespeed
       - mealie
-      - metabase
       - microbin
       - miniflux
       - minio
