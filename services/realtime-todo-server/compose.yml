@@ -4,7 +4,7 @@
 services:
   realtime-todo-server:
     container_name: realtime-todo-server
-    image: ghcr.io/extrange/realtime-todo-server:latest@sha256:d7fa6ee19e1f7fca061e3076db5dfa00a2d1d5d33f490760a59e95d1bb3a3349
+    image: ghcr.io/extrange/realtime-todo-server:latest@sha256:d93ceafe0853ff280294892d406b5355b8014f287a5a125a42a3bda798ccb100
     init: true
     restart: always
     networks:
