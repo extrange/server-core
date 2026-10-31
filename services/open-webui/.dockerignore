@@ -1,5 +1,4 @@
 # The MinerU image only needs the Dockerfile. Exclude the Open WebUI data
-# directory (tens of GB) and the separate FTS build context from the build.
+# directory (tens of GB) from the build.
 data/
-fts/
 .env
